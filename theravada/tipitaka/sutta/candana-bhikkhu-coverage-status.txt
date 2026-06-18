@@ -1,0 +1,159 @@
+Candana Bhikkhu YouTube Coverage Status
+Generated: 2026-06-17
+Channel: https://www.youtube.com/@candanabhikkhu
+
+Purpose
+-------
+Single-file coverage map for the public Candana Bhikkhu YouTube corpus,
+placed under the recommended canonical hierarchy:
+
+  buddhism/
+    theravada/
+      tipitaka/
+        sutta/
+
+Status values
+-------------
+COMPLETE: public playlist/title coverage appears complete for the collection.
+LIKELY COMPLETE: coverage appears complete, but needs a manifest-level audit.
+PARTIAL: substantial public coverage exists, but known gaps remain.
+INCOMPLETE: public coverage is visibly incomplete.
+NOT ASSESSED: not checked in the initial analysis.
+
+Important constraint
+--------------------
+This file is a coverage and feasibility map, not a permission grant. Avoid
+youtube2mp3-style services for production. Preferred pipeline:
+
+  1. Ask the channel owner for permission and source files.
+  2. Inventory public playlists and uploads.
+  3. Prefer existing text/PDF sources where available.
+  4. Use ASR only for missing text or talks where rights permit.
+  5. Align every output to canonical IDs.
+
+Discovered text/PDF sources
+---------------------------
+Primary source lead:
+
+  https://www.mindreleased.com/pali-suttas
+
+This page states that it contains a selection of Bhikkhu Candana's
+translations of the Pali Suttas. Initial crawl found 196 downloadable PDF
+links from this page. These are selected suttas, not the full Tipitaka.
+
+Second source lead:
+
+  https://www.mindreleased.com/sutta-nipata
+
+This page links to a Sutta Nipata PDF:
+
+  https://www.mindreleased.com/s/Sutta-Nipta_Bhikkhu_Candana_2026-sm.pdf
+
+Implication:
+
+  The low-cost path should be source-PDF discovery and extraction first,
+  then YouTube playlist/audio only for works not already available as text.
+
+Hierarchy
+---------
+
+buddhism/
+  theravada/
+    tipitaka/
+      vinaya/                         NOT ASSESSED
+      sutta/
+        digha-nikaya/                 COMPLETE
+          Notes:
+            Public playlist exposes DN 1 through DN 34.
+            Observed count: 34 videos.
+
+        majjhima-nikaya/              LIKELY COMPLETE
+          Notes:
+            Public playlist inventory found 151 videos directly.
+            Search also finds MN 64, so the collection is probably complete
+            after accounting for playlist/search mismatch.
+            Canonical target: MN 1 through MN 152.
+            Needs final manifest audit before bulk transcription.
+
+        samyutta-nikaya/              PARTIAL
+          Notes:
+            Public playlists include strong early coverage and selected later
+            suttas, but not full SN coverage.
+            Observed title units across main and temporary SN playlists:
+            roughly 700+ numbered units.
+            Canonical target is much larger and spans 56 samyuttas.
+            Main visible coverage reaches SN 22, with selected later entries
+            such as SN 35, SN 36, SN 45, SN 46, SN 47, SN 51, SN 52, SN 54,
+            SN 55, and SN 56.
+
+        anguttara-nikaya/             LIKELY COMPLETE
+          Notes:
+            Public playlist exposes Book I through Book XI, ending at
+            Book XI Suttas 982-1151.
+            Observed count: 185 videos.
+            Titles are range-based, so 185 videos can cover many more than
+            185 suttas.
+            Needs range parser audit before declaring complete.
+
+        khuddaka-nikaya/
+          dhammapada/                 COMPLETE
+            Notes:
+              Verse-level playlist effectively covers verses 1 through 423.
+              Some titles contain typos or combined ranges, so simple
+              one-video-per-verse counting undercounts coverage.
+              A separate 26-chapter Dhammapada playlist also exists.
+
+          udana/                      COMPLETE
+            Notes:
+              Public Udana coverage appears to include Ud 1.1 through Ud 8.10.
+
+          itivuttaka/                 PARTIAL
+            Notes:
+              Public playlist appears to cover Iti 1 through Iti 112 except
+              Iti 94, unless Iti 94 is hidden by a title typo or combined item.
+
+          sutta-nipata/               LIKELY COMPLETE
+            Notes:
+              Public playlist has book-level readings plus a full audiobook.
+              The Mind Released site also exposes Sutta Nipata PDFs by book.
+
+          theragatha/                 LIKELY COMPLETE
+            Notes:
+              Public playlist uses book/chapter grouping and appears to reach
+              the Great Book of Verses.
+
+          therigatha/                 INCOMPLETE
+            Notes:
+              Public playlist currently reaches the Book of Five Verses.
+              Later Therigatha books were not observed in the playlist.
+
+          jataka/                     PARTIAL
+            Notes:
+              Public channel has a Jataka Stories playlist, but this is not
+              a complete Jataka canon coverage claim.
+
+          khuddakapatha/              NOT ASSESSED
+          vimanavatthu/               NOT ASSESSED
+          petavatthu/                 NOT ASSESSED
+          niddesa/                    NOT ASSESSED
+          patisambhidamagga/          NOT ASSESSED
+          apadana/                    NOT ASSESSED
+          buddhavamsa/                NOT ASSESSED
+          cariyapitaka/               NOT ASSESSED
+          nettipakarana/              NOT ASSESSED
+          petakopadesa/               NOT ASSESSED
+          milindapanha/               NOT ASSESSED
+
+      abhidhamma/                     NOT ASSESSED
+
+Initial proof-of-concept recommendation
+---------------------------------------
+Run a metadata-only inventory first:
+
+  python tools/buddhist_canon_pipeline/youtube_playlist_inventory.py ^
+    --playlist-id PLU4yfURMbbTmRF1m6D8u92TR4jxTh1CuT ^
+    --collection digha-nikaya ^
+    --output artifacts/buddhist_canon_poc/digha-nikaya-manifest.jsonl
+
+Then audit manifest rows against canonical IDs. Only after the manifest is
+clean should audio/text acquisition or transcription be attempted.

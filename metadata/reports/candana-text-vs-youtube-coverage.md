@@ -1,0 +1,459 @@
+# Candana Bhikkhu Text vs YouTube Coverage
+
+Text canonical/source IDs: 188
+YouTube playlist rows: 1115
+
+| Collection | YouTube rows | Rows with parsed IDs | Text-backed rows | Audio/metadata-only rows |
+|---|---:|---:|---:|---:|
+| anguttara-nikaya | 185 | 183 | 0 | 185 |
+| dhammapada-chapters | 26 | 0 | 0 | 26 |
+| dhammapada-verses | 384 | 382 | 0 | 384 |
+| digha-nikaya | 34 | 34 | 9 | 25 |
+| majjhima-nikaya | 151 | 151 | 33 | 118 |
+| samyutta-nikaya | 58 | 57 | 0 | 58 |
+| samyutta-nikaya-temporary | 54 | 54 | 36 | 18 |
+| sutta-nipata | 6 | 0 | 6 | 0 |
+| theragatha | 21 | 0 | 0 | 21 |
+| therigatha | 6 | 0 | 0 | 6 |
+| udana-itivuttaka | 190 | 188 | 2 | 188 |
+
+## Audio/Metadata-Only Parsed Rows
+
+### anguttara-nikaya
+- `AN 1.1, AN 1.10, AN 1.2, AN 1.3, AN 1.4, AN 1.5, AN 1.6, AN 1.7, AN 1.8, AN 1.9` - The Numerical Discourses: Book I: Suttas 1-10, "Section on 'That Which Dominates the Heart'."
+- `AN 1.11, AN 1.12, AN 1.13, AN 1.14, AN 1.15, AN 1.16, AN 1.17, AN 1.18, AN 1.19, AN 1.20` - The Numerical Discourses: Book I: Suttas 11-20, "The Section on Giving Up the Obstacles."
+- `AN 1.21, AN 1.22, AN 1.23, AN 1.24, AN 1.25, AN 1.26, AN 1.27, AN 1.28, AN 1.29, AN 1.30` - The Numerical Discourses: Book I: Suttas 21-30, "Section on The Useless."
+- `AN 1.31, AN 1.32, AN 1.33, AN 1.34, AN 1.35, AN 1.36, AN 1.37, AN 1.38, AN 1.39, AN 1.40` - The Numerical Discourses: Book I: Suttas 31-40, "Section on the Untamed Mind."
+- `AN 1.41, AN 1.42, AN 1.43, AN 1.44, AN 1.45, AN 1.46, AN 1.47, AN 1.48, AN 1.49, AN 1.50` - The Numerical Discourses: Book I: Suttas 41-50, "Pointed in the Right Direction."
+- `AN 1.51, AN 1.52, AN 1.53, AN 1.54, AN 1.55, AN 1.56, AN 1.57, AN 1.58, AN 1.59, AN 1.60` - The Numerical Discourses: Book I: Suttas 51-60, "Snap of a Finger."
+- `AN 1.61, AN 1.62, AN 1.63, AN 1.64, AN 1.65, AN 1.66, AN 1.67, AN 1.68, AN 1.69, AN 1.70` - The Numerical Discourses: Book I: Suttas 61-70, "The Section on Arousing Energy."
+- `AN 1.71, AN 1.72, AN 1.73, AN 1.74, AN 1.75, AN 1.76, AN 1.77, AN 1.78, AN 1.79, AN 1.80, AN 1.81` - The Numerical Discourses: Book I: Suttas 71-81, "Section on Genuinely Good Spiritual Friends."
+- `AN 1.82, AN 1.83, AN 1.84, AN 1.85, AN 1.86, AN 1.87, AN 1.88, AN 1.89, AN 1.90, AN 1.91, AN 1.92, AN 1.93, AN 1.94, AN 1.95, AN 1.96, AN 1.97` - The Numerical Discourses: Book I: Suttas 82-97, "The Section on Negligence   Part One."
+- `AN 1.100, AN 1.101, AN 1.102, AN 1.103, AN 1.104, AN 1.105, AN 1.106, AN 1.107, AN 1.108, AN 1.109, AN 1.110, AN 1.111, AN 1.112, AN 1.113, AN 1.114, AN 1.115, AN 1.116, AN 1.117, AN 1.118, AN 1.119, AN 1.120, AN 1.121, AN 1.122, AN 1.123, AN 1.124, AN 1.125, AN 1.126, AN 1.127, AN 1.128, AN 1.129, AN 1.130, AN 1.131, AN 1.132, AN 1.133, AN 1.134, AN 1.135, AN 1.136, AN 1.137, AN 1.138, AN 1.139, AN 1.98, AN 1.99` - The Numerical Discourses: Book I: Suttas 98-139, "The Section on Negligence - Part Two."
+- `AN 1.140, AN 1.141, AN 1.142, AN 1.143, AN 1.144, AN 1.145, AN 1.146, AN 1.147, AN 1.148, AN 1.149` - The Numerical Discourses: Book I: Suttas 140-149, "What is non-Dhamma."
+- `AN 1.150, AN 1.151, AN 1.152, AN 1.153, AN 1.154, AN 1.155, AN 1.156, AN 1.157, AN 1.158, AN 1.159, AN 1.160, AN 1.161, AN 1.162, AN 1.163, AN 1.164, AN 1.165, AN 1.166, AN 1.167, AN 1.168, AN 1.169` - The Numerical Discourses: Book I: Suttas 150-169, "Not an Offence."
+- `AN 1.170, AN 1.171, AN 1.172, AN 1.173, AN 1.174, AN 1.175, AN 1.176, AN 1.177, AN 1.178, AN 1.179, AN 1.180, AN 1.181, AN 1.182, AN 1.183, AN 1.184, AN 1.185, AN 1.186, AN 1.187` - The Numerical Discourses: Book I: Suttas 170-187, "Section on The One Person."
+- `AN 1.188, AN 1.189, AN 1.190, AN 1.191, AN 1.192, AN 1.193, AN 1.194, AN 1.195, AN 1.196, AN 1.197, AN 1.198, AN 1.199, AN 1.200, AN 1.201, AN 1.202, AN 1.203, AN 1.204, AN 1.205, AN 1.206, AN 1.207, AN 1.208, AN 1.209, AN 1.210, AN 1.211, AN 1.212, AN 1.213, AN 1.214, AN 1.215, AN 1.216, AN 1.217, AN 1.218, AN 1.219, AN 1.220, AN 1.221, AN 1.222, AN 1.223, AN 1.224, AN 1.225, AN 1.226, AN 1.227, AN 1.228, AN 1.229, AN 1.230, AN 1.231, AN 1.232, AN 1.233, AN 1.234, AN 1.235, AN 1.236, AN 1.237, AN 1.238, AN 1.239, AN 1.240, AN 1.241, AN 1.242, AN 1.243, AN 1.244, AN 1.245, AN 1.246, AN 1.247, AN 1.248, AN 1.249, AN 1.250, AN 1.251, AN 1.252, AN 1.253, AN 1.254, AN 1.255, AN 1.256, AN 1.257, AN 1.258, AN 1.259, AN 1.260, AN 1.261, AN 1.262, AN 1.263, AN 1.264, AN 1.265, AN 1.266, AN 1.267` - The Numerical Discourses: Book I: Suttas 188-267, "The Chief - from each category."
+- `AN 1.268, AN 1.269, AN 1.270, AN 1.271, AN 1.272, AN 1.273, AN 1.274, AN 1.275, AN 1.276, AN 1.277, AN 1.278, AN 1.279, AN 1.280, AN 1.281, AN 1.282, AN 1.283, AN 1.284, AN 1.285, AN 1.286, AN 1.287, AN 1.288, AN 1.289, AN 1.290, AN 1.291, AN 1.292, AN 1.293, AN 1.294, AN 1.295` - The Numerical Discourses: Book I: Suttas 268-295, "Section on Impossibilities."
+- `AN 1.296, AN 1.297, AN 1.298, AN 1.299, AN 1.300, AN 1.301, AN 1.302, AN 1.303, AN 1.304, AN 1.305, AN 1.306, AN 1.307, AN 1.308, AN 1.309, AN 1.310, AN 1.311, AN 1.312, AN 1.313, AN 1.314, AN 1.315, AN 1.316, AN 1.317, AN 1.318, AN 1.319, AN 1.320, AN 1.321, AN 1.322, AN 1.323, AN 1.324, AN 1.325, AN 1.326, AN 1.327, AN 1.328, AN 1.329, AN 1.330, AN 1.331, AN 1.332, AN 1.333, AN 1.334, AN 1.335, AN 1.336, AN 1.337, AN 1.338, AN 1.339, AN 1.340, AN 1.341, AN 1.342, AN 1.343, AN 1.344, AN 1.345, AN 1.346, AN 1.347, AN 1.348, AN 1.349, AN 1.350, AN 1.351, AN 1.352, AN 1.353, AN 1.354, AN 1.355, AN 1.356, AN 1.357, AN 1.358, AN 1.359, AN 1.360, AN 1.361, AN 1.362, AN 1.363, AN 1.364, AN 1.365, AN 1.366, AN 1.367, AN 1.368, AN 1.369, AN 1.370, AN 1.371, AN 1.372, AN 1.373, AN 1.374, AN 1.375, AN 1.376, AN 1.377` - The Numerical Discourses: Book I: Suttas 296-377, "Section on the One Singular Thing."
+- `AN 1.378, AN 1.379, AN 1.380, AN 1.381, AN 1.382, AN 1.383, AN 1.384, AN 1.385, AN 1.386, AN 1.387, AN 1.388, AN 1.389, AN 1.390, AN 1.391, AN 1.392, AN 1.393` - The Numerical Discourses: Book I: Suttas 378-393, "Qualities that Should Be Aspired To."
+- `AN 1.394, AN 1.395, AN 1.396, AN 1.397, AN 1.398, AN 1.399, AN 1.400, AN 1.401, AN 1.402, AN 1.403, AN 1.404, AN 1.405, AN 1.406, AN 1.407, AN 1.408, AN 1.409, AN 1.410, AN 1.411, AN 1.412, AN 1.413, AN 1.414, AN 1.415, AN 1.416, AN 1.417, AN 1.418, AN 1.419, AN 1.420, AN 1.421, AN 1.422, AN 1.423, AN 1.424, AN 1.425, AN 1.426, AN 1.427, AN 1.428, AN 1.429, AN 1.430, AN 1.431, AN 1.432, AN 1.433, AN 1.434, AN 1.435, AN 1.436, AN 1.437, AN 1.438, AN 1.439, AN 1.440, AN 1.441, AN 1.442, AN 1.443, AN 1.444, AN 1.445, AN 1.446, AN 1.447, AN 1.448, AN 1.449, AN 1.450, AN 1.451, AN 1.452, AN 1.453, AN 1.454, AN 1.455, AN 1.456, AN 1.457, AN 1.458, AN 1.459, AN 1.460, AN 1.461, AN 1.462, AN 1.463, AN 1.464, AN 1.465, AN 1.466, AN 1.467, AN 1.468, AN 1.469, AN 1.470, AN 1.471, AN 1.472, AN 1.473, AN 1.474, AN 1.475, AN 1.476, AN 1.477, AN 1.478, AN 1.479, AN 1.480, AN 1.481, AN 1.482, AN 1.483, AN 1.484, AN 1.485, AN 1.486, AN 1.487, AN 1.488, AN 1.489, AN 1.490, AN 1.491, AN 1.492, AN 1.493, AN 1.494, AN 1.495, AN 1.496, AN 1.497, AN 1.498, AN 1.499, AN 1.500, AN 1.501, AN 1.502, AN 1.503, AN 1.504, AN 1.505, AN 1.506, AN 1.507, AN 1.508, AN 1.509, AN 1.510, AN 1.511, AN 1.512, AN 1.513, AN 1.514, AN 1.515, AN 1.516, AN 1.517, AN 1.518, AN 1.519, AN 1.520, AN 1.521, AN 1.522, AN 1.523, AN 1.524, AN 1.525, AN 1.526, AN 1.527, AN 1.528, AN 1.529, AN 1.530, AN 1.531, AN 1.532, AN 1.533, AN 1.534, AN 1.535, AN 1.536, AN 1.537, AN 1.538, AN 1.539, AN 1.540, AN 1.541, AN 1.542, AN 1.543, AN 1.544, AN 1.545, AN 1.546, AN 1.547, AN 1.548, AN 1.549, AN 1.550, AN 1.551, AN 1.552, AN 1.553, AN 1.554, AN 1.555, AN 1.556, AN 1.557, AN 1.558, AN 1.559, AN 1.560, AN 1.561, AN 1.562, AN 1.563, AN 1.564, AN 1.565, AN 1.566, AN 1.567, AN 1.568, AN 1.569, AN 1.570, AN 1.571, AN 1.572, AN 1.573, AN 1.574` - The Numerical Discourses: Book I: Suttas 394-574, "Another Section on the 'Snap of a Finger'."
+- `AN 1.575, AN 1.576, AN 1.577, AN 1.578, AN 1.579, AN 1.580, AN 1.581, AN 1.582, AN 1.583, AN 1.584, AN 1.585, AN 1.586, AN 1.587, AN 1.588, AN 1.589, AN 1.590, AN 1.591, AN 1.592, AN 1.593, AN 1.594, AN 1.595, AN 1.596, AN 1.597, AN 1.598, AN 1.599, AN 1.600, AN 1.601, AN 1.602, AN 1.603, AN 1.604, AN 1.605, AN 1.606, AN 1.607, AN 1.608, AN 1.609, AN 1.610, AN 1.611, AN 1.612, AN 1.613, AN 1.614, AN 1.615` - The Numerical Discourses: Book I: Suttas 575-615, "Mindfulness Anchored Upon the Body."
+- `AN 1.616, AN 1.617, AN 1.618, AN 1.619, AN 1.620, AN 1.621, AN 1.622, AN 1.623, AN 1.624, AN 1.625, AN 1.626, AN 1.627` - The Numerical Discourses: Book I: Suttas 616-627, "The Deathless."
+- `AN 2.1, AN 2.10, AN 2.2, AN 2.3, AN 2.4, AN 2.5, AN 2.6, AN 2.7, AN 2.8, AN 2.9` - The Numerical Discourses: Book II: Suttas 1-10, "The Section on Punishments."
+- `AN 2.11, AN 2.12, AN 2.13, AN 2.14, AN 2.15, AN 2.16, AN 2.17, AN 2.18, AN 2.19, AN 2.20` - The Numerical Discourses: Book II: Suttas 11-20, "Section on Disciplinary Issues."
+- `AN 2.21, AN 2.22, AN 2.23, AN 2.24, AN 2.25, AN 2.26, AN 2.27, AN 2.28, AN 2.29, AN 2.30, AN 2.31` - The Numerical Discourses: Book II: Suttas 21-31, "The Section on Fools."
+- `AN 2.32, AN 2.33, AN 2.34, AN 2.35, AN 2.36, AN 2.37, AN 2.38, AN 2.39, AN 2.40, AN 2.41` - The Numerical Discourses: Book II: Suttas 32-41, "The Section on The Peaceful Heart."
+- `AN 2.42, AN 2.43, AN 2.44, AN 2.45, AN 2.46, AN 2.47, AN 2.48, AN 2.49, AN 2.50, AN 2.51` - The Numerical Discourses: Book II: Suttas 42-51, "The Section on Gatherings."
+- `AN 2.52, AN 2.53, AN 2.54, AN 2.55, AN 2.56, AN 2.57, AN 2.58, AN 2.59, AN 2.60, AN 2.61, AN 2.62, AN 2.63` - The Numerical Discourses: Book II: Suttas 52-63, "The Section on People."
+- `AN 2.64, AN 2.65, AN 2.66, AN 2.67, AN 2.68, AN 2.69, AN 2.70, AN 2.71, AN 2.72, AN 2.73, AN 2.74, AN 2.75, AN 2.76` - The Numerical Discourses: Book II: Suttas 64-76 "The Section on Happiness."
+- `AN 2.77, AN 2.78, AN 2.79, AN 2.80, AN 2.81, AN 2.82, AN 2.83, AN 2.84, AN 2.85, AN 2.86` - The Numerical Discourses: Book II: Suttas 77-86, "Established Upon a Sign."
+- `AN 2.87, AN 2.88, AN 2.89, AN 2.90, AN 2.91, AN 2.92, AN 2.93, AN 2.94, AN 2.95, AN 2.96, AN 2.97` - The Numerical Discourses: Book II: Suttas 87-97, "Section on the Two Things."
+- `AN 2.100, AN 2.101, AN 2.102, AN 2.103, AN 2.104, AN 2.105, AN 2.106, AN 2.107, AN 2.108, AN 2.109, AN 2.110, AN 2.111, AN 2.112, AN 2.113, AN 2.114, AN 2.115, AN 2.116, AN 2.117, AN 2.98, AN 2.99` - The Numerical Discourses: Book II: Suttas 98-117, "The Section on Fools."
+- `AN 2.118, AN 2.119, AN 2.120, AN 2.121, AN 2.122, AN 2.123, AN 2.124, AN 2.125, AN 2.126, AN 2.127, AN 2.128, AN 2.129` - The Numerical Discourses: Book II: Suttas 118-129, "Wishes that are Difficult to Abandon."
+- `AN 2.130, AN 2.131, AN 2.132, AN 2.133, AN 2.134, AN 2.135, AN 2.136, AN 2.137, AN 2.138, AN 2.139, AN 2.140` - The Numerical Discourses: Book II: Suttas 130-140, "The Section on Aspiring."
+- `AN 2.141, AN 2.142, AN 2.143, AN 2.144, AN 2.145, AN 2.146, AN 2.147, AN 2.148, AN 2.149, AN 2.150` - The Numerical Discourses: Book II: Suttas 141-150, "The Section on Generosity."
+- `AN 2.151, AN 2.152, AN 2.153, AN 2.154, AN 2.155, AN 2.156, AN 2.157, AN 2.158, AN 2.159, AN 2.160, AN 2.161, AN 2.162` - The Numerical Discourses: Book II: Suttas 151-162, "The Section on The Long Awaited."
+- `AN 2.163, AN 2.164, AN 2.165, AN 2.166, AN 2.167, AN 2.168, AN 2.169, AN 2.170, AN 2.171, AN 2.172, AN 2.173, AN 2.174, AN 2.175, AN 2.176, AN 2.177, AN 2.178, AN 2.179` - The Numerical Discourses: Book II: Suttas 163-179, "The Section on Meditative Attainments."
+- `AN 2.180, AN 2.181, AN 2.182, AN 2.183, AN 2.184, AN 2.185, AN 2.186, AN 2.187, AN 2.188, AN 2.189, AN 2.190, AN 2.191, AN 2.192, AN 2.193, AN 2.194, AN 2.195, AN 2.196, AN 2.197, AN 2.198, AN 2.199, AN 2.200, AN 2.201, AN 2.202, AN 2.203, AN 2.204, AN 2.205, AN 2.206, AN 2.207, AN 2.208, AN 2.209, AN 2.210, AN 2.211, AN 2.212, AN 2.213, AN 2.214, AN 2.215, AN 2.216, AN 2.217, AN 2.218, AN 2.219, AN 2.220, AN 2.221, AN 2.222, AN 2.223, AN 2.224, AN 2.225, AN 2.226, AN 2.227, AN 2.228, AN 2.229` - The Numerical Discourses: Book II: Suttas 180-229, "Abbreviated Sections, Starting with Anger."
+- `AN 2.230, AN 2.231, AN 2.232, AN 2.233, AN 2.234, AN 2.235, AN 2.236, AN 2.237, AN 2.238, AN 2.239, AN 2.240, AN 2.241, AN 2.242, AN 2.243, AN 2.244, AN 2.245, AN 2.246, AN 2.247, AN 2.248, AN 2.249, AN 2.250, AN 2.251, AN 2.252, AN 2.253, AN 2.254, AN 2.255, AN 2.256, AN 2.257, AN 2.258, AN 2.259, AN 2.260, AN 2.261, AN 2.262, AN 2.263, AN 2.264, AN 2.265, AN 2.266, AN 2.267, AN 2.268, AN 2.269, AN 2.270, AN 2.271, AN 2.272, AN 2.273, AN 2.274, AN 2.275, AN 2.276, AN 2.277, AN 2.278, AN 2.279` - The Numerical Discourses: Book II: Suttas 230-279, "Repetitions - Bad & Good Merit Making Actions."
+- `AN 2.280, AN 2.281, AN 2.282, AN 2.283, AN 2.284, AN 2.285, AN 2.286, AN 2.287, AN 2.288, AN 2.289, AN 2.290, AN 2.291, AN 2.292, AN 2.293, AN 2.294, AN 2.295, AN 2.296, AN 2.297, AN 2.298, AN 2.299, AN 2.300, AN 2.301, AN 2.302, AN 2.303, AN 2.304, AN 2.305, AN 2.306, AN 2.307, AN 2.308, AN 2.309` - The Numerical Discourses: Book II: Suttas 280-309, "Abbreviated Sections: The Monastic Discipline."
+- `AN 2.310, AN 2.311, AN 2.312, AN 2.313, AN 2.314, AN 2.315, AN 2.316, AN 2.317, AN 2.318, AN 2.319, AN 2.320, AN 2.321, AN 2.322, AN 2.323, AN 2.324, AN 2.325, AN 2.326, AN 2.327, AN 2.328, AN 2.329, AN 2.330, AN 2.331, AN 2.332, AN 2.333, AN 2.334, AN 2.335, AN 2.336, AN 2.337, AN 2.338, AN 2.339, AN 2.340, AN 2.341, AN 2.342, AN 2.343, AN 2.344, AN 2.345, AN 2.346, AN 2.347, AN 2.348, AN 2.349, AN 2.350, AN 2.351, AN 2.352, AN 2.353, AN 2.354, AN 2.355, AN 2.356, AN 2.357, AN 2.358, AN 2.359, AN 2.360, AN 2.361, AN 2.362, AN 2.363, AN 2.364, AN 2.365, AN 2.366, AN 2.367, AN 2.368, AN 2.369, AN 2.370, AN 2.371, AN 2.372, AN 2.373, AN 2.374, AN 2.375, AN 2.376, AN 2.377, AN 2.378, AN 2.379, AN 2.380, AN 2.381, AN 2.382, AN 2.383, AN 2.384, AN 2.385, AN 2.386, AN 2.387, AN 2.388, AN 2.389, AN 2.390, AN 2.391, AN 2.392, AN 2.393, AN 2.394, AN 2.395, AN 2.396, AN 2.397, AN 2.398, AN 2.399, AN 2.400, AN 2.401, AN 2.402, AN 2.403, AN 2.404, AN 2.405, AN 2.406, AN 2.407, AN 2.408, AN 2.409, AN 2.410, AN 2.411, AN 2.412, AN 2.413, AN 2.414, AN 2.415, AN 2.416, AN 2.417, AN 2.418, AN 2.419, AN 2.420, AN 2.421, AN 2.422, AN 2.423, AN 2.424, AN 2.425, AN 2.426, AN 2.427, AN 2.428, AN 2.429, AN 2.430, AN 2.431, AN 2.432, AN 2.433, AN 2.434, AN 2.435, AN 2.436, AN 2.437, AN 2.438, AN 2.439, AN 2.440, AN 2.441, AN 2.442, AN 2.443, AN 2.444, AN 2.445, AN 2.446, AN 2.447, AN 2.448, AN 2.449, AN 2.450, AN 2.451, AN 2.452, AN 2.453, AN 2.454, AN 2.455, AN 2.456, AN 2.457, AN 2.458, AN 2.459, AN 2.460, AN 2.461, AN 2.462, AN 2.463, AN 2.464, AN 2.465, AN 2.466, AN 2.467, AN 2.468, AN 2.469, AN 2.470, AN 2.471, AN 2.472, AN 2.473, AN 2.474, AN 2.475, AN 2.476, AN 2.477, AN 2.478, AN 2.479` - The Numerical Discourses: Book II: Suttas 310-479, "Abbreviated Sections, Starting with Passion."
+- `AN 3.1, AN 3.10, AN 3.2, AN 3.3, AN 3.4, AN 3.5, AN 3.6, AN 3.7, AN 3.8, AN 3.9` - The Numerical Discourses: Book III: Suttas 1-10, "A Fool."
+- `AN 3.11, AN 3.12, AN 3.13, AN 3.14, AN 3.15, AN 3.16, AN 3.17, AN 3.18, AN 3.19, AN 3.20` - The Numerical Discourses: Book III: Suttas 11-20, "The Chariot Builder."
+- `AN 3.21, AN 3.22, AN 3.23, AN 3.24, AN 3.25, AN 3.26, AN 3.27, AN 3.28, AN 3.29, AN 3.30` - The Numerical Discourses: Book III: Suttas 21-30, "Three Types Of Persons."
+- `AN 3.31, AN 3.32, AN 3.33, AN 3.34, AN 3.35, AN 3.36, AN 3.37, AN 3.38, AN 3.39, AN 3.40` - The Numerical Discourses: Book III: Suttas 31-40, "The Divine Messengers."
+- `AN 3.41, AN 3.42, AN 3.43, AN 3.44, AN 3.45, AN 3.46, AN 3.47, AN 3.48, AN 3.49, AN 3.50` - The Numerical Discourses: Book III: Suttas 41-50, "The Minor Sections."
+- `AN 3.51, AN 3.52, AN 3.53, AN 3.54, AN 3.55, AN 3.56, AN 3.57, AN 3.58, AN 3.59, AN 3.60` - The Numerical Discourses: Book III: Suttas 51-60, "The Brahmins."
+- `AN 3.61, AN 3.62, AN 3.63, AN 3.64, AN 3.65, AN 3.66, AN 3.67, AN 3.68, AN 3.69, AN 3.70` - The Numerical Discourses: Book III: Suttas 61-70, "The Great Section."
+- `AN 3.71, AN 3.72, AN 3.73, AN 3.74, AN 3.75, AN 3.76, AN 3.77, AN 3.78, AN 3.79, AN 3.80` - The Numerical Discourses: Book III: Suttas 71-80, "The Section On Ānanda."
+- `AN 3.81, AN 3.82, AN 3.83, AN 3.84, AN 3.85, AN 3.86, AN 3.87, AN 3.88, AN 3.89, AN 3.90` - The Numerical Discourses: Book III: Suttas 81-90, "The Section On Recluses."
+- `AN 3.100, AN 3.91, AN 3.92, AN 3.93, AN 3.94, AN 3.95, AN 3.96, AN 3.97, AN 3.98, AN 3.99` - The Numerical Discourses:  Book III: Suttas 91-100, "The Section On The Salt Crystal."
+- `AN 3.101, AN 3.102, AN 3.103, AN 3.104, AN 3.105, AN 3.106, AN 3.107, AN 3.108, AN 3.109, AN 3.110` - The Numerical Discourses: Book III: Suttas 101-110, "The Section On Awakening."
+- `AN 3.111, AN 3.112, AN 3.113, AN 3.114, AN 3.115, AN 3.116, AN 3.117, AN 3.118, AN 3.119, AN 3.120` - The Numerical Discourses: Book III: Suttas 111-120, "The Section on the Miserable Realms."
+- `AN 3.121, AN 3.122, AN 3.123, AN 3.124, AN 3.125, AN 3.126, AN 3.127, AN 3.128, AN 3.129, AN 3.130` - The Numerical Discourses: Book III: Suttas 121-130, "The Section On Kusināra."
+- `AN 3.131, AN 3.132, AN 3.133, AN 3.134, AN 3.135, AN 3.136, AN 3.137, AN 3.138, AN 3.139, AN 3.140` - The Numerical Discourses: Book III: Suttas 131-140, "The Section On The Warrior."
+- `AN 3.141, AN 3.142, AN 3.143, AN 3.144, AN 3.145, AN 3.146, AN 3.147, AN 3.148, AN 3.149, AN 3.150` - The Numerical Discourses: Book III: Suttas 141-150, "The Section On The Auspicious."
+- `AN 3.151, AN 3.152, AN 3.153, AN 3.154, AN 3.155, AN 3.156, AN 3.157, AN 3.158, AN 3.159, AN 3.160, AN 3.161, AN 3.162, AN 3.163` - The Numerical Discourses: Book III: Suttas 151-163 (151-352) "Section On Unclothed/Path of Practice"
+- `AN 4.1, AN 4.10, AN 4.2, AN 4.3, AN 4.4, AN 4.5, AN 4.6, AN 4.7, AN 4.8, AN 4.9` - The Numerical Discourses: Book IV: Suttas 1-10, "The Section on Bhandagāma."
+- `AN 4.11, AN 4.12, AN 4.13, AN 4.14, AN 4.15, AN 4.16, AN 4.17, AN 4.18, AN 4.19, AN 4.20` - The Numerical Discourses: Book IV: Suttas 11-20, "The Section on Being in Motion."
+- `AN 4.21, AN 4.22, AN 4.23, AN 4.24, AN 4.25, AN 4.26, AN 4.27, AN 4.28, AN 4.29, AN 4.30` - The Numerical Discourses: Book IV: Suttas 21-30, "The Section on Uruvelā."
+- `AN 4.31, AN 4.32, AN 4.33, AN 4.34, AN 4.35, AN 4.36, AN 4.37, AN 4.38, AN 4.39, AN 4.40` - The Numerical Discourses: Book IV: Suttas 31-40, "The Section on The Wheel."
+- `AN 4.41, AN 4.42, AN 4.43, AN 4.44, AN 4.45, AN 4.46, AN 4.47, AN 4.48, AN 4.49, AN 4.50` - The Numerical Discourses: Book IV: Suttas 41-50, "The Section on Rohitassa."
+- `AN 4.51, AN 4.52, AN 4.53, AN 4.54, AN 4.55, AN 4.56, AN 4.57, AN 4.58, AN 4.59, AN 4.60` - The Numerical Discourses: Book IV: Suttas 51-60, "The Section on the Overflowing of Merits."
+- `AN 4.61, AN 4.62, AN 4.63, AN 4.64, AN 4.65, AN 4.66, AN 4.67, AN 4.68, AN 4.69, AN 4.70` - The Numerical Discourses: Book IV: Suttas 61-70, "The Section on the Restorative Actions."
+- `AN 4.71, AN 4.72, AN 4.73, AN 4.74, AN 4.75, AN 4.76, AN 4.77, AN 4.78, AN 4.79, AN 4.80` - The Numerical Discourses: Book IV: Suttas 71-80, "The Section on The Unmistakable State."
+- `AN 4.81, AN 4.82, AN 4.83, AN 4.84, AN 4.85, AN 4.86, AN 4.87, AN 4.88, AN 4.89, AN 4.90` - The Numerical Discourses: Book IV: Suttas 81-90, "The Section on The Unshakeable State."
+- `AN 4.100, AN 4.91, AN 4.92, AN 4.93, AN 4.94, AN 4.95, AN 4.96, AN 4.97, AN 4.98, AN 4.99` - The Numerical Discourses: Book IV: Suttas 91-100, "The Section on The Asuras."
+- `AN 4.100, AN 4.101, AN 4.102, AN 4.103, AN 4.104, AN 4.105, AN 4.106, AN 4.107, AN 4.108, AN 4.109, AN 4.110` - The Numerical Discourses: Book IV: Suttas 100-110, "The Section on The Dark Clouds."
+- `AN 4.111, AN 4.112, AN 4.113, AN 4.114, AN 4.115, AN 4.116, AN 4.117, AN 4.118, AN 4.119, AN 4.120` - The Numerical Discourses: Book IV: Suttas 111-120, "The Section on Kesi, the Horse-Trainer."
+- `AN 4.121, AN 4.122, AN 4.123, AN 4.124, AN 4.125, AN 4.126, AN 4.127, AN 4.128, AN 4.129, AN 4.130` - The Numerical Discourses: Book IV: Suttas 121-130, "The Section on Fear."
+- `AN 4.131, AN 4.132, AN 4.133, AN 4.134, AN 4.135, AN 4.136, AN 4.137, AN 4.138, AN 4.139, AN 4.140` - The Numerical Discourses: Book IV: Suttas 131-140, "The Section on People."
+- `AN 4.141, AN 4.142, AN 4.143, AN 4.144, AN 4.145, AN 4.146, AN 4.147, AN 4.148, AN 4.149, AN 4.150` - The Numerical Discourses: Book IV: Suttas 141-150, "The Section on Brilliance."
+- `AN 4.151, AN 4.152, AN 4.153, AN 4.154, AN 4.155, AN 4.156, AN 4.157, AN 4.158, AN 4.159, AN 4.160` - The Numerical Discourses: Book IV: Suttas 151-160, "The Section on the Faculties."
+- `AN 4.161, AN 4.162, AN 4.163, AN 4.164, AN 4.165, AN 4.166, AN 4.167, AN 4.168, AN 4.169, AN 4.170` - The Numerical Discourses: Book IV: Suttas 161-170, "The Section on the Methods of Practice."
+- `AN 4.171, AN 4.172, AN 4.173, AN 4.174, AN 4.175, AN 4.176, AN 4.177, AN 4.178, AN 4.179, AN 4.180` - The Numerical Discourses: Book IV: Suttas 171-180, "The Section on Intentional Action."
+- `AN 4.181, AN 4.182, AN 4.183, AN 4.184, AN 4.185, AN 4.186, AN 4.187, AN 4.188, AN 4.189, AN 4.190` - The Numerical Discourses: Book IV: Suttas 181-190, "The Section on Brahmins."
+- `AN 4.191, AN 4.192, AN 4.193, AN 4.194, AN 4.195, AN 4.196, AN 4.197, AN 4.198, AN 4.199, AN 4.200` - The Numerical Discourses: Book IV: Suttas 191-200: "The Great Section"
+- `AN 4.201, AN 4.202, AN 4.203, AN 4.204, AN 4.205, AN 4.206, AN 4.207, AN 4.208, AN 4.209, AN 4.210` - The Numerical Discourses: Book IV: Suttas 201-210: "Section on the Superior Person."
+- `AN 4.211, AN 4.212, AN 4.213, AN 4.214, AN 4.215, AN 4.216, AN 4.217, AN 4.218, AN 4.219, AN 4.220` - The Numerical Discourses: Book IV: Suttas 211-220: "Section on the Gatherings"
+- `AN 4.221, AN 4.222, AN 4.223, AN 4.224, AN 4.225, AN 4.226, AN 4.227, AN 4.228, AN 4.229, AN 4.230, AN 4.231` - The Numerical Discourses: Book IV: Suttas 221-231: "The Section on Wrongdoing."
+- `AN 4.232, AN 4.233, AN 4.234, AN 4.235, AN 4.236, AN 4.237, AN 4.238, AN 4.239, AN 4.240, AN 4.241, AN 4.242` - The Numerical Discourses: Book IV: Suttas 232-242: "The Section on Actions."
+- `AN 4.243, AN 4.244, AN 4.245, AN 4.246, AN 4.247, AN 4.248, AN 4.249, AN 4.250, AN 4.251, AN 4.252, AN 4.253` - The Numerical Discourses: Book IV: Suttas 243-253: "The Section on the Fear of Wrongdoing."
+- ... 103 more
+
+### dhammapada-verses
+- `Dhp 1` - The Dhammapada: 1 - Evil Begets Evil
+- `Dhp 2` - The Dhammapada: 2 - Good Begets Good
+- `Dhp 3, Dhp 4` - The Dhammapada: 3-4 - Retaliation Does Not Lead To Peace
+- `Dhp 5` - The Dhammapada: 5 - Anger Is Conquered By Love
+- `Dhp 6` - The Dhammapada: 6 - Quarrels Cease
+- `Dhp 7, Dhp 8` - The Dhammapada: 7-8 - The Weak Succumb To Temptation
+- `Dhp 10, Dhp 9` - The Dhammapada: 9-10 -The Pure are Worthy of the Yellow Robe
+- `Dhp 11, Dhp 12` - The Dhammapada: 11-12 - Right Perception Leads to Truth
+- `Dhp 13, Dhp 14` - The Dhammapada: 13-14 - Lust Pierces The Hearts
+- `Dhp 15` - The Dhammapada: 15 - Evil Doers Suffer Here and Hereafter
+- `Dhp 16` - The Dhammapada: 16 - Happy Are The Well-Doers
+- `Dhp 17` - The Dhammapada: 17 - The Evil-Doer Laments
+- `Dhp 18` - The Dhammapada: 18 - Happy Are The Righteous
+- `Dhp 19, Dhp 20` - The Dhammapada: 19-20 - Learning Without Practice
+- `Dhp 21, Dhp 22, Dhp 23` - The Dhammapada: 21-23 - The Heedless Die; The Heedful Do Not
+- `Dhp 24` - The Dhammapada: 24 - The Energetic Prosper
+- `Dhp 25` - The Dhammapada: 25 - By Their Efforts The Wise Create
+- `Dhp 26, Dhp 27` - The Dhammapada: 26-27 - Be Heedful, Not Heedless
+- `Dhp 28` - The Dhammapada: 28 - Heedfulness Should Be Conquered
+- `Dhp 29` - The Dhammapada: 29 - The Strenuous And The Alert
+- `Dhp 30` - The Dhammapada: 30 - Earnestness Leads To Sovereignty
+- `Dhp 31` - The Dhammapada: 31 - The Heedful Advance
+- `Dhp 32` - The Dhammapada: 32 - The Heedful Are In The Presence Of Nibbana
+- `Dhp 33, Dhp 34` - The Dhammapada: 33-34 - Straighten Your Fickle Mind
+- `Dhp 35` - The Dhammapada: 35 - Control Your Mind
+- `Dhp 36` - The Dhammapada: 36 - Guard Your Mind
+- `Dhp 37` - The Dhammapada: 37 - Free Are They
+- `Dhp 38, Dhp 39` - The Dhammapada: 38-39 - To The Vigilant There Is No Fear
+- `Dhp 40` - The Dhammapada: 40 - Fortify Your Mind
+- `Dhp 41` - The Dhammapada: 41 - Be Detached From Your Body
+- `Dhp 42` - The Dhammapada: 42 - An ill-Disposed Mind
+- `Dhp 43` - The Dhammapada: 43 - A Well-Directed Mind
+- `Dhp 44, Dhp 45` - The Dhammapada: 44-45 - The Noble Disciple
+- `Dhp 46` - The Dhammapada: 46 - Like A Mirage Is This Body
+- `Dhp 47` - The Dhammapada: 47 - Death Takes The Sensual Unawares
+- `Dhp 48` - The Dhammapada: 48 - With Ungratified Desires
+- `Dhp 49` - The Dhammapada: 49 - Saintly Monks
+- `Dhp 50` - The Dhammapada: 50 - Seek Not Others' Faults
+- `Dhp 51, Dhp 52` - The Dhammapada: 51-52  - Practice Is Better Than Mere Teaching
+- `Dhp 53` - The Dhammapada: 53 - Do Much Good
+- `Dhp 54, Dhp 55` - The Dhammapada: 54-55 - Moral Fragrance Wafts Everywhere
+- `Dhp 56` - The Dhammapada: 56 - The Scent Of Virtue
+- `Dhp 57` - The Dhammapada: 57 - Rebirth-Consciousness of Arahants Cannot Be Traced
+- `Dhp 58, Dhp 59` - The Dhammapada: 58-59 - Greatness May Be Found
+- `Dhp 60` - The Dhammapada: 60 - Long Is Samsara
+- `Dhp 61` - The Dhammapada: 61 - Avoid Companionship With The Foolish
+- `Dhp 62` - The Dhammapada: 62 - One Is Not One's Own
+- `Dhp 63` - The Dhammapada: 63 - Wise Is He Who Acknowledges His Foolishness
+- `Dhp 64` - The Dhammapada: 64 - A Fool Cannot Appreciate
+- `Dhp 65` - The Dhammapada: 65 - The Wise Can Appreciate
+- `Dhp 66` - The Dhammapada: 66 - Bitter Is The Fruit Of Evil
+- `Dhp 67` - The Dhammapada: 67 - Not Well Done Is That Deed
+- `Dhp 68` - The Dhammapada: 68 - Well Done Is That Deed
+- `Dhp 69` - The Dhammapada: 69 - Evil Doers Come To Grief
+- `Dhp 70` - The Dhammapada: 70 - Realisation Is Far Superior
+- `Dhp 71` - The Dhammapada: 71 - Evil Takes Effect
+- `Dhp 72` - The Dhammapada: 72 - Knowledge And Fame
+- `Dhp 73, Dhp 74` - The Dhammapada: 73-74 - The Ignorant Seek Undue Fame
+- `Dhp 75` - The Dhammapada: 75 - The Path To Gain
+- `Dhp 76` - The Dhammapada: 76 - Associate Withe The Wise
+- `Dhp 77` - The Dhammapada: 77 - Advisors Are Pleasing To The Good
+- `Dhp 78` - The Dhammapada: 78 - Cultivate Good Friendship
+- `Dhp 79` - The Dhammapada: 79 - Happily He Lives Who Drinks Of The Dhamma
+- `Dhp 80` - The Dhammapada: 80 - The Wise Control Themselves
+- `Dhp 81` - The Dhammapada: 81 - Unshaken As A Rock Are The Wise
+- `Dhp 82` - The Dhammapada: 82 - The Wise Are Peaceful
+- `Dhp 83` - The Dhammapada: 83 - The Wise Are Neither Elated Nor Depressed
+- `Dhp 84` - The Dhammapada: 84 - Success
+- `Dhp 85` - The Dhammapada: 85 - Few Go Beyond
+- `Dhp 86` - The Dhammapada: 86 - Those Who Follow The Dhamma
+- `Dhp 87, Dhp 88, Dhp 89` - The Dhammapada: 87-89 - Give Up Evil
+- `Dhp 90` - The Dhammapada: 90 - No Suffering For The Emancipated
+- `Dhp 91` - The Dhammapada: 91 - Arahants Are Free From Attachment
+- `Dhp 92` - The Dhammapada: 92 - Be Not Attached To Food
+- `Dhp 93` - The Dhammapada: 93 - Free Are The Undefiled Ones
+- `Dhp 94` - The Dhammapada: 94 - The Sense-Controlled Are Dear To All
+- `Dhp 95` - The Dhammapada: 95 - Like The Earth Arahants Resent Not
+- `Dhp 96` - The Dhammapada: 96 - The Calm Are The Peaceful
+- `Dhp 97` - The Dhammapada: 97 - Noble Is He Who Is Not Credulous
+- `Dhp 98` - The Dhammapada: 98 - Delightful Is The Spot Where Arahants Dwell
+- ... 302 more
+
+### digha-nikaya
+- `DN 3` - The Long Discourses: Sutta 3 - Ambattha Sutta: Discourse To Ambattha The Proud
+- `DN 4` - The Long Discourses: Sutta 4 - Sonadanda: On The Qualities Of A True Brahmin
+- `DN 5` - The Long Discourses: Sutta 5 - Kutadanta Sutta: Kutadanta & The Bloodless Sacrifice
+- `DN 6` - The Long Discourses: Sutta 6 - Mahāli Sutta: Discourse To Mahāli
+- `DN 7` - The Long Discourses: Sutta 7 - Jāliya Sutta: Discourse To Jāliya
+- `DN 8` - The Long Discourses: Sutta 8 - Mahāsihanāda Sutta: Great Discourse On The Lion's Roar
+- `DN 10` - The Long Discourses: Sutta 10 - Subha Sutta: On Virtue, Mental Cultivation, And Wisdom.
+- `DN 12` - The Long Discourses: Sutta 12 - Lohicca Sutta: Discourse To Lohicca
+- `DN 13` - The Long Discourses: Sutta 13 - Tevijja Sutta: Threefold Knowledge
+- `DN 14` - The Long Discourses: Sutta 14 - Mahāpadāna Sutta: Discourse On The Lineage Of Buddhas
+- `DN 17` - The Long Discourses: Sutta 17 - Mahāsudassana Sutta: King Mahāsudassana
+- `DN 18` - The Long Discourses: Sutta 18 - Janavasabha Sutta: Addressing The Gods
+- `DN 19` - The Long Discourses: Sutta 19 - Mahāgovinda Sutta: The Great Steward
+- `DN 20` - The Long Discourses: Sutta 20 - Mahāsamaya Sutta: A Mighty Gathering
+- `DN 21` - The Long Discourses: Sutta 21 - Sakkapañha Sutta: Questions From The King Of The Gods
+- `DN 24` - The Long Discourses: Sutta 24 - Pātika Sutta: The Charlatan
+- `DN 25` - The Long Discourses: Sutta 25 - Udumbarika Sihanāda Sutta: Lion's Roar To The Udumbarikans
+- `DN 26` - The Long Discourses: Sutta 26 - Cakkavatti Sihanāda Sutta: Wheel-Turning Monarch's Lion's Roar
+- `DN 27` - The Long Discourses: Sutta 27 - Aggañña Sutta: Knowledge Of The Beginning Of Things
+- `DN 28` - The Long Discourses: Sutta 28 - Sampasādaniya Sutta: Inspiring Serene Faith
+- `DN 29` - The Long Discourses: Sutta 29 - Pāsādika Sutta: Discourse On The Delightful
+- `DN 30` - The Long Discourses: Sutta 30 - Lakkhana Sutta: Characteristics Of A Great Man
+- `DN 31` - The Long Discourses: Sutta 31 - Sigālovāda Sutta: Advice To Lay Disciples
+- `DN 33` - The Long Discourses: Sutta 33 - Sangiti Sutta: A Joint Recital
+- `DN 34` - The Long Discourses: Sutta 34 - Dasuttara Sutta: In Bundles Of Ten
+
+### majjhima-nikaya
+- `MN 2` - The Middle Length Discourses: Sutta 2 - Sabbāsava Sutta: All The Contaminants
+- `MN 3` - The Middle Length Discourses: Sutta 3 - Dhammadāyāda Sutta: Heirs in The Dhamma
+- `MN 5` - The Middle Length Discourses: Sutta 5 - Anangana Sutta: Without Blemishes
+- `MN 6` - The Middle Length Discourses: Sutta 6 - Akankheyya Sutta: If A Bhikkhu Should Desire
+- `MN 7` - The Middle Length Discourses: Sutta 7 - Vatthupama Sutta: The Simile Of The Cloth
+- `MN 8` - The Middle Length Discourses: Sutta 8 - Sallekha Sutta: Obliteration
+- `MN 11` - The Middle Length Discourses: Sutta 11 - Culasihanāda Sutta: Shorter Discourse On The Lion's Roar
+- `MN 12` - The Middle Length Discourses: Sutta 12 - Mahāsihanāda Sutta: Greater Discourse On The Lion's Roar
+- `MN 13` - The Middle Length Discourses: Sutta 13 - Mahādukkhakkhanda Sutta: Greater Discourse On Suffering
+- `MN 14` - The Middle Length Discourses: Sutta 14 - Culadukkhakkhanda Sutta: Shorter Discourse On Suffering
+- `MN 15` - The Middle Length Discourses: Sutta 15 - Anumāna Sutta: Inference
+- `MN 16` - The Middle Length Discourses: Sutta 16 - Cetokhila Sutta: Wilderness In The Heart
+- `MN 17` - The Middle Length Discourses: Sutta 17 - Vanapattha Sutta: Jungle Thickets
+- `MN 19` - The Middle Length Discourses: Sutta 19 - Dvedhāvitakka Sutta: Two Kinds Of Thoughts
+- `MN 20` - The Middle Length Discourses: Sutta 20 - Vitakkasanthāna Sutta: Removal Of Distracting Thoughts
+- `MN 23` - The Middle Length Discourses: Sutta 23 - Vammika Sutta: "The Simile of the Ant Hill" (2022)
+- `MN 24` - The Middle Length Discourses: Sutta 24* - Rathavinita Sutta: The Relay Chariots
+- `MN 25` - The Middle Length Discourses: Sutta 25 - Nivāpa Sutta: The Bait
+- `MN 26` - The Middle Length Discourses: Sutta 26 - Ariyapariyesanā Sutta: The Noble Search
+- `MN 27` - The Middle Length Discourses: Sutta 27- Culahatthipadopama Sutta: Elephant's Footprint-Shorter Disc.
+- `MN 29` - The Middle Length Discourses: Sutta 29 - Mahāsāropama Sutta: Simile Of The Heartwood-Greater Disc.
+- `MN 30` - The Middle Length Discourses: Sutta 30 - Culasāropama Sutta: Simile Of The Heartwood-Shorter Disc.
+- `MN 32` - The Middle Length Discourses: Sutta 32 - Mahāgosinga Sutta: Greater Discourse In Gosinga
+- `MN 33` - The Middle Length Discourses: Sutta 33 - Mahāgopālaka Sutta: Greater Discourse On The Cowherd
+- `MN 34` - The Middle Length Discourses: Sutta 34 - Culagopālaka Sutta: Shorter Discourse On The Cowherd
+- `MN 35` - The Middle Length Discourses: Sutta 35 - Culasaccaka Sutta: Shorter Discourse To Saccaka
+- `MN 36` - The Middle Length Discourses: Sutta 36 - Mahāsaccaka Sutta: Greater Discourse To Saccaka
+- `MN 38` - The Middle Length Discourses: Sutta 38- Mahātanhāsankhaya Sutta:Destruction Of Craving-Greater Disc.
+- `MN 39` - The Middle Length Discourses: Sutta 39 - Mahā-Assapura Sutta: Greater Discourse On Assapura
+- `MN 40` - The Middle Length Discourses: Sutta 40 - Cula-Assapura Sutta: Shorter Discourse At Assapura
+- `MN 41` - The Middle Length Discourses: Sutta 41 - Sāleyyaka Sutta: Brahmins of Sālā
+- `MN 42` - The Middle Length Discourses: Sutta 42 - Verañjaka Sutta: Brahmins of Verañja
+- `MN 43` - The Middle Length Discourses: Sutta 43 - Mahāvedalla Sutta: Greater Series Of Questions & Answers
+- `MN 45` - The Middle Length Discourses: Sutta 45 - Culadhammasamādāna Sutta: Ways Of Undertaking-Shorter Disc.
+- `MN 46` - The Middle Length Discourses: Sutta 46 - Mahādhammasamādāna Sutta: Ways Of Undertaking-Greater Disc.
+- `MN 48` - The Middle Length Discourses: Sutta 48 - Kosambiya Sutta: The Kosmbians
+- `MN 51` - The Middle Length Discourses: Sutta 51 - Kandaraka Sutta: To Kandaraka
+- `MN 52` - The Middle Length Discourses: Sutta 52 - Atthakanāgara Sutta: The Man From Atthakanāgara
+- `MN 54` - The Middle Length Discourses: Sutta 54 - Potaliya Sutta: To Potaliya
+- `MN 55` - The Middle Length Discourses: Sutta 55 - Jivaka Sutta: To Jivaka
+- `MN 58` - The Middle Length Discourses: Sutta 58 - Abhayarājakumāra Sutta: To Prince Abhaya
+- `MN 59` - The Middle Length Discourses: Sutta 59 - Bahuvedaniya Sutta: Many Kinds Of Feeling
+- `MN 60` - The Middle Length Discourses: Sutta 60 - Apannaka Sutta: The Incontrovertible Teaching
+- `MN 61` - The Middle Length Discourses: Sutta 61-Ambalatthikārāhulovāda Sutta:Advice To Rāhula At Ambalatthikā
+- `MN 63` - The Middle Length Discourses: Sutta 63 - Culamālunkyā Sutta: Shorter Discourse To Mālunkyāputta
+- `MN 65` - The Middle Length Discourses: Sutta 65 - Bhaddāli Sutta: To Bhaddāli
+- `MN 66` - The Middle Length Discourses: Sutta 66 - Latukikopama Sutta: Simile Of The Quail
+- `MN 67` - The Middle Length Discourses: Sutta 67 - Cātumā Sutta: At Cātumā
+- `MN 68` - The Middle Length Discourses: Sutta 68 - Nalakapāna Sutta: At Nalakapāna
+- `MN 69` - The Middle Length Discourses: Sutta 69 - Gulissāni Sutta: Gulissāni
+- `MN 70` - The Middle Length Discourses: Sutta 70 - Kitāgiri Sutta: At Kitāgiri
+- `MN 71` - The Middle Length Discourses: Sutta 71 - Tevijjavacchagotta Sutta:Threefold Knowledge To Vacchagotta
+- `MN 72` - The Middle Length Discourses: Sutta 72 - Aggivacchagotta Sutta: Vacchagotta's Fire
+- `MN 73` - The Middle Length Discourses: Sutta 73 - Mahāvacchagotta Sutta: Greater Discourse To Vacchagotta
+- `MN 74` - The Middle Length Discourses: Sutta 74 - Dighanakha Sutta: To Dighanakha
+- `MN 75` - The Middle Length Discourses: Sutta 75 - Māgandiya Sutta: Māgandiya
+- `MN 76` - The Middle Length Discourses: Sutta 76 - Sandaka Sutta: Sandaka
+- `MN 77` - The Middle Length Discourses: Sutta 77 - Mahāsakuludāyi Sutta: Greater Discourse To Sakuludāyin
+- `MN 78` - The Middle Length Discourses: Sutta 78 - Samanamandikā Sutta: Samanamandikāputta
+- `MN 79` - The Middle Length Discourses: Sutta 79 - Culasakuludāyi Sutta: Shorter Discourse To Sakuludāyin
+- `MN 80` - The Middle Length Discourses: Sutta 80 - Vekhanassa Sutta: Vekhanassa
+- `MN 81` - The Middle Length Discourses: Sutta 81 - Ghatikāra Sutta: Ghatikāra The Potter
+- `MN 83` - The Middle Length Discourses: Sutta 83 - Makhādeva Sutta: King Makhādeva
+- `MN 84` - The Middle Length Discourses: Sutta 84 - Madhurā Sutta: At Madhurā
+- `MN 85` - The Middle Length Discourses: Sutta 85 - Bodhirājakumāra Sutta: Discourse To Prince Bodhi
+- `MN 86` - The Middle Length Discourses: Sutta 86 - Angulimāla Sutta: Angulimāla
+- `MN 87` - The Middle Length Discourses: Sutta 87 - Piyajātika Sutta: Anguish Caused By Dear Ones
+- `MN 88` - The Middle Length Discourses: Sutta 88 - Bāhitika Sutta: The Cloak
+- `MN 89` - The Middle Length Discourses: Sutta 89 - Dhammacetiya Sutta: Tributes To The Dhamma
+- `MN 90` - The Middle Length Discourses: Sutta 90 - Kannakatthala Sutta: Kannakatthala
+- `MN 91` - The Middle Length Discourses: Sutta 91 - Brahmāyu Sutta: Brahmāyu
+- `MN 92` - The Middle Length Discourses: Sutta 92 - Sela Sutta: Discourse To Sela
+- `MN 93` - The Middle Length Discourses: Sutta 93 - Assalāyana Sutta: Discourse To Assalāyana
+- `MN 94` - The Middle Length Discourses: Sutta 94 - Ghotamukha Sutta: Discourse To Ghotamukha
+- `MN 95` - The Middle Length Discourses: Sutta 95 - Canki Sutta: Canki
+- `MN 96` - The Middle Length Discourses: Sutta 96 - Esukāri Sutta: Esukāri
+- `MN 97` - The Middle Length Discourses: Sutta 97 - Dhānañjāni Sutta: Discourse To Dhānañjāni
+- `MN 98` - The Middle Length Discourses: Sutta 98 - Vāsettha Sutta: Discourse To Vāsettha
+- `MN 99` - The Middle Length Discourses: Sutta 99 - Subha Sutta: Discourse To Subha
+- `MN 100` - The Middle Length Discourses: Sutta 100 - Sangārava Sutta: Discourse To Sangārava
+- ... 38 more
+
+### samyutta-nikaya
+- `SN 1.1, SN 1.10, SN 1.2, SN 1.3, SN 1.4, SN 1.5, SN 1.6, SN 1.7, SN 1.8, SN 1.9` - Saṁyutta Nikāya: The Connected Discourses (SN 1.1-1.10) Sagāthāvagga / Devatā / Naḷa Vagga
+- `SN 1.11, SN 1.12, SN 1.13, SN 1.14, SN 1.15, SN 1.16, SN 1.17, SN 1.18, SN 1.19, SN 1.20` - Saṁyutta Nikāya - The Connected Discourses (SN 1.11-1.20) Sagāthāvagga /Devatā /Nandana Vagga
+- `SN 1.21, SN 1.22, SN 1.23, SN 1.24, SN 1.25, SN 1.26, SN 1.27, SN 1.28, SN 1.29, SN 1.30` - Saṁyutta Nikāya - The Connected Discourses (SN 1.21-1.30) Sagāthāvagga / Devatā / Satti Vagga
+- `SN 1.31, SN 1.32, SN 1.33, SN 1.34, SN 1.35, SN 1.36, SN 1.37, SN 1.38, SN 1.39, SN 1.40` - Saṁyutta Nikāya - The Connected Discourses (SN 1.31-1.40) Sagāthāvagga/Devatā/Satullapakāyika
+- `SN 1.41, SN 1.42, SN 1.43, SN 1.44, SN 1.45, SN 1.46, SN 1.47, SN 1.48, SN 1.49, SN 1.50` - Saṁyutta Nikāya - The Connected Discourses (SN 1.41-1.50) Sagāthāvagga / Devatā /Āditta Vagga
+- `SN 1.51, SN 1.52, SN 1.53, SN 1.54, SN 1.55, SN 1.56, SN 1.57, SN 1.58, SN 1.59, SN 1.60` - Saṁyutta Nikāya - The Connected Discourses (SN 1.51-1.60) Sagāthāvagga / Devatā / Jarā Vagga
+- `SN 1.61, SN 1.62, SN 1.63, SN 1.64, SN 1.65, SN 1.66, SN 1.67, SN 1.68, SN 1.69, SN 1.70` - Saṁyutta Nikāya - The Connected Discourses (SN 1.61-1.70) Sagāthāvagga / Devatā / Addha Vagga
+- `SN 1.71, SN 1.72, SN 1.73, SN 1.74, SN 1.75, SN 1.76, SN 1.77, SN 1.78, SN 1.79, SN 1.80, SN 1.81` - Saṁyutta Nikāya - The Connected Discourses (SN 1.71-1.81) Sagāthāvagga / Devatā /Chetvā Vagga
+- `SN 2.1, SN 2.10, SN 2.2, SN 2.3, SN 2.4, SN 2.5, SN 2.6, SN 2.7, SN 2.8, SN 2.9` - Saṁyutta Nikāya - The Connected Discourses (SN 2.1-2.10) Sagāthāvagga/Devaputta/Paṭhama Vagga
+- `SN 2.11, SN 2.12, SN 2.13, SN 2.14, SN 2.15, SN 2.16, SN 2.17, SN 2.18, SN 2.19, SN 2.20` - Saṁyutta Nikāya-The Connected Discourses (SN 2.11-2.20) Sagāthāvagga/Devaputta/Anāthapiṇḍika
+- `SN 2.21, SN 2.22, SN 2.23, SN 2.24, SN 2.25, SN 2.26, SN 2.27, SN 2.28, SN 2.29, SN 2.30` - Saṁyutta Nikāya - The Connected Discourses (SN 2.21-2.30) Sagāthāvagga/Devaputta/Nānātitthiya
+- `SN 3.1, SN 3.10, SN 3.2, SN 3.3, SN 3.4, SN 3.5, SN 3.6, SN 3.7, SN 3.8, SN 3.9` - Saṁyutta Nikāya - The Connected Discourses (SN 3.1-3.10) Sagāthāvagga / Kosala /Paṭhama Vagga
+- `SN 3.11, SN 3.12, SN 3.13, SN 3.14, SN 3.15, SN 3.16, SN 3.17, SN 3.18, SN 3.19, SN 3.20` - Saṁyutta Nikāya - The Connected Discourses (SN 3.11-3.20) Sagāthāvagga / Kosala / Dutiya Vagga
+- `SN 3.21, SN 3.22, SN 3.23, SN 3.24, SN 3.25` - Saṁyutta Nikāya - The Connected Discourses (SN 3.21-3.25) Sagāthāvagga /Kosala /Tatiya Vagga
+- `SN 4.1, SN 4.10, SN 4.2, SN 4.3, SN 4.4, SN 4.5, SN 4.6, SN 4.7, SN 4.8, SN 4.9` - Saṁyutta Nikāya - The Connected Discourses (SN 4.1-4.10) Sagāthāvagga / Māra / Paṭhama Vagga
+- `SN 4.11, SN 4.12, SN 4.13, SN 4.14, SN 4.15, SN 4.16, SN 4.17, SN 4.18, SN 4.19, SN 4.20` - Saṁyutta Nikāya - The Connected Discourses (SN 4.11-4.20) Sagāthāvagga / Māra / Dutiya Vagga
+- `SN 4.21, SN 4.22, SN 4.23, SN 4.24, SN 4.25` - Saṁyutta Nikāya - The Connected Discourses (SN 4.21-4.25) Sagāthāvagga / Māra / Tatiya Vagga
+- `SN 5.1, SN 5.10, SN 5.2, SN 5.3, SN 5.4, SN 5.5, SN 5.6, SN 5.7, SN 5.8, SN 5.9` - Saṁyutta Nikāya - The Connected Discourses (SN 5.1-5.10) Sagāthāvagga /Bhikkhuni/Bhikkhuni Vagga
+- `SN 6.1, SN 6.10, SN 6.2, SN 6.3, SN 6.4, SN 6.5, SN 6.6, SN 6.7, SN 6.8, SN 6.9` - Saṁyutta Nikāya - The Connected Discourses (SN 6.1-6.10) Sagāthāvagga / Brahma /Paṭhama Vagga
+- `SN 6.11, SN 6.12, SN 6.13, SN 6.14, SN 6.15` - Saṁyutta Nikāya - The Connected Discourses (SN 6.11-6.15) Sagāthāvagga / Brahma / Dutiya Vagga
+- `SN 7.1, SN 7.10, SN 7.2, SN 7.3, SN 7.4, SN 7.5, SN 7.6, SN 7.7, SN 7.8, SN 7.9` - Saṁyutta Nikāya - The Connected Discourses (SN 7.1-7.10) Sagāthāvagga/Brāhmaṇa/Arahanta Vagga
+- `SN 7.11, SN 7.12, SN 7.13, SN 7.14, SN 7.15, SN 7.16, SN 7.17, SN 7.18, SN 7.19, SN 7.20, SN 7.21, SN 7.22` - Saṁyutta Nikāya - The Connected Discourses (SN 7.11-7.22) Sagāthāvagga/Brāhmaṇa/Upāsaka Vagga
+- `SN 8.1, SN 8.10, SN 8.11, SN 8.12, SN 8.2, SN 8.3, SN 8.4, SN 8.5, SN 8.6, SN 8.7, SN 8.8, SN 8.9` - Saṁyutta Nikāya - The Connected Discourses (SN 8.1-8.12) Sagāthāvagga/Vaṅgīsa/Vaṅgīsa Vagga
+- `SN 9.1, SN 9.10, SN 9.11, SN 9.12, SN 9.13, SN 9.14, SN 9.2, SN 9.3, SN 9.4, SN 9.5, SN 9.6, SN 9.7, SN 9.8, SN 9.9` - Saṁyutta Nikāya - The Connected Discourses (SN 9.1-9.14) Sagāthāvagga/Vana Saṁyutta/Vana Vagga
+- `SN 10.1, SN 10.10, SN 10.11, SN 10.12, SN 10.2, SN 10.3, SN 10.4, SN 10.5, SN 10.6, SN 10.7, SN 10.8, SN 10.9` - Saṁyutta Nikāya - The Connected Discourses (SN 10.1-10.12) Sagāthāvagga / Yakkha  /Indaka Vagga
+- `SN 11.1, SN 11.10, SN 11.2, SN 11.3, SN 11.4, SN 11.5, SN 11.6, SN 11.7, SN 11.8, SN 11.9` - Saṁyutta Nikāya - The Connected Discourses (SN 11.1-11.10) Sagāthāvagga / Sakka / Paṭhama Vagga
+- `SN 11.11, SN 11.12, SN 11.13, SN 11.14, SN 11.15, SN 11.16, SN 11.17, SN 11.18, SN 11.19, SN 11.20` - Saṁyutta Nikāya - The Connected Discourses (SN 11.11-11.20) Sagāthāvagga / Sakka S/ Dutiya Vagga
+- `SN 11.21, SN 11.22, SN 11.23, SN 11.24, SN 11.25` - Saṁyutta Nikāya - The Connected Discourses (SN 11.21-11.25) Sagāthāvagga / Sakka S/ Taitya Vagga
+- `SN 12.1, SN 12.10, SN 12.2, SN 12.3, SN 12.4, SN 12.5, SN 12.6, SN 12.7, SN 12.8, SN 12.9` - Saṁyutta Nikāya - The Connected Discourses (SN 12.1-12.10) Nidānavagga S/Nidāna S/Buddhā Vagga
+- `SN 12.11, SN 12.12, SN 12.13, SN 12.14, SN 12.15, SN 12.16, SN 12.17, SN 12.18, SN 12.19, SN 12.20` - Saṁyutta Nikāya - The Connected Discourses (SN 12.11-12.20) Nidānavagga S/Nidāna S/Āhāra Vagga
+- `SN 12.21, SN 12.22, SN 12.23, SN 12.24, SN 12.25, SN 12.26, SN 12.27, SN 12.28, SN 12.29, SN 12.30` - Saṁyutta Nikāya - The Connected Discourses (SN 12.21-12.30) Nidānavagga S/Nidāna /Dasabala Vagga
+- `SN 12.31, SN 12.32, SN 12.33, SN 12.34, SN 12.35, SN 12.36, SN 12.37, SN 12.38, SN 12.39, SN 12.40` - Saṁyutta Nikāya  - The Connected Discourses (SN 12.31-12.40) Nidānavagga/Nidāna/Kaḷārakhattiya
+- `SN 12.41, SN 12.42, SN 12.43, SN 12.44, SN 12.45, SN 12.46, SN 12.47, SN 12.48, SN 12.49, SN 12.50` - Saṁyutta Nikāya - The Connected Discourses (SN 12.41-12.50) Nidānavagga /Nidāna /Gahapati Vagga
+- `SN 12.51, SN 12.52, SN 12.53, SN 12.54, SN 12.55, SN 12.56, SN 12.57, SN 12.58, SN 12.59, SN 12.60` - Samyutta Nikāya - The Connected Discourses (SN 12.51-12.60) Nidānavagga /Nidāna / Dukkha Vagga
+- `SN 12.61, SN 12.62, SN 12.63, SN 12.64, SN 12.65, SN 12.66, SN 12.67, SN 12.68, SN 12.69, SN 12.70` - Saṁyutta Nikāya - The Connected Discourses (SN 12.61-12.70) Nidānavagga S/Nidāna S/Mahā Vagga
+- `SN 12.71, SN 12.72, SN 12.73, SN 12.74, SN 12.75, SN 12.76, SN 12.77, SN 12.78, SN 12.79, SN 12.80, SN 12.81` - Saṁyutta Nikāya - The Connected Discourses (SN 12.71-12.81) Nidānavagga/Nidāna/Samaṇabrāhmaṇa
+- `SN 12.100, SN 12.101, SN 12.102, SN 12.103, SN 12.104, SN 12.105, SN 12.106, SN 12.107, SN 12.108, SN 12.109, SN 12.110, SN 12.111, SN 12.112, SN 12.113, SN 12.114, SN 12.115, SN 12.116, SN 12.117, SN 12.118, SN 12.119, SN 12.120, SN 12.121, SN 12.122, SN 12.123, SN 12.124, SN 12.125, SN 12.126, SN 12.127, SN 12.128, SN 12.129, SN 12.130, SN 12.131, SN 12.132, SN 12.133, SN 12.134, SN 12.135, SN 12.136, SN 12.137, SN 12.138, SN 12.139, SN 12.140, SN 12.141, SN 12.142, SN 12.143, SN 12.144, SN 12.145, SN 12.146, SN 12.147, SN 12.148, SN 12.149, SN 12.150, SN 12.151, SN 12.152, SN 12.153, SN 12.154, SN 12.155, SN 12.156, SN 12.157, SN 12.158, SN 12.159, SN 12.160, SN 12.161, SN 12.162, SN 12.163, SN 12.164, SN 12.165, SN 12.166, SN 12.167, SN 12.168, SN 12.169, SN 12.170, SN 12.171, SN 12.172, SN 12.173, SN 12.174, SN 12.175, SN 12.176, SN 12.177, SN 12.178, SN 12.179, SN 12.180, SN 12.181, SN 12.182, SN 12.183, SN 12.184, SN 12.185, SN 12.186, SN 12.187, SN 12.188, SN 12.189, SN 12.190, SN 12.191, SN 12.192, SN 12.193, SN 12.194, SN 12.195, SN 12.196, SN 12.197, SN 12.198, SN 12.199, SN 12.200, SN 12.201, SN 12.202, SN 12.203, SN 12.204, SN 12.205, SN 12.206, SN 12.207, SN 12.208, SN 12.209, SN 12.210, SN 12.211, SN 12.212, SN 12.213, SN 12.82, SN 12.83, SN 12.84, SN 12.85, SN 12.86, SN 12.87, SN 12.88, SN 12.89, SN 12.90, SN 12.91, SN 12.92, SN 12.93, SN 12.94, SN 12.95, SN 12.96, SN 12.97, SN 12.98, SN 12.99` - Saṁyutta Nikāya - The Connected Discourses (SN 12.82-12.213) Nidānavagga/Nidāna/Antarapeyyāla
+- `SN 13.1, SN 13.10, SN 13.11, SN 13.2, SN 13.3, SN 13.4, SN 13.5, SN 13.6, SN 13.7, SN 13.8, SN 13.9` - Saṁyutta Nikāya - The Connected Discourses (SN 13.1-13.11) Nidānavagga/Abhisamaya/Abhisamaya
+- `SN 14.1, SN 14.10, SN 14.2, SN 14.3, SN 14.4, SN 14.5, SN 14.6, SN 14.7, SN 14.8, SN 14.9` - Saṁyutta Nikāya - The Connected Discourses (SN 14.1-14.10) Nidānavagga / Dhātu /Nānatta Vagga
+- `SN 14.11, SN 14.12, SN 14.13, SN 14.14, SN 14.15, SN 14.16, SN 14.17, SN 14.18, SN 14.19, SN 14.20, SN 14.21, SN 14.22` - Saṁyutta Nikāya - The Connected Discourses (SN 14.11-14.22) Nidānavagga /Dhātu / Dutiya Vagga
+- `SN 14.23, SN 14.24, SN 14.25, SN 14.26, SN 14.27, SN 14.28, SN 14.29` - Saṁyutta Nikāya - The Connected Discourses (SN 14.23-14.29) Nidānavagga/Dhātu/Kammapatha Vagga
+- `SN 14.30, SN 14.31, SN 14.32, SN 14.33, SN 14.34, SN 14.35, SN 14.36, SN 14.37, SN 14.38, SN 14.39` - Saṁyutta Nikāya - The Connected Discourses (SN 14.30-14.39) Nidānavagga /Dhātu /Catuttha Vagga
+- `SN 15.1` - Saṁyutta Nikāya - The Connected Discourses (SN 15.1-15.1) Nidānavagga/Anamatagga/Paṭhama Vagga
+- `SN 15.11, SN 15.12, SN 15.13, SN 15.14, SN 15.15, SN 15.16, SN 15.17, SN 15.18, SN 15.19, SN 15.20` - Saṁyutta Nikāya - The Connected Discourses (SN 15.11-15.20) Nidānavagga/Anamatagga/Dutiya Vagga
+- `SN 16.1, SN 16.10, SN 16.11, SN 16.12, SN 16.13, SN 16.2, SN 16.3, SN 16.4, SN 16.5, SN 16.6, SN 16.7, SN 16.8, SN 16.9` - Saṁyutta Nikāya - The Connected Discourses (SN 16.1-16.13) Nidānavagga / Kassapa /Kassapa Vagga
+- `SN 17.1, SN 17.10, SN 17.2, SN 17.3, SN 17.4, SN 17.5, SN 17.6, SN 17.7, SN 17.8, SN 17.9` - Saṁyutta Nikāya - The Connected Discourses (SN 17.1-17.10) Nidānavagga/Lābha Sakkāra/Paṭhama
+- `SN 17.11, SN 17.12, SN 17.13, SN 17.14, SN 17.15, SN 17.16, SN 17.17, SN 17.18, SN 17.19, SN 17.20` - Saṁyutta Nikāya - The Connected Discourses (SN 17.11-17.20) Nidānavagga/Lābhasakkāra/Dutiya.
+- `SN 17.21, SN 17.22, SN 17.23, SN 17.24, SN 17.25, SN 17.26, SN 17.27, SN 17.28, SN 17.29, SN 17.30` - Saṁyutta Nikāya - The Connected Discourses (SN 17.21-30) Nidānavagga/Lābhasakkāra/Tatiya
+- `SN 17.31, SN 17.32, SN 17.33, SN 17.34, SN 17.35, SN 17.36, SN 17.37, SN 17.38, SN 17.39, SN 17.40, SN 17.41, SN 17.42, SN 17.43` - Saṁyutta Nikāya - The Connected Discourses (SN 17.31-17.43) Nidānavagga/Lābhasakkāra/Catuttha.
+- `SN 18.1, SN 18.10, SN 18.2, SN 18.3, SN 18.4, SN 18.5, SN 18.6, SN 18.7, SN 18.8, SN 18.9` - Saṁyutta Nikāya - The Connected Discourses (SN 18.1-18.10) Nidānavagga/Rāhula Samyutta/ Paṭhama
+- `SN 18.11, SN 18.12, SN 18.13, SN 18.14, SN 18.15, SN 18.16, SN 18.17, SN 18.18, SN 18.19, SN 18.20, SN 18.21, SN 18.22` - Saṁyutta Nikāya - The Connected Discourses (SN 18.11-18.22) Nidānavagga S /Rāhula S /Dutiya V.
+- `SN 19.1, SN 19.10, SN 19.2, SN 19.3, SN 19.4, SN 19.5, SN 19.6, SN 19.7, SN 19.8, SN 19.9` - Saṁyutta Nikāya - The Connected Discourses (SN 19.1-19.10) Nidānavagga/Lakkhaṇa/Paṭhama Vagga
+- `SN 19.11, SN 19.12, SN 19.13, SN 19.14, SN 19.15, SN 19.16, SN 19.17, SN 19.18, SN 19.19, SN 19.20, SN 19.21` - Saṁyutta Nikāya - The Connected Discourses (SN 19.11-19.21) Nidānavagga/Lakkhaṇa/Dutiya Vagga
+- `SN 20.1, SN 20.10, SN 20.11, SN 20.12, SN 20.2, SN 20.3, SN 20.4, SN 20.5, SN 20.6, SN 20.7, SN 20.8, SN 20.9` - Saṁyutta Nikāya - The Connected Discourses( SN 20.1-20.12) Nidānavagga/Opamma/Opamma Vagga
+- `SN 21.1, SN 21.10, SN 21.11, SN 21.12, SN 21.2, SN 21.3, SN 21.4, SN 21.5, SN 21.6, SN 21.7, SN 21.8, SN 21.9` - Saṁyutta Nikāya - The Connected Discourses (SN 21.1-21.12) Nidānavagga/Bhikkhu/Bhikkhu Vagga
+- `SN 22.1, SN 22.10, SN 22.11, SN 22.2, SN 22.3, SN 22.4, SN 22.5, SN 22.6, SN 22.7, SN 22.8, SN 22.9` - Saṁyutta Nikāya - The Connected Discourses (SN 22.1-22.11) Khandhavagga S/Khandha/Nakulapitu Vagga
+- `SN 22.12, SN 22.13, SN 22.14, SN 22.15, SN 22.16, SN 22.17, SN 22.18, SN 22.19, SN 22.20, SN 22.21` - Saṁyutta Nikāya - The Connected Discourses (SN 22.12-22.21) Khandhavagga S/Khandha/Anicca Vagga
+
+### samyutta-nikaya-temporary
+- `SN 25.1` - The Connected Discourses: SN 25.1, Cakkhu Sutta (The Eye).
+- `SN 36.3` - The Connected Discourses: SN 36.3, Pahāna Sutta (The Removal).
+- `SN 36.4` - The Connected Discourses: SN 36.4, Pātāla Sutta (The Bottomless Abyss).
+- `SN 36.5` - The Connected Discourses: SN 36.5, Daṭṭhabba Sutta (Seen For What They Are).
+- `SN 40.9` - The Connected Discourses: SN 40.9 - Animitta Pañhā Sutta (On Being Asked About the Signless).
+- `SN 43.2` - The Connected Discourses: SN 43.2 - Samatha Vipassanā Sutta (Mental Quietude & Penetrative Insight)
+- `SN 43.4` - The Connected Discourses: SN 43.4 - Suññata Samādhi Sutta (Samādhi of Emptiness).
+- `SN 47.1` - The Connected Discourses: SN 47.1 - Ambapālī Sutta, (Ambapālī's Mango Grove).
+- `SN 47.15` - The Connected Discourses: SN 47.15 - Bāhiya Sutta (Discourse to the Venerable Bāhiya).
+- `SN 51.13` - The Connected Discourses: SN 51.13, Chanda Samādhi Sutta (Samādhi Through Fervent Desire).
+- `SN 51.20` - The Connected Discourses: SN 51.20 Iddhi Pāda Vibhaṅga (Expo. on the Four Bases of Psychic Power).
+- `SN 51.22` - The Connected Discourses: SN 51.22 - Ayoguḷa Sutta, (The Iron Ball).
+- `SN 51.77` - The Connected Discourses: SN 51.77 - Oghādi Sutta, (On Crossing the Floods).
+- `SN 51.78` - The Connected Discourses: SN 51.78 - Yoga Sutta, (Tightly Bound Up).
+- `SN 51.79` - The Connected Discourses: SN 51.79 - Upādāna Sutta, (On Grabbing).
+- `SN 51.80` - The Connected Discourses: SN 51.80 - Gantha Sutta, (On Getting Bound Up).
+- `SN 51.82` - The Connected Discourses: SN 51.82 - Kāmaguṇa Sutta, (On Sensual Lust).
+- `SN 52.9` - The Connected Discourses: SN 52.9, Ambapālīvana Sutta (At Ambapālī’s Park).
+
+### udana-itivuttaka
+- `Ud 1.1` - The Udana: 1.1 - The Bodhi Tree
+- `Ud 1.2` - The Udana: 1.2 - The Bodhi Tree 2
+- `Ud 1.3` - The Udana: 1.3 - The Bodhi Tree 3
+- `Ud 1.4` - The Udana: 1.4 - The Banyan Tree
+- `Ud 1.5` - The Udana: 1.5 - The Elders
+- `Ud 1.6` - The Udana: 1.6 - Mahakassapa
+- `Ud 1.7` - The Udana: 1.7 - Ajakalapaka
+- `Ud 1.8` - The Udana: 1.8 - Sanghamaji
+- `Ud 1.9` - The Udana: 1.9 - The Jatila Ascetics
+- `Ud 2.1` - The Udana: 2.1 - Mucalinda
+- `Ud 2.2` - The Udana: 2.2 - The Kings
+- `Ud 2.3` - The Udana: 2.3 - The Stick
+- `Ud 2.4` - The Udana: 2.4 - Respected
+- `Ud 2.5` - The Udana: 2.5 - The Lay Follower
+- `Ud 2.6` - The Udana: 2.6 - The Pregnant Woman
+- `Ud 2.7` - The Udana: 2.7 - The Only Son
+- `Ud 2.8` - The Udana: 2.8 - Suppavasa
+- `Ud 2.9` - The Udana: 2.9 - Visakha
+- `Ud 3.1` - The Udana: 3.1 - Nanda
+- `Ud 3.2` - The Udana: 3.2 - Nanda
+- `Ud 3.3` - The Udana: 3.3 - Yasoja
+- `Ud 3.4` - The Udana: 3.4 - Sariputta
+- `Ud 3.5` - The Udana: 3.5 - Mahamoggallana
+- `Ud 3.6` - The Udana: 3.6 - Pilindavaccha
+- `Ud 3.7` - The Udana: 3.7 - Kassapa
+- `Ud 3.8` - The Udana: 3.8 - The Almsfood Collector
+- `Ud 3.9` - The Udana: 3.9 - A Craft
+- `Ud 3.10` - The Udana: 3.10 - Examining The World
+- `Ud 4.1` - The Udana: 4.1 - Meghiya
+- `Ud 4.2` - The Udana: 4.2 - The Turbulent Ones
+- `Ud 4.3` - The Udana: 4.3 - The Cowherd
+- `Ud 4.4` - The Udana: 4.4 - The Moonlit Night
+- `Ud 4.5` - The Udana: 4.5 - The Bull Elephant
+- `Ud 4.6` - The Udana: 4.6 - Pindola
+- `Ud 4.7` - The Udana: 4.7 - Sariputta
+- `Ud 4.8` - The Udana: 4.8 - Sundari
+- `Ud 4.9` - The Udana: 4.9 - Upasena
+- `Ud 4.10` - The Udana: 4.10 - Sariputta
+- `Ud 5.1` - The Udana: 5.1 - The King
+- `Ud 5.2` - The Udana: 5.2 - Short lived
+- `Ud 5.3` - The Udana: 5.3 - Suppabuddha The Leper
+- `Ud 5.4` - The Udana: 5.4 - The Boys
+- `Ud 5.5` - The Udana: 5.5 - The Observance Day
+- `Ud 5.6` - The Udana: 5.6 - Sona
+- `Ud 5.7` - The Udana: 5.7 - Revata
+- `Ud 5.8` - The Udana: 5.8 - Ananda
+- `Ud 5.9` - The Udana: 5.9 - Abusing
+- `Ud 5.10` - The Udana: 5.10 - Cula Panthaka
+- `Ud 6.1` - The Udana: 6.1 - Relinquishing The Life Force
+- `Ud 6.2` - The Udana: 6.2 - The Jatila Ascetics
+- `Ud 6.3` - The Udana: 6.3 - Reviewing
+- `Ud 6.4` - The Udana: 6.4 - Various Sectarians
+- `Ud 6.5` - The Udana: 6.5 - Various Sectarians 2
+- `Ud 6.6` - The Udana: 6.6 - Various Sectarians 3
+- `Ud 6.7` - The Udana: 6.7 - Subhuti
+- `Ud 6.8` - The Udana: 6.8 - The Courtesan
+- `Ud 6.9` - The Udana: 6.9 - Insects
+- `Ud 6.10` - The Udana: 6.10 - The Appearance of Tathagatas
+- `Ud 7.1` - The Udana: 7.1 - Bhaddiya
+- `Ud 7.2` - The Udana: 7.2 - Bhaddiya 2
+- `Ud 7.3` - The Udana: 7.3 - Clinging
+- `Ud 7.4` - The Udana: 7.4 - Clinging 2
+- `Ud 7.5` - The Udana: 7.5 - Bhaddiya 3
+- `Ud 7.6` - The Udana: 7.6 - The Destruction of Craving
+- `Ud 7.7` - The Udana: 7.7 - The Destruction of Proliferation
+- `Ud 7.8` - The Udana: 7.8 - Kaccana
+- `Ud 7.9` - The Udana: 7.9 - Well
+- `Ud 7.10` - The Udana: 7.10 - Udana
+- `Ud 8.1` - The Udana: 8.1 - Parinibbana 1
+- `Ud 8.2` - The Udana: 8.2 - Parinibbana 2
+- `Ud 8.3` - The Udana: 8.3 - Parinibbana 3
+- `Ud 8.4` - The Udana: 8.4 - Parinibbana 4
+- `Ud 8.5` - The Udana: 8.5 - Cunda
+- `Ud 8.6` - The Udana: 8.6 - Patali Village
+- `Ud 8.7` - The Udana: 8.7 - The Two Ways
+- `Ud 8.8` - The Udana: 8.8 - Visakha
+- `Ud 8.9` - The Udana: 8.9 - Dabba
+- `Ud 8.10` - The Udana: 8.10 - Dabba 2
+- `Iti 1` - The Itivuttaka: 1 - Greed
+- `Iti 2` - The Itivuttaka: 2 - Hate
+- ... 106 more
+

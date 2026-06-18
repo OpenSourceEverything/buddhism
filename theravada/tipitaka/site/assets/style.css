@@ -1,0 +1,5 @@
+body { font-family: serif; margin: 2em; max-width: 80em; }
+table { border-collapse: collapse; }
+th, td { border: 1px solid #888; padding: 0.25em 0.5em; vertical-align: top; }
+pre { white-space: pre-wrap; line-height: 1.35; }
+a { color: #003399; }
