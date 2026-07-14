@@ -1,0 +1,38 @@
+services:
+  docker-website-freebuddhism-container:
+    image: ${NGINX_IMAGE}
+    container_name: ${SITE_NAME}
+    restart: unless-stopped
+
+    environment:
+      - VIRTUAL_HOST=${VIRTUAL_HOSTNAME}
+      - LETSENCRYPT_HOST=${LETSENCRYPT_DOMAIN}
+      - HTTPS_METHOD=${HTTPS_METHOD_TYPE}
+
+    volumes:
+      - ./site-entry/index.html:/usr/share/nginx/html/index.html:ro
+      - ./theravada:/usr/share/nginx/html/theravada:ro
+
+    networks:
+      - default
+      - proxy
+
+    read_only: true
+    tmpfs:
+      - /var/run
+      - /var/cache/nginx
+
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - |
+          [ "${HEALTHCHECK_ENABLED}" = "yes" ] && \
+          wget -qO- ${HEALTHCHECK_URL} >/dev/null || exit 0
+      interval: ${HEALTHCHECK_INTERVAL}
+      timeout: ${HEALTHCHECK_TIMEOUT}
+      retries: ${HEALTHCHECK_RETRIES}
+
+networks:
+  proxy:
+    external: true
+    name: ${PROXY_NETWORK}
