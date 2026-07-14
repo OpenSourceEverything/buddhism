@@ -27,8 +27,18 @@ theravada/
     abhidhamma/
     site/
       index.html
+      dhamma.html
       four-noble-truths.html
       eightfold-path.html
+      path/
+        right-view.html
+        right-intention.html
+        right-speech.html
+        right-action.html
+        right-livelihood.html
+        right-effort.html
+        right-mindfulness.html
+        right-concentration.html
       tipitaka.html
       sutta.html
       downloads.html

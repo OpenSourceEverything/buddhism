@@ -125,6 +125,7 @@ def site_href(site_prefix: str, path: str) -> str:
 def page(title: str, body: str, site_prefix: str = ".") -> str:
     css_href = site_href(site_prefix, "assets/style.css")
     home_href = site_href(site_prefix, "index.html")
+    dhamma_href = site_href(site_prefix, "dhamma.html")
     truths_href = site_href(site_prefix, "four-noble-truths.html")
     path_href = site_href(site_prefix, "eightfold-path.html")
     tipitaka_href = site_href(site_prefix, "tipitaka.html")
@@ -142,6 +143,7 @@ def page(title: str, body: str, site_prefix: str = ".") -> str:
         '<header class="site-header">\n'
         f'<a class="site-name" href="{html.escape(home_href)}">Free Buddhism</a>\n'
         '<nav aria-label="Primary navigation">\n'
+        f'<a href="{html.escape(dhamma_href)}">Dhamma</a>\n'
         f'<a href="{html.escape(truths_href)}">Four Noble Truths</a>\n'
         f'<a href="{html.escape(path_href)}">Eightfold Path</a>\n'
         f'<a href="{html.escape(tipitaka_href)}">Tipiṭaka</a>\n'
@@ -150,8 +152,7 @@ def page(title: str, body: str, site_prefix: str = ".") -> str:
         "</header>\n"
         f"<main>\n{body}\n</main>\n"
         '<footer class="site-footer">\n'
-        '<p>Questions or corrections? <a href="mailto:admin@opensourceeverything.net">admin@opensourceeverything.net</a></p>\n'
-        '<p>May these freely available teachings support understanding and practice.</p>\n'
+        '<p>Contact: <a href="mailto:admin@opensourceeverything.net">admin@opensourceeverything.net</a></p>\n'
         "</footer>\n"
         "</body>\n"
         "</html>\n"
@@ -330,15 +331,12 @@ def write_site(
     assets.mkdir(parents=True, exist_ok=True)
     (assets / "style.css").write_text(
         """:root {
-  --ink: #22332b;
-  --muted: #5d6a63;
-  --paper: #fffdf7;
-  --cream: #f4efe2;
-  --leaf: #315f4b;
-  --leaf-dark: #214435;
-  --gold: #bb7c2b;
-  --line: #d8cfbd;
-  --shadow: 0 16px 40px rgba(44, 58, 48, 0.08);
+  --ink: #20231f;
+  --muted: #626760;
+  --paper: #fcfcf9;
+  --soft: #f2f3ee;
+  --link: #274f3b;
+  --line: #d9ddd5;
 }
 
 * { box-sizing: border-box; }
@@ -347,87 +345,67 @@ body {
   margin: 0;
   color: var(--ink);
   background: var(--paper);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.05rem;
-  line-height: 1.65;
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-size: 1.08rem;
+  line-height: 1.7;
 }
-a { color: var(--leaf-dark); text-underline-offset: 0.18em; }
-a:hover { color: #7b4d14; }
+a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+a:hover { color: #111; }
 .site-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
-  padding: 1rem clamp(1rem, 5vw, 4rem);
+  gap: 1rem 2rem;
+  width: min(48rem, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1.25rem 0;
   border-bottom: 1px solid var(--line);
-  background: rgba(255, 253, 247, 0.96);
 }
-.site-name { font-size: 1.3rem; font-weight: 700; text-decoration: none; }
-nav { display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; }
-nav a { font-family: system-ui, sans-serif; font-size: 0.9rem; text-decoration: none; }
-main { width: min(76rem, calc(100% - 2rem)); margin: 0 auto; padding: 3rem 0 5rem; }
-h1, h2, h3 { color: var(--leaf-dark); line-height: 1.15; }
-h1 { font-size: clamp(2.3rem, 7vw, 5.3rem); margin: 0 0 1rem; letter-spacing: -0.035em; }
-h2 { font-size: clamp(1.7rem, 4vw, 2.6rem); margin-top: 2.5rem; }
-h3 { font-size: 1.25rem; }
+.site-name { color: var(--ink); font-size: 1.05rem; font-weight: 700; text-decoration: none; }
+nav { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; }
+nav a { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.78rem; text-decoration: none; }
+main { width: min(48rem, calc(100% - 2rem)); margin: 0 auto; padding: 4rem 0 6rem; }
+h1, h2, h3 { line-height: 1.25; }
+h1 { margin: 0 0 2rem; font-size: clamp(2rem, 7vw, 3.4rem); font-weight: 500; letter-spacing: -0.025em; }
+h2 { margin-top: 3rem; font-size: 1.55rem; font-weight: 600; }
+h3 { margin-top: 2.25rem; font-size: 1.12rem; }
+p { max-width: 44rem; }
 .eyebrow {
-  color: var(--gold);
-  font-family: system-ui, sans-serif;
-  font-size: 0.78rem;
-  font-weight: 750;
-  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-.hero { padding: clamp(2rem, 8vw, 6.5rem) 0; max-width: 60rem; }
-.hero p { max-width: 47rem; color: var(--muted); font-size: clamp(1.15rem, 2.4vw, 1.5rem); }
-.button, .resource-actions a {
-  display: inline-block;
-  padding: 0.65rem 0.95rem;
-  border: 1px solid var(--leaf);
-  border-radius: 999px;
-  font-family: system-ui, sans-serif;
-  font-size: 0.88rem;
-  font-weight: 650;
-  text-decoration: none;
-}
-.button.primary { color: #fff; background: var(--leaf); }
-.button-row, .resource-actions { display: flex; flex-wrap: wrap; gap: 0.65rem; }
-.section-intro { max-width: 48rem; color: var(--muted); }
-.card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-.card-grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.card {
-  padding: clamp(1.2rem, 3vw, 2rem);
-  border: 1px solid var(--line);
-  border-radius: 1rem;
-  background: #fff;
-  box-shadow: var(--shadow);
-}
-.card h3 { margin-top: 0; }
-.card p { color: var(--muted); }
-.card-link { font-family: system-ui, sans-serif; font-size: 0.9rem; font-weight: 700; }
-.teaching-section { padding: 2.25rem 0; border-top: 1px solid var(--line); scroll-margin-top: 2rem; }
-.teaching-section > p { max-width: 52rem; }
-.practice-note { padding: 0.8rem 1rem; border-left: 4px solid var(--gold); background: var(--cream); }
-.resource-list { display: grid; gap: 0.6rem; padding-left: 1.25rem; }
-.resource-list li { padding-left: 0.2rem; }
-.resource-list small, .listen-card span { display: block; color: var(--muted); font-family: system-ui, sans-serif; font-size: 0.8rem; }
-.listen-card { margin: 2rem 0; padding: 1.25rem 1.5rem; border: 1px solid var(--line); border-radius: 0.9rem; background: var(--cream); }
-.listen-card h2 { margin: 0.15rem 0 0.5rem; font-size: 1.55rem; }
+.home-statement { padding: 1.5rem 0 3rem; }
+.home-statement p { margin: 0 0 2rem; font-size: clamp(1.18rem, 3vw, 1.42rem); }
+.home-statement .canon-statement { margin-top: 3.5rem; }
+.section-intro { color: var(--muted); font-size: 1.12rem; }
+.numbered-teachings { padding-left: 1.5rem; }
+.numbered-teachings > li { margin: 0 0 1rem; padding-left: 0.25rem; }
+.numbered-teachings ul { margin-top: 0.5rem; }
+.teaching-section { padding: 1.5rem 0 2rem; border-top: 1px solid var(--line); scroll-margin-top: 2rem; }
+.practice-note, .scope-note { margin: 1.5rem 0; padding: 1rem 1.1rem; background: var(--soft); }
+.resource-list { display: grid; gap: 0.75rem; padding-left: 1.25rem; }
+.resource-list li { padding-left: 0.1rem; }
+.resource-list small, .listen-card span { display: block; color: var(--muted); font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.78rem; }
+.listen-card { margin: 2rem 0; padding: 1rem 1.1rem; border: 1px solid var(--line); background: var(--soft); }
+.listen-card h2 { margin: 0.15rem 0 0.5rem; font-size: 1.3rem; }
+.resource-actions { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; }
+.resource-actions a { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.8rem; }
 .source-text { margin-top: 2.5rem; }
 pre { white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; line-height: 1.6; }
-.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 0.75rem; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); }
 table { width: 100%; border-collapse: collapse; background: #fff; }
 th, td { padding: 0.7rem 0.8rem; border-bottom: 1px solid var(--line); vertical-align: top; text-align: left; }
-th { color: var(--leaf-dark); background: var(--cream); font-family: system-ui, sans-serif; font-size: 0.82rem; }
-.scope-note { margin: 2rem 0; padding: 1.25rem; border: 1px solid var(--line); border-radius: 0.8rem; background: var(--cream); }
-.site-footer { padding: 2rem clamp(1rem, 5vw, 4rem); color: var(--muted); border-top: 1px solid var(--line); background: var(--cream); font-family: system-ui, sans-serif; font-size: 0.86rem; }
+th { background: var(--soft); font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.78rem; }
+.site-footer { width: min(48rem, calc(100% - 2rem)); margin: 0 auto; padding: 2rem 0 3rem; color: var(--muted); border-top: 1px solid var(--line); font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.78rem; }
 .site-footer p { margin: 0.25rem 0; }
 
 @media (max-width: 760px) {
   .site-header { align-items: flex-start; flex-direction: column; }
-  main { padding-top: 2rem; }
-  .card-grid, .card-grid.three { grid-template-columns: 1fr; }
-  h1 { font-size: clamp(2.2rem, 15vw, 4rem); }
+  main { padding: 2.5rem 0 4rem; }
 }
 """,
         encoding="utf-8",
@@ -439,51 +417,32 @@ th { color: var(--leaf-dark); background: var(--cream); font-family: system-ui, 
         items_by_id[item.canonical_id].append(item)
 
     index_body = """
-<section class="hero">
-  <p class="eyebrow">Teachings preserved in the Theravāda tradition</p>
-  <h1>A practical path to the end of suffering.</h1>
-  <p>Begin with the Four Noble Truths, follow the Noble Eightfold Path, and read or listen to the suttas in this growing collection of Candana Bhikkhu translations.</p>
-  <div class="button-row">
-    <a class="button primary" href="four-noble-truths.html">Begin with the Four Noble Truths</a>
-    <a class="button" href="sutta.html">Browse all suttas</a>
-  </div>
-</section>
-
-<section aria-labelledby="truths-heading">
-  <p class="eyebrow">The framework</p>
-  <h2 id="truths-heading">The Four Noble Truths</h2>
-  <p class="section-intro">The Buddha’s teaching begins with a problem that can be understood, its cause that can be abandoned, its ending that can be realized, and a path that can be developed.</p>
-  <div class="card-grid">
-    <article class="card"><h3>1. Dukkha</h3><p>Conditioned life includes suffering, stress, change, and experiences that cannot provide lasting satisfaction.</p><a class="card-link" href="four-noble-truths.html#dukkha">Understand the first truth and read the suttas →</a></article>
-    <article class="card"><h3>2. Samudaya</h3><p>Craving—for pleasure, continued existence, or escape—feeds the arising and continuation of suffering.</p><a class="card-link" href="four-noble-truths.html#origin">Explore the origin of suffering →</a></article>
-    <article class="card"><h3>3. Nirodha</h3><p>When craving fades and ceases, release from suffering is possible: this is the peace of Nibbāna.</p><a class="card-link" href="four-noble-truths.html#cessation">Explore the cessation of suffering →</a></article>
-    <article class="card"><h3>4. Magga</h3><p>The way leading to cessation is the Noble Eightfold Path, a complete training in wisdom, conduct, and mind.</p><a class="card-link" href="four-noble-truths.html#path">Explore the path leading to cessation →</a></article>
-  </div>
-</section>
-
-<section aria-labelledby="path-heading">
-  <p class="eyebrow">The practice</p>
-  <h2 id="path-heading">The Noble Eightfold Path</h2>
-  <p class="section-intro">Eight mutually supporting factors are commonly gathered into three trainings.</p>
-  <div class="card-grid three">
-    <article class="card"><h3>Wisdom</h3><p><a href="eightfold-path.html#right-view">Right View</a> sees actions and experience clearly. <a href="eightfold-path.html#right-intention">Right Intention</a> inclines toward renunciation, goodwill, and harmlessness.</p></article>
-    <article class="card"><h3>Ethical conduct</h3><p><a href="eightfold-path.html#right-speech">Right Speech</a>, <a href="eightfold-path.html#right-action">Right Action</a>, and <a href="eightfold-path.html#right-livelihood">Right Livelihood</a> cultivate ways of living that do not cause harm.</p></article>
-    <article class="card"><h3>Mental development</h3><p><a href="eightfold-path.html#right-effort">Right Effort</a>, <a href="eightfold-path.html#right-mindfulness">Right Mindfulness</a>, and <a href="eightfold-path.html#right-concentration">Right Concentration</a> train and steady the mind.</p></article>
-  </div>
-  <p><a class="button" href="eightfold-path.html">Study all eight factors and their suttas</a></p>
-</section>
-
-<section aria-labelledby="canon-heading">
-  <p class="eyebrow">The collection</p>
-  <h2 id="canon-heading">Theravāda and the Tipiṭaka</h2>
-  <p class="section-intro">The Theravāda scriptural collection is known as the Pāli Canon or Tipiṭaka, “three baskets”: discipline, discourses, and systematic teachings. This site currently focuses on the Sutta Piṭaka and clearly marks areas not yet collected.</p>
-  <div class="button-row">
-    <a class="button primary" href="tipitaka.html">See how the Tipiṭaka is organized</a>
-    <a class="button" href="downloads.html">Downloads and mirrors</a>
-  </div>
+<h1>Free Buddhism</h1>
+<section class="home-statement">
+  <p>This website attempts to present the teachings of <a href="tipitaka.html">Theravāda Buddhism</a> without distortion.</p>
+  <p>The <a href="dhamma.html">Dhamma</a> is the Buddha’s teaching as a whole.</p>
+  <p>The <a href="four-noble-truths.html">Four Noble Truths</a> are its core framework.<br>
+  The <a href="eightfold-path.html">Noble Eightfold Path</a> is the fourth truth: the path to the <a href="four-noble-truths.html#cessation">cessation of suffering</a>.</p>
+  <p class="canon-statement">The <a href="tipitaka.html">Pāli Tipiṭaka</a> is the Theravāda tradition’s primary textual record of the Buddha’s <a href="dhamma.html">Dhamma</a>.</p>
 </section>
 """
     (site_dir / "index.html").write_text(page("Free Buddhism", index_body), encoding="utf-8", newline="\n")
+
+    dhamma_page = site_dir / "dhamma.html"
+    dhamma_body = f"""
+<p class="eyebrow">The teaching as a whole</p>
+<h1>The Dhamma</h1>
+<p class="section-intro">The Dhamma is the Buddha’s teaching and the reality that teaching makes known.</p>
+<p>Its purpose is the ending of suffering. Its core framework is the <a href="four-noble-truths.html">Four Noble Truths</a>. Its path of practice is the <a href="eightfold-path.html">Noble Eightfold Path</a>.</p>
+<p>The teachings are preserved primarily in the <a href="tipitaka.html">Pāli Tipiṭaka</a>. Understanding is tested through conduct, cultivation of mind, and direct knowledge—not through belief alone.</p>
+<h2>Relevant suttas</h2>
+{resource_list([
+    local_sutta_resource("SN 56.11", items_by_id, dhamma_page, "SN 56.11 — Setting the Wheel of Dhamma in Motion"),
+    youtube_resource("SN 56.11", youtube_index, "Listen to SN 56.11"),
+    local_sutta_resource("MN 9", items_by_id, dhamma_page, "MN 9 — Right View"),
+])}
+"""
+    dhamma_page.write_text(page("The Dhamma", dhamma_body), encoding="utf-8", newline="\n")
 
     truths_page = site_dir / "four-noble-truths.html"
     sn5611_read = local_sutta_resource("SN 56.11", items_by_id, truths_page, "Read SN 56.11 — Setting the Wheel of Dhamma in Motion")
@@ -491,69 +450,156 @@ th { color: var(--leaf-dark); background: var(--cream); font-family: system-ui, 
     mn141_listen = youtube_resource("MN 141", youtube_index, "Listen to MN 141 — Exposition on the Truths")
     mn9_read = local_sutta_resource("MN 9", items_by_id, truths_page, "Read MN 9 — Discourse on Right View")
     mn117_listen = youtube_resource("MN 117", youtube_index, "Listen to MN 117 — The Great Forty")
-    truth_resources = resource_list([sn5611_read, sn5611_listen, mn141_listen])
     truths_body = f"""
-<p class="eyebrow">The framework of the teaching</p>
 <h1>The Four Noble Truths</h1>
-<p class="section-intro">These truths are not presented only as beliefs. Each carries a task: suffering is to be fully understood, its origin abandoned, its cessation realized, and the path developed.</p>
-
-<article class="teaching-section" id="dukkha"><h2>1. The truth of suffering — dukkha</h2><p>Birth, aging, illness, death, separation from what is loved, contact with what is disliked, and not getting what is wanted are forms of dukkha. More broadly, whatever is grasped as “mine” is unstable and cannot serve as a lasting refuge.</p><p class="practice-note"><strong>Task:</strong> Dukkha is to be fully understood.</p><h3>Suttas to read and hear</h3>{truth_resources}{resource_list([mn9_read])}</article>
-<article class="teaching-section" id="origin"><h2>2. The origin of suffering — samudaya</h2><p>The immediate origin is craving: craving for sensual pleasure, craving for becoming, and craving for non-becoming. Fed by ignorance, craving leads to grasping and renewed suffering.</p><p class="practice-note"><strong>Task:</strong> Craving is to be abandoned.</p><h3>Suttas to read and hear</h3>{truth_resources}</article>
-<article class="teaching-section" id="cessation"><h2>3. The cessation of suffering — nirodha</h2><p>Cessation is the fading away and relinquishment of craving. It is release from dependence on what is impermanent and the peace toward which the teaching points.</p><p class="practice-note"><strong>Task:</strong> Cessation is to be realized.</p><h3>Suttas to read and hear</h3>{truth_resources}</article>
-<article class="teaching-section" id="path"><h2>4. The path leading to cessation — magga</h2><p>The fourth truth is the Noble Eightfold Path. Its factors develop together as training in wisdom, ethical conduct, and mental cultivation.</p><p class="practice-note"><strong>Task:</strong> The path is to be developed.</p><h3>Suttas to read and hear</h3>{resource_list([sn5611_read, sn5611_listen, mn117_listen, mn9_read])}<p><a class="button primary" href="eightfold-path.html">Continue to the Noble Eightfold Path</a></p></article>
+<ol class="numbered-teachings">
+  <li id="dukkha">Clinging to conditioned existence is unsatisfactory.</li>
+  <li id="origin">Craving sustains that clinging and dissatisfaction.</li>
+  <li id="cessation">Ending craving ends that clinging and dissatisfaction.</li>
+  <li id="path">The <a href="eightfold-path.html">Noble Eightfold Path</a> leads to that ending.</li>
+</ol>
+<p class="practice-note">The first truth is to be understood. The second is to be abandoned. The third is to be realized. The fourth is to be developed.</p>
+<h2>Relevant suttas</h2>
+{resource_list([sn5611_read, sn5611_listen, mn141_listen, mn9_read, mn117_listen])}
 """
     truths_page.write_text(page("The Four Noble Truths", truths_body), encoding="utf-8", newline="\n")
 
     path_page = site_dir / "eightfold-path.html"
-    sn458 = '<a href="https://suttacentral.net/sn45.8/en/sujato" rel="external">Read SN 45.8 — Analysis of the Path</a> <small>external text; Candana audio not currently found</small>'
-    mn117 = youtube_resource("MN 117", youtube_index, "Listen to MN 117 — The Great Forty")
+    path_dir = site_dir / "path"
+    path_dir.mkdir(parents=True, exist_ok=True)
     path_sections = [
-        ("right-view", "1. Right View", "Understanding actions and their results, seeing what is skillful and unskillful, and understanding the Four Noble Truths.", [local_sutta_resource("MN 9", items_by_id, path_page, "Read MN 9 — Discourse on Right View"), youtube_resource("MN 9", youtube_index, "Listen to MN 9"), mn117]),
-        ("right-intention", "2. Right Intention", "Intentions of renunciation, goodwill, and harmlessness replace intentions rooted in grasping, ill will, and cruelty.", [youtube_resource("MN 19", youtube_index, "Listen to MN 19 — Two Kinds of Thoughts"), mn117, sn458]),
-        ("right-speech", "3. Right Speech", "Refraining from false, divisive, harsh, and idle speech, while learning to speak truthfully, helpfully, and at the right time.", [youtube_resource("MN 58", youtube_index, "Listen to MN 58 — To Prince Abhaya"), youtube_resource("MN 61", youtube_index, "Listen to MN 61 — Advice to Rāhula"), mn117]),
-        ("right-action", "4. Right Action", "Refraining from killing, taking what is not given, and sexual misconduct; acting with care for oneself and others.", [youtube_resource("MN 41", youtube_index, "Listen to MN 41 — Brahmins of Sālā"), youtube_resource("MN 61", youtube_index, "Listen to MN 61 — Advice to Rāhula"), sn458]),
-        ("right-livelihood", "5. Right Livelihood", "Earning a living without deception or harm and abandoning ways of livelihood that work against the path.", [youtube_resource("AN 5.177", youtube_index, "Listen to AN 5.177 within Candana’s AN 5.171–180 reading"), mn117, sn458]),
-        ("right-effort", "6. Right Effort", "Preventing unskillful qualities, abandoning those that arise, cultivating skillful qualities, and sustaining them once present.", [mn117, sn458]),
-        ("right-mindfulness", "7. Right Mindfulness", "Clearly observing body, feeling, mind, and qualities of experience with diligence, clear comprehension, and freedom from grasping.", [local_sutta_resource("MN 10", items_by_id, path_page, "Read MN 10 — Foundations of Mindfulness"), youtube_resource("MN 10", youtube_index, "Listen to MN 10"), local_sutta_resource("DN 22", items_by_id, path_page, "Read DN 22 — Great Discourse on Mindfulness"), youtube_resource("DN 22", youtube_index, "Listen to DN 22")]),
-        ("right-concentration", "8. Right Concentration", "Unifying and steadying the mind through skillful collectedness, classically described through the four jhānas.", [local_sutta_resource("MN 44", items_by_id, path_page, "Read MN 44 — Shorter Series of Questions and Answers"), youtube_resource("MN 44", youtube_index, "Listen to MN 44"), mn117]),
+        {
+            "slug": "right-view",
+            "name": "Right view",
+            "summary": "Understand suffering, its cause, ending, and path.",
+            "details": "<p><strong>Mundane right view:</strong> Understand karma: intentional actions have consequences in this life and across lives.</p><p><strong>Supramundane right view:</strong> Directly understand the Four Noble Truths.</p><p>Right view gives direction to every other factor of the path.</p>",
+            "resources": [("local", "MN 9", "MN 9 — Discourse on Right View"), ("youtube", "MN 9", "Listen to MN 9"), ("youtube", "MN 117", "MN 117 — The Great Forty")],
+        },
+        {
+            "slug": "right-intention",
+            "name": "Right intention",
+            "summary": "Intend renunciation, goodwill, and harmlessness.",
+            "details": "<p>Right intention turns the mind away from sensual grasping, ill will, and cruelty.</p><p>It inclines thought and purpose toward letting go, goodwill, and compassion.</p>",
+            "resources": [("youtube", "MN 19", "MN 19 — Two Kinds of Thoughts"), ("youtube", "MN 117", "MN 117 — The Great Forty"), ("external", "", "SN 45.8 — Analysis of the Path")],
+        },
+        {
+            "slug": "right-speech",
+            "name": "Right speech",
+            "summary": "Avoid lying, division, abuse, and idle chatter.",
+            "details": "<p>Right speech abstains from false, divisive, harsh, and purposeless speech.</p><p>Speech is considered in light of truth, benefit, timing, and the intention behind it.</p>",
+            "resources": [("youtube", "MN 58", "MN 58 — To Prince Abhaya"), ("youtube", "MN 61", "MN 61 — Advice to Rāhula"), ("youtube", "MN 117", "MN 117 — The Great Forty")],
+        },
+        {
+            "slug": "right-action",
+            "name": "Right action",
+            "summary": "Avoid killing, stealing, and sexual misconduct.",
+            "details": "<p>Right action abstains from intentionally taking life, taking what is not given, and sexual misconduct.</p><p>It makes bodily conduct consistent with non-harm and restraint.</p>",
+            "resources": [("youtube", "MN 41", "MN 41 — Brahmins of Sālā"), ("youtube", "MN 61", "MN 61 — Advice to Rāhula"), ("external", "", "SN 45.8 — Analysis of the Path")],
+        },
+        {
+            "slug": "right-livelihood",
+            "name": "Right livelihood",
+            "summary": "Earn without causing harm.",
+            "details": "<p>Right livelihood brings one’s means of support into accord with right speech and right action.</p><p>For lay followers, the texts specifically reject trade in weapons, living beings, meat, intoxicants, and poison.</p>",
+            "resources": [("youtube", "AN 5.177", "AN 5.177 within the AN 5.171–180 reading"), ("youtube", "MN 117", "MN 117 — The Great Forty"), ("external", "", "SN 45.8 — Analysis of the Path")],
+        },
+        {
+            "slug": "right-effort",
+            "name": "Right effort",
+            "summary": "Prevent and abandon unskillful states; develop skillful ones.",
+            "details": "<p>Right effort has four tasks: prevent unarisen unskillful states, abandon arisen unskillful states, develop unarisen skillful states, and sustain arisen skillful states.</p><p>It is purposeful cultivation, guided by right view.</p>",
+            "resources": [("youtube", "MN 117", "MN 117 — The Great Forty"), ("external", "", "SN 45.8 — Analysis of the Path")],
+        },
+        {
+            "slug": "right-mindfulness",
+            "name": "Right mindfulness",
+            "summary": "Clearly observe body, feeling, mind, and phenomena.",
+            "details": "<p>Right mindfulness establishes clear observation of body, feeling, mind, and phenomena.</p><p>It is practiced ardently, with clear comprehension, while putting away craving and distress regarding the world.</p>",
+            "resources": [("local", "MN 10", "MN 10 — Foundations of Mindfulness"), ("youtube", "MN 10", "Listen to MN 10"), ("local", "DN 22", "DN 22 — Great Discourse on Mindfulness"), ("youtube", "DN 22", "Listen to DN 22")],
+        },
+        {
+            "slug": "right-concentration",
+            "name": "Right concentration",
+            "summary": "Develop a unified mind through the four jhānas.",
+            "details": "<p>Right concentration is the unification of mind developed through the four jhānas.</p><p>Supported by the other seven factors, collectedness steadies the mind for direct knowledge and release.</p>",
+            "resources": [("local", "MN 44", "MN 44 — Shorter Series of Questions and Answers"), ("youtube", "MN 44", "Listen to MN 44"), ("youtube", "MN 117", "MN 117 — The Great Forty")],
+        },
     ]
-    path_body_parts = [
-        '<p class="eyebrow">The fourth noble truth in practice</p>',
-        '<h1>The Noble Eightfold Path</h1>',
-        '<p class="section-intro">The factors support one another. Right View gives direction; ethical conduct makes the mind less troubled; and mental development creates the steadiness needed for liberating understanding.</p>',
-        '<div class="scope-note"><strong>Core readings:</strong> SN 45.8 defines all eight factors, while MN 117 examines how Right View, Right Effort, and Right Mindfulness work around the other factors.</div>',
-    ]
-    for section_id, heading, description, resources in path_sections:
-        path_body_parts.extend(
+
+    overview_items = []
+    for section in path_sections:
+        nested = ""
+        if section["slug"] == "right-view":
+            nested = "<ul><li>Mundane: Understand karma: actions have consequences across lives.</li><li>Supramundane: Directly understand the Four Noble Truths.</li></ul>"
+        overview_items.append(
+            f'<li><a href="path/{section["slug"]}.html">{html.escape(section["name"])}</a>: '
+            f'{html.escape(section["summary"])}{nested}</li>'
+        )
+
+    path_body = "\n".join(
+        [
+            "<h1>The Noble Eightfold Path</h1>",
+            '<ol class="numbered-teachings">',
+            *overview_items,
+            "</ol>",
+            '<p class="practice-note">The path is one training with eight mutually supporting factors.</p>',
+            "<h2>Relevant suttas</h2>",
+            resource_list(
+                [
+                    '<a href="https://suttacentral.net/sn45.8/en/sujato" rel="external">SN 45.8 — Analysis of the Path</a> <small>external text; Candana audio not currently found</small>',
+                    youtube_resource("MN 117", youtube_index, "MN 117 — The Great Forty"),
+                    local_sutta_resource("SN 56.11", items_by_id, path_page, "SN 56.11 — Setting the Wheel of Dhamma in Motion"),
+                    youtube_resource("SN 56.11", youtube_index, "Listen to SN 56.11"),
+                ]
+            ),
+        ]
+    )
+    path_page.write_text(page("The Noble Eightfold Path", path_body), encoding="utf-8", newline="\n")
+
+    for section in path_sections:
+        detail_page = path_dir / f'{section["slug"]}.html'
+        rendered_resources = []
+        for kind, canonical_id, label in section["resources"]:
+            if kind == "local":
+                rendered_resources.append(local_sutta_resource(canonical_id, items_by_id, detail_page, label))
+            elif kind == "youtube":
+                rendered_resources.append(youtube_resource(canonical_id, youtube_index, label))
+            else:
+                rendered_resources.append(
+                    f'<a href="https://suttacentral.net/sn45.8/en/sujato" rel="external">{html.escape(label)}</a> '
+                    '<small>external text; Candana audio not currently found</small>'
+                )
+        detail_body = "\n".join(
             [
-                f'<article class="teaching-section" id="{section_id}">',
-                f"<h2>{heading}</h2>",
-                f"<p>{description}</p>",
-                "<h3>Suttas to read and hear</h3>",
-                resource_list(resources),
-                "</article>",
+                '<p class="eyebrow"><a href="../eightfold-path.html">The Noble Eightfold Path</a></p>',
+                f'<h1>{html.escape(section["name"])}</h1>',
+                f'<p class="section-intro">{html.escape(section["summary"])}</p>',
+                str(section["details"]),
+                "<h2>Relevant suttas</h2>",
+                resource_list(rendered_resources),
             ]
         )
-    path_page.write_text(page("The Noble Eightfold Path", "\n".join(path_body_parts)), encoding="utf-8", newline="\n")
+        detail_page.write_text(page(str(section["name"]), detail_body, ".."), encoding="utf-8", newline="\n")
 
     unique_ids = len({item.canonical_id for item in items})
     tipitaka_body = f"""
-<p class="eyebrow">The Theravāda textual tradition</p>
-<h1>How the Tipiṭaka is organized</h1>
-<p class="section-intro"><em>Tipiṭaka</em> means “three baskets.” It is the traditional name for the Pāli Canon preserved by the Theravāda tradition.</p>
-<div class="card-grid three">
-  <article class="card"><h2>Vinaya Piṭaka</h2><p>The basket of monastic discipline: training rules, procedures, and accounts surrounding the life of the early monastic community.</p><p><strong>Current site status:</strong> organization reserved; texts not yet collected.</p></article>
-  <article class="card"><h2>Sutta Piṭaka</h2><p>The basket of discourses: teachings, dialogues, verses, and training instructions attributed to the Buddha and close disciples.</p><p><strong>Current site status:</strong> {len(items)} source pages representing {unique_ids} canonical or source IDs.</p><p><a class="card-link" href="sutta.html">Browse the Sutta Piṭaka collection →</a></p></article>
-  <article class="card"><h2>Abhidhamma Piṭaka</h2><p>The basket of systematic teaching: detailed analytical arrangements of experience and mental and material phenomena.</p><p><strong>Current site status:</strong> organization reserved; texts not yet collected.</p></article>
-</div>
-<section><h2>The five Nikāyas</h2><p class="section-intro">The Sutta Piṭaka is commonly organized into five collections.</p><div class="card-grid">
-  <article class="card"><h3><a href="../sutta/digha-nikaya/index.html">Dīgha Nikāya</a></h3><p>Long discourses.</p></article>
-  <article class="card"><h3><a href="../sutta/majjhima-nikaya/index.html">Majjhima Nikāya</a></h3><p>Middle-length discourses.</p></article>
-  <article class="card"><h3><a href="../sutta/samyutta-nikaya/index.html">Saṁyutta Nikāya</a></h3><p>Connected discourses arranged by topic.</p></article>
-  <article class="card"><h3><a href="../sutta/anguttara-nikaya/index.html">Aṅguttara Nikāya</a></h3><p>Numerical discourses arranged by numbered sets.</p></article>
-  <article class="card"><h3><a href="../sutta/khuddaka-nikaya/sutta-nipata/index.html">Khuddaka Nikāya</a></h3><p>A varied collection of shorter books, verses, stories, and later canonical works. The present site includes selected books and texts.</p></article>
-</div></section>
-<div class="scope-note"><strong>Collection scope:</strong> this is a growing, Sutta-focused corpus. The description above explains the traditional canon; it does not claim that all three baskets are hosted here.</div>
+<h1>The Pāli Tipiṭaka</h1>
+<p class="section-intro">The Theravāda scriptural collection is known as the Pāli Canon or Tipiṭaka, “three baskets”: discipline, discourses, and systematic teachings.</p>
+<ol class="numbered-teachings">
+  <li><strong>Vinaya Piṭaka:</strong> monastic discipline, procedures, and the life of the early monastic community.</li>
+  <li><strong>Sutta Piṭaka:</strong> discourses, dialogues, verses, and instructions attributed to the Buddha and close disciples.</li>
+  <li><strong>Abhidhamma Piṭaka:</strong> systematic analysis of mental and material phenomena.</li>
+</ol>
+<p class="scope-note">This site currently focuses on the Sutta Piṭaka. It contains {len(items)} source pages representing {unique_ids} canonical or source IDs. Vinaya and Abhidhamma texts have not yet been collected here.</p>
+<h2>The five Nikāyas of the Sutta Piṭaka</h2>
+<ol class="numbered-teachings">
+  <li><a href="../sutta/digha-nikaya/index.html">Dīgha Nikāya</a>: long discourses.</li>
+  <li><a href="../sutta/majjhima-nikaya/index.html">Majjhima Nikāya</a>: middle-length discourses.</li>
+  <li><a href="../sutta/samyutta-nikaya/index.html">Saṁyutta Nikāya</a>: connected discourses arranged by topic.</li>
+  <li><a href="../sutta/anguttara-nikaya/index.html">Aṅguttara Nikāya</a>: numerical discourses arranged by numbered sets.</li>
+  <li><a href="../sutta/khuddaka-nikaya/sutta-nipata/index.html">Khuddaka Nikāya</a>: a varied collection of shorter books, verses, stories, and later canonical works.</li>
+</ol>
+<p><a href="sutta.html">Browse the available texts</a> · <a href="downloads.html">Downloads and mirrors</a></p>
 """
     (site_dir / "tipitaka.html").write_text(page("Theravāda and the Tipiṭaka", tipitaka_body), encoding="utf-8", newline="\n")
 
