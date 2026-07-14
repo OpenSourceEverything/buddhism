@@ -34,6 +34,14 @@ class LinkParser(HTMLParser):
 
 
 class StaticSiteStructureTests(unittest.TestCase):
+    def test_every_page_uses_unstyled_browser_defaults(self) -> None:
+        styled: list[str] = []
+        for page in ROOT.rglob("*.html"):
+            source = page.read_text(encoding="utf-8")
+            if any(marker in source for marker in ("stylesheet", "<style", "style=", 'class="')):
+                styled.append(str(page.relative_to(ROOT)))
+        self.assertEqual(styled, [], "Styled pages:\n" + "\n".join(styled))
+
     def test_homepage_uses_the_minimal_linked_summary(self) -> None:
         homepage = (SITE / "index.html").read_text(encoding="utf-8")
         expected = (
@@ -47,6 +55,8 @@ class StaticSiteStructureTests(unittest.TestCase):
         for text in expected:
             with self.subTest(text=text):
                 self.assertIn(text, homepage)
+        self.assertNotIn("stylesheet", homepage)
+        self.assertNotIn("<style", homepage)
 
     def test_each_path_factor_has_a_terse_page_with_sources(self) -> None:
         overview = (SITE / "eightfold-path.html").read_text(encoding="utf-8")

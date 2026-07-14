@@ -42,7 +42,6 @@ theravada/
       tipitaka.html
       sutta.html
       downloads.html
-      assets/style.css
     downloads/
       README.md
 metadata/

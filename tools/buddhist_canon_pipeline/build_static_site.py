@@ -123,7 +123,6 @@ def site_href(site_prefix: str, path: str) -> str:
 
 
 def page(title: str, body: str, site_prefix: str = ".") -> str:
-    css_href = site_href(site_prefix, "assets/style.css")
     home_href = site_href(site_prefix, "index.html")
     dhamma_href = site_href(site_prefix, "dhamma.html")
     truths_href = site_href(site_prefix, "four-noble-truths.html")
@@ -137,23 +136,16 @@ def page(title: str, body: str, site_prefix: str = ".") -> str:
         '<meta charset="utf-8">\n'
         '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
         f"<title>{html.escape(title)}</title>\n"
-        f'<link rel="stylesheet" href="{html.escape(css_href)}">\n'
         "</head>\n"
         "<body>\n"
-        '<header class="site-header">\n'
-        f'<a class="site-name" href="{html.escape(home_href)}">Free Buddhism</a>\n'
-        '<nav aria-label="Primary navigation">\n'
-        f'<a href="{html.escape(dhamma_href)}">Dhamma</a>\n'
-        f'<a href="{html.escape(truths_href)}">Four Noble Truths</a>\n'
-        f'<a href="{html.escape(path_href)}">Eightfold Path</a>\n'
-        f'<a href="{html.escape(tipitaka_href)}">Tipiṭaka</a>\n'
-        f'<a href="{html.escape(sutta_href)}">Suttas</a>\n'
-        "</nav>\n"
-        "</header>\n"
-        f"<main>\n{body}\n</main>\n"
-        '<footer class="site-footer">\n'
+        f'<p><a href="{html.escape(home_href)}">Free Buddhism</a> | '
+        f'<a href="{html.escape(dhamma_href)}">Dhamma</a> | '
+        f'<a href="{html.escape(truths_href)}">Four Noble Truths</a> | '
+        f'<a href="{html.escape(path_href)}">Eightfold Path</a> | '
+        f'<a href="{html.escape(tipitaka_href)}">Tipiṭaka</a> | '
+        f'<a href="{html.escape(sutta_href)}">Suttas</a></p>\n'
+        f"{body}\n"
         '<p>Contact: <a href="mailto:admin@opensourceeverything.net">admin@opensourceeverything.net</a></p>\n'
-        "</footer>\n"
         "</body>\n"
         "</html>\n"
     )
@@ -171,10 +163,9 @@ def write_item_html(item: GeneratedItem, txt_text: str, tipitaka_root: Path) -> 
     txt_link = html_relative(item.html_path, item.txt_path)
     pdf_link = html_relative(item.html_path, item.pdf_path)
     body_parts = [
-        '<article class="sutta-text">',
-        f'<p class="eyebrow">{html.escape(COLLECTION_TITLES.get(item.collection_path, item.collection_path))}</p>',
+        f'<p>{html.escape(COLLECTION_TITLES.get(item.collection_path, item.collection_path))}</p>',
         f"<h1>{html.escape(item.canonical_id)} {html.escape(item.title)}</h1>",
-        '<p class="resource-actions">',
+        "<p>",
         f'<a href="{txt_link}">Download TXT</a>',
         f'<a href="{pdf_link}">Download PDF</a>',
         f'<a href="{parent}">Browse this collection</a>',
@@ -184,22 +175,21 @@ def write_item_html(item: GeneratedItem, txt_text: str, tipitaka_root: Path) -> 
     if item.youtube_videos:
         body_parts.extend(
             [
-                '<section class="listen-card" aria-labelledby="listen-heading">',
-                '<p class="eyebrow">Candana Bhikkhu audio</p>',
+                "<p>Candana Bhikkhu audio</p>",
                 '<h2 id="listen-heading">Listen on YouTube</h2>',
-                '<ul class="resource-list">',
+                "<ul>",
             ]
         )
         for video in item.youtube_videos:
-            duration = f"<span>Duration: {html.escape(video.duration)}</span>" if video.duration else ""
+            duration = f" (Duration: {html.escape(video.duration)})" if video.duration else ""
             body_parts.append(
                 "<li>"
                 f'<a href="{html.escape(video.url)}" rel="external">{html.escape(video.title)}</a>'
                 f"{duration}"
                 "</li>"
             )
-        body_parts.extend(["</ul>", "</section>"])
-    body_parts.extend(['<div class="source-text">', convert_text_to_html(txt_text), "</div>", "</article>"])
+        body_parts.append("</ul>")
+    body_parts.extend(["<h2>Text</h2>", convert_text_to_html(txt_text)])
     body = "\n".join(body_parts)
     site_prefix = html_relative(item.html_path, tipitaka_root / "site")
     item.html_path.write_text(
@@ -296,9 +286,9 @@ def local_sutta_resource(
 ) -> str:
     matches = items_by_id.get(canonical_id, [])
     if not matches:
-        return f'<span>{html.escape(label)} <small>(text not yet in this collection)</small></span>'
+        return f'{html.escape(label)} (text not yet in this collection)'
     href = html_relative(from_page, matches[0].html_path)
-    return f'<a href="{html.escape(href)}">{html.escape(label)}</a> <small>read here</small>'
+    return f'<a href="{html.escape(href)}">{html.escape(label)}</a> (read here)'
 
 
 def youtube_resource(
@@ -308,17 +298,17 @@ def youtube_resource(
 ) -> str:
     videos = videos_for_canonical_id(canonical_id, youtube_index)
     if not videos:
-        return f'<span>{html.escape(label)} <small>(Candana audio not currently found)</small></span>'
+        return f'{html.escape(label)} (Candana audio not currently found)'
     video = videos[0]
     duration = f" · {video.duration}" if video.duration else ""
     return (
         f'<a href="{html.escape(video.url)}" rel="external">{html.escape(label)}</a> '
-        f'<small>Candana Bhikkhu audio{html.escape(duration)}</small>'
+        f'(Candana Bhikkhu audio{html.escape(duration)})'
     )
 
 
 def resource_list(resources: list[str]) -> str:
-    return '<ul class="resource-list">' + "".join(f"<li>{resource}</li>" for resource in resources) + "</ul>"
+    return "<ul>" + "".join(f"<li>{resource}</li>" for resource in resources) + "</ul>"
 
 
 def write_site(
@@ -327,90 +317,6 @@ def write_site(
     youtube_index: dict[str, list[YouTubeVideo]],
 ) -> None:
     site_dir = tipitaka_root / "site"
-    assets = site_dir / "assets"
-    assets.mkdir(parents=True, exist_ok=True)
-    (assets / "style.css").write_text(
-        """:root {
-  --ink: #20231f;
-  --muted: #626760;
-  --paper: #fcfcf9;
-  --soft: #f2f3ee;
-  --link: #274f3b;
-  --line: #d9ddd5;
-}
-
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  color: var(--ink);
-  background: var(--paper);
-  font-family: ui-serif, Georgia, "Times New Roman", serif;
-  font-size: 1.08rem;
-  line-height: 1.7;
-}
-a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
-a:hover { color: #111; }
-.site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem 2rem;
-  width: min(48rem, calc(100% - 2rem));
-  margin: 0 auto;
-  padding: 1.25rem 0;
-  border-bottom: 1px solid var(--line);
-}
-.site-name { color: var(--ink); font-size: 1.05rem; font-weight: 700; text-decoration: none; }
-nav { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; }
-nav a { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.78rem; text-decoration: none; }
-main { width: min(48rem, calc(100% - 2rem)); margin: 0 auto; padding: 4rem 0 6rem; }
-h1, h2, h3 { line-height: 1.25; }
-h1 { margin: 0 0 2rem; font-size: clamp(2rem, 7vw, 3.4rem); font-weight: 500; letter-spacing: -0.025em; }
-h2 { margin-top: 3rem; font-size: 1.55rem; font-weight: 600; }
-h3 { margin-top: 2.25rem; font-size: 1.12rem; }
-p { max-width: 44rem; }
-.eyebrow {
-  color: var(--muted);
-  font-family: ui-sans-serif, system-ui, sans-serif;
-  font-size: 0.72rem;
-  font-weight: 650;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-.home-statement { padding: 1.5rem 0 3rem; }
-.home-statement p { margin: 0 0 2rem; font-size: clamp(1.18rem, 3vw, 1.42rem); }
-.home-statement .canon-statement { margin-top: 3.5rem; }
-.section-intro { color: var(--muted); font-size: 1.12rem; }
-.numbered-teachings { padding-left: 1.5rem; }
-.numbered-teachings > li { margin: 0 0 1rem; padding-left: 0.25rem; }
-.numbered-teachings ul { margin-top: 0.5rem; }
-.teaching-section { padding: 1.5rem 0 2rem; border-top: 1px solid var(--line); scroll-margin-top: 2rem; }
-.practice-note, .scope-note { margin: 1.5rem 0; padding: 1rem 1.1rem; background: var(--soft); }
-.resource-list { display: grid; gap: 0.75rem; padding-left: 1.25rem; }
-.resource-list li { padding-left: 0.1rem; }
-.resource-list small, .listen-card span { display: block; color: var(--muted); font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.78rem; }
-.listen-card { margin: 2rem 0; padding: 1rem 1.1rem; border: 1px solid var(--line); background: var(--soft); }
-.listen-card h2 { margin: 0.15rem 0 0.5rem; font-size: 1.3rem; }
-.resource-actions { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; }
-.resource-actions a { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.8rem; }
-.source-text { margin-top: 2.5rem; }
-pre { white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; line-height: 1.6; }
-.table-wrap { overflow-x: auto; border: 1px solid var(--line); }
-table { width: 100%; border-collapse: collapse; background: #fff; }
-th, td { padding: 0.7rem 0.8rem; border-bottom: 1px solid var(--line); vertical-align: top; text-align: left; }
-th { background: var(--soft); font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.78rem; }
-.site-footer { width: min(48rem, calc(100% - 2rem)); margin: 0 auto; padding: 2rem 0 3rem; color: var(--muted); border-top: 1px solid var(--line); font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.78rem; }
-.site-footer p { margin: 0.25rem 0; }
-
-@media (max-width: 760px) {
-  .site-header { align-items: flex-start; flex-direction: column; }
-  main { padding: 2.5rem 0 4rem; }
-}
-""",
-        encoding="utf-8",
-        newline="\n",
-    )
 
     items_by_id: dict[str, list[GeneratedItem]] = defaultdict(list)
     for item in items:
@@ -418,21 +324,19 @@ th { background: var(--soft); font-family: ui-sans-serif, system-ui, sans-serif;
 
     index_body = """
 <h1>Free Buddhism</h1>
-<section class="home-statement">
-  <p>This website attempts to present the teachings of <a href="tipitaka.html">Theravāda Buddhism</a> without distortion.</p>
-  <p>The <a href="dhamma.html">Dhamma</a> is the Buddha’s teaching as a whole.</p>
-  <p>The <a href="four-noble-truths.html">Four Noble Truths</a> are its core framework.<br>
-  The <a href="eightfold-path.html">Noble Eightfold Path</a> is the fourth truth: the path to the <a href="four-noble-truths.html#cessation">cessation of suffering</a>.</p>
-  <p class="canon-statement">The <a href="tipitaka.html">Pāli Tipiṭaka</a> is the Theravāda tradition’s primary textual record of the Buddha’s <a href="dhamma.html">Dhamma</a>.</p>
-</section>
+<p>This website attempts to present the teachings of <a href="tipitaka.html">Theravāda Buddhism</a> without distortion.</p>
+<p>The <a href="dhamma.html">Dhamma</a> is the Buddha’s teaching as a whole.</p>
+<p>The <a href="four-noble-truths.html">Four Noble Truths</a> are its core framework.<br>
+The <a href="eightfold-path.html">Noble Eightfold Path</a> is the fourth truth: the path to the <a href="four-noble-truths.html#cessation">cessation of suffering</a>.</p>
+<p>The <a href="tipitaka.html">Pāli Tipiṭaka</a> is the Theravāda tradition’s primary textual record of the Buddha’s <a href="dhamma.html">Dhamma</a>.</p>
 """
     (site_dir / "index.html").write_text(page("Free Buddhism", index_body), encoding="utf-8", newline="\n")
 
     dhamma_page = site_dir / "dhamma.html"
     dhamma_body = f"""
-<p class="eyebrow">The teaching as a whole</p>
+<p>The teaching as a whole</p>
 <h1>The Dhamma</h1>
-<p class="section-intro">The Dhamma is the Buddha’s teaching and the reality that teaching makes known.</p>
+<p>The Dhamma is the Buddha’s teaching and the reality that teaching makes known.</p>
 <p>Its purpose is the ending of suffering. Its core framework is the <a href="four-noble-truths.html">Four Noble Truths</a>. Its path of practice is the <a href="eightfold-path.html">Noble Eightfold Path</a>.</p>
 <p>The teachings are preserved primarily in the <a href="tipitaka.html">Pāli Tipiṭaka</a>. Understanding is tested through conduct, cultivation of mind, and direct knowledge—not through belief alone.</p>
 <h2>Relevant suttas</h2>
@@ -452,13 +356,13 @@ th { background: var(--soft); font-family: ui-sans-serif, system-ui, sans-serif;
     mn117_listen = youtube_resource("MN 117", youtube_index, "Listen to MN 117 — The Great Forty")
     truths_body = f"""
 <h1>The Four Noble Truths</h1>
-<ol class="numbered-teachings">
+<ol>
   <li id="dukkha">Clinging to conditioned existence is unsatisfactory.</li>
   <li id="origin">Craving sustains that clinging and dissatisfaction.</li>
   <li id="cessation">Ending craving ends that clinging and dissatisfaction.</li>
   <li id="path">The <a href="eightfold-path.html">Noble Eightfold Path</a> leads to that ending.</li>
 </ol>
-<p class="practice-note">The first truth is to be understood. The second is to be abandoned. The third is to be realized. The fourth is to be developed.</p>
+<p>The first truth is to be understood. The second is to be abandoned. The third is to be realized. The fourth is to be developed.</p>
 <h2>Relevant suttas</h2>
 {resource_list([sn5611_read, sn5611_listen, mn141_listen, mn9_read, mn117_listen])}
 """
@@ -539,14 +443,14 @@ th { background: var(--soft); font-family: ui-sans-serif, system-ui, sans-serif;
     path_body = "\n".join(
         [
             "<h1>The Noble Eightfold Path</h1>",
-            '<ol class="numbered-teachings">',
+            "<ol>",
             *overview_items,
             "</ol>",
-            '<p class="practice-note">The path is one training with eight mutually supporting factors.</p>',
+            "<p>The path is one training with eight mutually supporting factors.</p>",
             "<h2>Relevant suttas</h2>",
             resource_list(
                 [
-                    '<a href="https://suttacentral.net/sn45.8/en/sujato" rel="external">SN 45.8 — Analysis of the Path</a> <small>external text; Candana audio not currently found</small>',
+                    '<a href="https://suttacentral.net/sn45.8/en/sujato" rel="external">SN 45.8 — Analysis of the Path</a> (external text; Candana audio not currently found)',
                     youtube_resource("MN 117", youtube_index, "MN 117 — The Great Forty"),
                     local_sutta_resource("SN 56.11", items_by_id, path_page, "SN 56.11 — Setting the Wheel of Dhamma in Motion"),
                     youtube_resource("SN 56.11", youtube_index, "Listen to SN 56.11"),
@@ -567,13 +471,13 @@ th { background: var(--soft); font-family: ui-sans-serif, system-ui, sans-serif;
             else:
                 rendered_resources.append(
                     f'<a href="https://suttacentral.net/sn45.8/en/sujato" rel="external">{html.escape(label)}</a> '
-                    '<small>external text; Candana audio not currently found</small>'
+                    '(external text; Candana audio not currently found)'
                 )
         detail_body = "\n".join(
             [
-                '<p class="eyebrow"><a href="../eightfold-path.html">The Noble Eightfold Path</a></p>',
+                '<p><a href="../eightfold-path.html">The Noble Eightfold Path</a></p>',
                 f'<h1>{html.escape(section["name"])}</h1>',
-                f'<p class="section-intro">{html.escape(section["summary"])}</p>',
+                f'<p>{html.escape(section["summary"])}</p>',
                 str(section["details"]),
                 "<h2>Relevant suttas</h2>",
                 resource_list(rendered_resources),
@@ -584,15 +488,15 @@ th { background: var(--soft); font-family: ui-sans-serif, system-ui, sans-serif;
     unique_ids = len({item.canonical_id for item in items})
     tipitaka_body = f"""
 <h1>The Pāli Tipiṭaka</h1>
-<p class="section-intro">The Theravāda scriptural collection is known as the Pāli Canon or Tipiṭaka, “three baskets”: discipline, discourses, and systematic teachings.</p>
-<ol class="numbered-teachings">
+<p>The Theravāda scriptural collection is known as the Pāli Canon or Tipiṭaka, “three baskets”: discipline, discourses, and systematic teachings.</p>
+<ol>
   <li><strong>Vinaya Piṭaka:</strong> monastic discipline, procedures, and the life of the early monastic community.</li>
   <li><strong>Sutta Piṭaka:</strong> discourses, dialogues, verses, and instructions attributed to the Buddha and close disciples.</li>
   <li><strong>Abhidhamma Piṭaka:</strong> systematic analysis of mental and material phenomena.</li>
 </ol>
-<p class="scope-note">This site currently focuses on the Sutta Piṭaka. It contains {len(items)} source pages representing {unique_ids} canonical or source IDs. Vinaya and Abhidhamma texts have not yet been collected here.</p>
+<p>This site currently focuses on the Sutta Piṭaka. It contains {len(items)} source pages representing {unique_ids} canonical or source IDs. Vinaya and Abhidhamma texts have not yet been collected here.</p>
 <h2>The five Nikāyas of the Sutta Piṭaka</h2>
-<ol class="numbered-teachings">
+<ol>
   <li><a href="../sutta/digha-nikaya/index.html">Dīgha Nikāya</a>: long discourses.</li>
   <li><a href="../sutta/majjhima-nikaya/index.html">Majjhima Nikāya</a>: middle-length discourses.</li>
   <li><a href="../sutta/samyutta-nikaya/index.html">Saṁyutta Nikāya</a>: connected discourses arranged by topic.</li>
@@ -621,19 +525,19 @@ th { background: var(--soft); font-family: ui-sans-serif, system-ui, sans-serif;
         )
     sutta_body = "\n".join(
         [
-            '<p class="eyebrow">Read and listen</p>',
+            "<p>Read and listen</p>",
             "<h1>Sutta Piṭaka</h1>",
-            f'<p class="section-intro">{len(items)} source pages, with Candana Bhikkhu YouTube audio linked wherever the playlist metadata provides a reliable match.</p>',
-            '<div class="table-wrap"><table>',
+            f"<p>{len(items)} source pages, with Candana Bhikkhu YouTube audio linked wherever the playlist metadata provides a reliable match.</p>",
+            "<table>",
             "<tr><th>Collection</th><th>ID</th><th>Title</th><th>TXT</th><th>PDF</th><th>Audio</th></tr>",
             *rows,
-            "</table></div>",
+            "</table>",
         ]
     )
     (site_dir / "sutta.html").write_text(page("Sutta Piṭaka", sutta_body), encoding="utf-8", newline="\n")
 
     downloads_body = """
-<p class="eyebrow">Keep a local copy</p>
+<p>Keep a local copy</p>
 <h1>Downloads</h1>
 <p>ZIP bundles are generated artifacts for releases and local mirrors. They are not stored in git.</p>
 <ul>
