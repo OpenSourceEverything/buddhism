@@ -15,6 +15,8 @@ from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 
+from youtube_metadata import YouTubeVideo, read_youtube_index, videos_for_canonical_id
+
 
 COLLECTION_TITLES = {
     "digha-nikaya": "Digha Nikaya",
@@ -53,6 +55,7 @@ class GeneratedItem:
     html_path: Path
     txt_path: Path
     pdf_path: Path
+    youtube_videos: list[YouTubeVideo]
 
 
 def canonical_slug(canonical_id: str) -> str:
@@ -113,18 +116,43 @@ def html_relative(from_file: Path, target: Path) -> str:
     return Path(os.path.relpath(target, start=from_file.parent)).as_posix()
 
 
-def page(title: str, body: str, css_href: str | None = None) -> str:
-    css = f'<link rel="stylesheet" href="{html.escape(css_href)}">\n' if css_href else ""
+def site_href(site_prefix: str, path: str) -> str:
+    if site_prefix in ("", "."):
+        return path
+    return f"{site_prefix.rstrip('/')}/{path}"
+
+
+def page(title: str, body: str, site_prefix: str = ".") -> str:
+    css_href = site_href(site_prefix, "assets/style.css")
+    home_href = site_href(site_prefix, "index.html")
+    truths_href = site_href(site_prefix, "four-noble-truths.html")
+    path_href = site_href(site_prefix, "eightfold-path.html")
+    tipitaka_href = site_href(site_prefix, "tipitaka.html")
+    sutta_href = site_href(site_prefix, "sutta.html")
     return (
         "<!doctype html>\n"
         '<html lang="en">\n'
         "<head>\n"
         '<meta charset="utf-8">\n'
+        '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
         f"<title>{html.escape(title)}</title>\n"
-        f"{css}"
+        f'<link rel="stylesheet" href="{html.escape(css_href)}">\n'
         "</head>\n"
         "<body>\n"
-        f"{body}\n"
+        '<header class="site-header">\n'
+        f'<a class="site-name" href="{html.escape(home_href)}">Free Buddhism</a>\n'
+        '<nav aria-label="Primary navigation">\n'
+        f'<a href="{html.escape(truths_href)}">Four Noble Truths</a>\n'
+        f'<a href="{html.escape(path_href)}">Eightfold Path</a>\n'
+        f'<a href="{html.escape(tipitaka_href)}">Tipiṭaka</a>\n'
+        f'<a href="{html.escape(sutta_href)}">Suttas</a>\n'
+        "</nav>\n"
+        "</header>\n"
+        f"<main>\n{body}\n</main>\n"
+        '<footer class="site-footer">\n'
+        '<p>Questions or corrections? <a href="mailto:admin@opensourceeverything.net">admin@opensourceeverything.net</a></p>\n'
+        '<p>May these freely available teachings support understanding and practice.</p>\n'
+        "</footer>\n"
         "</body>\n"
         "</html>\n"
     )
@@ -141,25 +169,55 @@ def write_item_html(item: GeneratedItem, txt_text: str, tipitaka_root: Path) -> 
     parent = html_relative(item.html_path, collection_index)
     txt_link = html_relative(item.html_path, item.txt_path)
     pdf_link = html_relative(item.html_path, item.pdf_path)
-    body = "\n".join(
-        [
-            f"<h1>{html.escape(item.canonical_id)} {html.escape(item.title)}</h1>",
-            "<p>",
-            f'<a href="{txt_link}">download txt</a> | ',
-            f'<a href="{pdf_link}">download pdf</a> | ',
-            f'<a href="{parent}">parent</a> | ',
-            f'<a href="{home}">home</a>',
-            "</p>",
-            convert_text_to_html(txt_text),
-        ]
+    body_parts = [
+        '<article class="sutta-text">',
+        f'<p class="eyebrow">{html.escape(COLLECTION_TITLES.get(item.collection_path, item.collection_path))}</p>',
+        f"<h1>{html.escape(item.canonical_id)} {html.escape(item.title)}</h1>",
+        '<p class="resource-actions">',
+        f'<a href="{txt_link}">Download TXT</a>',
+        f'<a href="{pdf_link}">Download PDF</a>',
+        f'<a href="{parent}">Browse this collection</a>',
+        f'<a href="{home}">Home</a>',
+        "</p>",
+    ]
+    if item.youtube_videos:
+        body_parts.extend(
+            [
+                '<section class="listen-card" aria-labelledby="listen-heading">',
+                '<p class="eyebrow">Candana Bhikkhu audio</p>',
+                '<h2 id="listen-heading">Listen on YouTube</h2>',
+                '<ul class="resource-list">',
+            ]
+        )
+        for video in item.youtube_videos:
+            duration = f" · {html.escape(video.duration)}" if video.duration else ""
+            body_parts.append(
+                "<li>"
+                f'<a href="{html.escape(video.url)}" rel="external">{html.escape(video.title)}</a>'
+                f'<span>{duration.lstrip(" ·")}</span>'
+                "</li>"
+            )
+        body_parts.extend(["</ul>", "</section>"])
+    body_parts.extend(['<div class="source-text">', convert_text_to_html(txt_text), "</div>", "</article>"])
+    body = "\n".join(body_parts)
+    site_prefix = html_relative(item.html_path, tipitaka_root / "site")
+    item.html_path.write_text(
+        page(f"{item.canonical_id} {item.title}", body, site_prefix),
+        encoding="utf-8",
+        newline="\n",
     )
-    item.html_path.write_text(page(f"{item.canonical_id} {item.title}", body), encoding="utf-8", newline="\n")
     index_path = item.folder / "index.html"
     if index_path != item.html_path:
         index_path.write_text(item.html_path.read_text(encoding="utf-8"), encoding="utf-8", newline="\n")
 
 
-def copy_item(row: SourceRow, sutta_root: Path, tipitaka_root: Path, ordinal: int) -> GeneratedItem:
+def copy_item(
+    row: SourceRow,
+    sutta_root: Path,
+    tipitaka_root: Path,
+    ordinal: int,
+    youtube_index: dict[str, list[YouTubeVideo]],
+) -> GeneratedItem:
     folder_name = canonical_slug(row.canonical_id)
     base_name = folder_name
     folder = sutta_root / row.collection_path / folder_name
@@ -187,6 +245,7 @@ def copy_item(row: SourceRow, sutta_root: Path, tipitaka_root: Path, ordinal: in
         html_path=html_path,
         txt_path=txt_path,
         pdf_path=pdf_path,
+        youtube_videos=videos_for_canonical_id(row.canonical_id, youtube_index),
     )
     write_item_html(item, text, tipitaka_root)
     return item
