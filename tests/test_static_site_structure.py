@@ -42,9 +42,23 @@ class StaticSiteStructureTests(unittest.TestCase):
                 styled.append(str(page.relative_to(ROOT)))
         self.assertEqual(styled, [], "Styled pages:\n" + "\n".join(styled))
 
+    def test_every_page_uses_home_without_site_branding_and_ends_with_contact(self) -> None:
+        incorrect: list[str] = []
+        for page in ROOT.rglob("*.html"):
+            source = page.read_text(encoding="utf-8")
+            if "Free Buddhism" in source or not source.rstrip().endswith("</body>\n</html>"):
+                incorrect.append(str(page.relative_to(ROOT)))
+                continue
+            body = source.split("<body>", 1)[1]
+            if "admin@opensourceeverything.net</a></p>\n</body>" not in body:
+                incorrect.append(str(page.relative_to(ROOT)))
+        self.assertEqual(incorrect, [], "Incorrect page shell:\n" + "\n".join(incorrect))
+
     def test_homepage_uses_the_minimal_linked_summary(self) -> None:
         homepage = (SITE / "index.html").read_text(encoding="utf-8")
         expected = (
+            "<title>Home</title>",
+            "<h1>Home</h1>",
             '<a href="theravada.html">Theravāda Buddhism</a>',
             '<a href="dhamma.html">Dhamma</a>',
             '<a href="four-noble-truths.html">Four Noble Truths</a>',
@@ -58,6 +72,50 @@ class StaticSiteStructureTests(unittest.TestCase):
                 self.assertIn(text, homepage)
         self.assertNotIn("stylesheet", homepage)
         self.assertNotIn("<style", homepage)
+
+    def test_dhamma_tree_links_to_teachings_practice_and_glossary(self) -> None:
+        dhamma = (SITE / "dhamma.html").read_text(encoding="utf-8")
+        required_links = (
+            "four-noble-truths.html",
+            "eightfold-path.html",
+            "teachings.html#three-characteristics",
+            "teachings.html#ten-fetters",
+            "practice.html#five-precepts",
+            "practice.html#five-hindrances",
+            "practice.html#four-jhanas",
+            "glossary.html",
+        )
+        for href in required_links:
+            with self.subTest(href=href):
+                self.assertIn(f'href="{href}"', dhamma)
+
+    def test_reference_pages_and_glossary_cover_the_proposed_terms(self) -> None:
+        teachings = (SITE / "teachings.html").read_text(encoding="utf-8")
+        practice = (SITE / "practice.html").read_text(encoding="utf-8")
+        glossary = (SITE / "glossary.html").read_text(encoding="utf-8")
+        for anchor in (
+            "three-characteristics",
+            "five-aggregates",
+            "dependent-origination",
+            "kamma",
+            "rebirth",
+            "nibbana",
+            "ten-fetters",
+        ):
+            self.assertIn(f'id="{anchor}"', teachings)
+        for anchor in (
+            "five-precepts",
+            "five-recollections",
+            "four-foundations-of-mindfulness",
+            "five-hindrances",
+            "seven-awakening-factors",
+            "four-jhanas",
+        ):
+            self.assertIn(f'id="{anchor}"', practice)
+        glossary_list = glossary.split("<h1>Glossary</h1>", 1)[1]
+        glossary_terms = ("Dependent origination", "Dhamma", "Five aggregates", "Nibbāna", "Ten fetters")
+        positions = [glossary_list.index(term) for term in glossary_terms]
+        self.assertEqual(positions, sorted(positions))
 
     def test_theravada_page_defines_the_tradition(self) -> None:
         page = (SITE / "theravada.html").read_text(encoding="utf-8")

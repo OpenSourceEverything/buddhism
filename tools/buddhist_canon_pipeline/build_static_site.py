@@ -125,8 +125,9 @@ def site_href(site_prefix: str, path: str) -> str:
 def page(title: str, body: str, site_prefix: str = ".") -> str:
     home_href = site_href(site_prefix, "index.html")
     dhamma_href = site_href(site_prefix, "dhamma.html")
-    truths_href = site_href(site_prefix, "four-noble-truths.html")
-    path_href = site_href(site_prefix, "eightfold-path.html")
+    teachings_href = site_href(site_prefix, "teachings.html")
+    practice_href = site_href(site_prefix, "practice.html")
+    glossary_href = site_href(site_prefix, "glossary.html")
     tipitaka_href = site_href(site_prefix, "tipitaka.html")
     sutta_href = site_href(site_prefix, "sutta.html")
     return (
@@ -138,10 +139,11 @@ def page(title: str, body: str, site_prefix: str = ".") -> str:
         f"<title>{html.escape(title)}</title>\n"
         "</head>\n"
         "<body>\n"
-        f'<p><a href="{html.escape(home_href)}">Free Buddhism</a> | '
+        f'<p><a href="{html.escape(home_href)}">Home</a> | '
         f'<a href="{html.escape(dhamma_href)}">Dhamma</a> | '
-        f'<a href="{html.escape(truths_href)}">Four Noble Truths</a> | '
-        f'<a href="{html.escape(path_href)}">Eightfold Path</a> | '
+        f'<a href="{html.escape(teachings_href)}">Teachings</a> | '
+        f'<a href="{html.escape(practice_href)}">Practice</a> | '
+        f'<a href="{html.escape(glossary_href)}">Glossary</a> | '
         f'<a href="{html.escape(tipitaka_href)}">Tipiṭaka</a> | '
         f'<a href="{html.escape(sutta_href)}">Suttas</a></p>\n'
         f"{body}\n"
@@ -323,14 +325,14 @@ def write_site(
         items_by_id[item.canonical_id].append(item)
 
     index_body = """
-<h1>Free Buddhism</h1>
+<h1>Home</h1>
 <p>This website attempts to present the teachings of <a href="theravada.html">Theravāda Buddhism</a> without distortion.</p>
 <p>The <a href="dhamma.html">Dhamma</a> is the Buddha’s teaching as a whole.</p>
 <p>The <a href="four-noble-truths.html">Four Noble Truths</a> are its core framework.<br>
 The <a href="eightfold-path.html">Noble Eightfold Path</a> is the fourth truth: the path to the <a href="four-noble-truths.html#cessation">cessation of suffering</a>.</p>
 <p>The <a href="tipitaka.html">Pāli Tipiṭaka</a> is the Theravāda tradition’s primary textual record of the Buddha’s <a href="dhamma.html">Dhamma</a>.</p>
 """
-    (site_dir / "index.html").write_text(page("Free Buddhism", index_body), encoding="utf-8", newline="\n")
+    (site_dir / "index.html").write_text(page("Home", index_body), encoding="utf-8", newline="\n")
 
     theravada_body = """
 <h1>Theravāda Buddhism</h1>
@@ -345,11 +347,33 @@ The <a href="eightfold-path.html">Noble Eightfold Path</a> is the fourth truth: 
 
     dhamma_page = site_dir / "dhamma.html"
     dhamma_body = f"""
-<p>The teaching as a whole</p>
-<h1>The Dhamma</h1>
-<p>The Dhamma is the Buddha’s teaching and the reality that teaching makes known.</p>
-<p>Its purpose is the ending of suffering. Its core framework is the <a href="four-noble-truths.html">Four Noble Truths</a>. Its path of practice is the <a href="eightfold-path.html">Noble Eightfold Path</a>.</p>
-<p>The teachings are preserved primarily in the <a href="tipitaka.html">Pāli Tipiṭaka</a>. Understanding is tested through conduct, cultivation of mind, and direct knowledge—not through belief alone.</p>
+<h1>Dhamma</h1>
+<p>The Dhamma is the Buddha’s teaching as a whole. Its purpose is the ending of suffering.</p>
+<pre>Dhamma
+|
++-- Core teaching
+|   +-- <a href="four-noble-truths.html">Four Noble Truths</a>
+|   +-- <a href="eightfold-path.html">Noble Eightfold Path</a>
+|
++-- <a href="teachings.html">Teachings</a>
+|   +-- <a href="teachings.html#three-characteristics">Three characteristics</a>
+|   +-- <a href="teachings.html#five-aggregates">Five aggregates</a>
+|   +-- <a href="teachings.html#dependent-origination">Dependent origination</a>
+|   +-- <a href="teachings.html#kamma">Kamma</a>
+|   +-- <a href="teachings.html#rebirth">Rebirth</a>
+|   +-- <a href="teachings.html#nibbana">Nibbāna</a>
+|   +-- <a href="teachings.html#ten-fetters">Ten fetters</a>
+|
++-- <a href="practice.html">Practice</a>
+|   +-- <a href="practice.html#five-precepts">Five precepts</a>
+|   +-- <a href="practice.html#five-recollections">Five recollections</a>
+|   +-- <a href="practice.html#four-foundations-of-mindfulness">Four foundations of mindfulness</a>
+|   +-- <a href="practice.html#five-hindrances">Five hindrances</a>
+|   +-- <a href="practice.html#seven-awakening-factors">Seven awakening factors</a>
+|   +-- <a href="practice.html#four-jhanas">Four jhānas</a>
+|
++-- <a href="glossary.html">Glossary</a>
+    +-- Alphabetical list of every term</pre>
 <h2>Relevant suttas</h2>
 {resource_list([
     local_sutta_resource("SN 56.11", items_by_id, dhamma_page, "SN 56.11 — Setting the Wheel of Dhamma in Motion"),
@@ -357,7 +381,104 @@ The <a href="eightfold-path.html">Noble Eightfold Path</a> is the fourth truth: 
     local_sutta_resource("MN 9", items_by_id, dhamma_page, "MN 9 — Right View"),
 ])}
 """
-    dhamma_page.write_text(page("The Dhamma", dhamma_body), encoding="utf-8", newline="\n")
+    dhamma_page.write_text(page("Dhamma", dhamma_body), encoding="utf-8", newline="\n")
+
+    teachings_page = site_dir / "teachings.html"
+    teachings_body = f"""
+<h1>Teachings</h1>
+<h2 id="three-characteristics">Three characteristics</h2>
+<p>Conditioned things are impermanent and unsatisfactory; all phenomena are not-self.</p>
+<h2 id="five-aggregates">Five aggregates</h2>
+<p>Form, feeling, perception, mental formations, and consciousness are the five bases of clinging.</p>
+<h2 id="dependent-origination">Dependent origination</h2>
+<p>Phenomena arise and cease according to conditions; the twelve-link sequence explains the arising and cessation of suffering.</p>
+<h2 id="kamma">Kamma</h2>
+<p>Intentional actions of body, speech, and mind have consequences according to their ethical quality.</p>
+<h2 id="rebirth">Rebirth</h2>
+<p>After death, continued existence arises according to conditions without a permanent self passing from one life to another.</p>
+<h2 id="nibbana">Nibbāna</h2>
+<p>Nibbāna is the ending of greed, hatred, and delusion: release from suffering and rebirth.</p>
+<h2 id="ten-fetters">Ten fetters</h2>
+<p>Identity view, doubt, attachment to rites, sensual desire, ill will, desire for form existence, desire for formless existence, conceit, restlessness, and ignorance bind beings to repeated existence.</p>
+<h2>Relevant suttas</h2>
+{resource_list([
+    local_sutta_resource("SN 22.59", items_by_id, teachings_page, "SN 22.59 — The Characteristic of Not-Self"),
+    youtube_resource("SN 22.59", youtube_index, "Listen to SN 22.59"),
+    local_sutta_resource("SN 12.2", items_by_id, teachings_page, "SN 12.2 — Analysis of Dependent Origination"),
+    youtube_resource("SN 12.2", youtube_index, "Listen to SN 12.2"),
+    local_sutta_resource("AN 6.63", items_by_id, teachings_page, "AN 6.63 — Penetrative"),
+    youtube_resource("AN 6.63", youtube_index, "Listen to AN 6.63"),
+    local_sutta_resource("MN 135", items_by_id, teachings_page, "MN 135 — The Shorter Exposition of Kamma"),
+    youtube_resource("MN 135", youtube_index, "Listen to MN 135"),
+    youtube_resource("Ud 8.3", youtube_index, "Ud 8.3 — Nibbāna"),
+    youtube_resource("AN 10.13", youtube_index, "AN 10.13 within the AN 10.11–20 reading — The Ten Fetters"),
+    youtube_resource("Dhp 370", youtube_index, "Dhammapada 370 — Giving Up the Fetters"),
+])}
+"""
+    teachings_page.write_text(page("Teachings", teachings_body), encoding="utf-8", newline="\n")
+
+    practice_page = site_dir / "practice.html"
+    practice_body = f"""
+<h1>Practice</h1>
+<h2 id="five-precepts">Five precepts</h2>
+<p>Abstain from killing, stealing, sexual misconduct, false speech, and intoxicants that cause heedlessness.</p>
+<h2 id="five-recollections">Five recollections</h2>
+<p>Frequently recollect aging, illness, death, separation from what is dear, and ownership of one’s kamma.</p>
+<h2 id="four-foundations-of-mindfulness">Four foundations of mindfulness</h2>
+<p>Observe body, feeling, mind, and phenomena clearly and without clinging.</p>
+<h2 id="five-hindrances">Five hindrances</h2>
+<p>Sensual desire, ill will, sloth and torpor, restlessness and remorse, and doubt obstruct clarity and concentration.</p>
+<h2 id="seven-awakening-factors">Seven awakening factors</h2>
+<p>Mindfulness, investigation, energy, rapture, tranquility, concentration, and equanimity support awakening.</p>
+<h2 id="four-jhanas">Four jhānas</h2>
+<p>Four stages of meditative unification progressively refine rapture, pleasure, equanimity, and mindfulness.</p>
+<h2>Relevant suttas</h2>
+{resource_list([
+    youtube_resource("Dhp 246", youtube_index, "Dhammapada 246–247 — The Five Precepts"),
+    youtube_resource("AN 5.57", youtube_index, "AN 5.57 within the AN 5.51–60 reading — Five Recollections"),
+    local_sutta_resource("MN 10", items_by_id, practice_page, "MN 10 — Foundations of Mindfulness"),
+    youtube_resource("MN 10", youtube_index, "Listen to MN 10"),
+    local_sutta_resource("SN 46.51", items_by_id, practice_page, "SN 46.51 — Nourishment for the Hindrances and Awakening Factors"),
+    youtube_resource("SN 46.51", youtube_index, "Listen to SN 46.51"),
+    youtube_resource("SN 46.14", youtube_index, "SN 46.14 — Seven Factors of Awakening"),
+    local_sutta_resource("MN 44", items_by_id, practice_page, "MN 44 — Shorter Series of Questions and Answers"),
+    youtube_resource("MN 44", youtube_index, "Listen to MN 44"),
+])}
+"""
+    practice_page.write_text(page("Practice", practice_body), encoding="utf-8", newline="\n")
+
+    glossary_body = """
+<h1>Glossary</h1>
+<ul>
+  <li><a href="teachings.html#dependent-origination">Dependent origination</a></li>
+  <li><a href="dhamma.html">Dhamma</a></li>
+  <li><a href="teachings.html#five-aggregates">Five aggregates</a></li>
+  <li><a href="practice.html#five-hindrances">Five hindrances</a></li>
+  <li><a href="practice.html#five-precepts">Five precepts</a></li>
+  <li><a href="practice.html#five-recollections">Five recollections</a></li>
+  <li><a href="practice.html#four-foundations-of-mindfulness">Four foundations of mindfulness</a></li>
+  <li><a href="practice.html#four-jhanas">Four jhānas</a></li>
+  <li><a href="four-noble-truths.html">Four Noble Truths</a></li>
+  <li><a href="teachings.html#kamma">Kamma</a></li>
+  <li><a href="teachings.html#nibbana">Nibbāna</a></li>
+  <li><a href="eightfold-path.html">Noble Eightfold Path</a></li>
+  <li><a href="teachings.html#rebirth">Rebirth</a></li>
+  <li><a href="path/right-action.html">Right action</a></li>
+  <li><a href="path/right-concentration.html">Right concentration</a></li>
+  <li><a href="path/right-effort.html">Right effort</a></li>
+  <li><a href="path/right-intention.html">Right intention</a></li>
+  <li><a href="path/right-livelihood.html">Right livelihood</a></li>
+  <li><a href="path/right-mindfulness.html">Right mindfulness</a></li>
+  <li><a href="path/right-speech.html">Right speech</a></li>
+  <li><a href="path/right-view.html">Right view</a></li>
+  <li><a href="practice.html#seven-awakening-factors">Seven awakening factors</a></li>
+  <li><a href="teachings.html#ten-fetters">Ten fetters</a></li>
+  <li><a href="theravada.html">Theravāda Buddhism</a></li>
+  <li><a href="teachings.html#three-characteristics">Three characteristics</a></li>
+  <li><a href="tipitaka.html">Tipiṭaka</a></li>
+</ul>
+"""
+    (site_dir / "glossary.html").write_text(page("Glossary", glossary_body), encoding="utf-8", newline="\n")
 
     truths_page = site_dir / "four-noble-truths.html"
     sn5611_read = local_sutta_resource("SN 56.11", items_by_id, truths_page, "Read SN 56.11 — Setting the Wheel of Dhamma in Motion")

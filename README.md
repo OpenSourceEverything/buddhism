@@ -29,6 +29,9 @@ theravada/
       index.html
       theravada.html
       dhamma.html
+      teachings.html
+      practice.html
+      glossary.html
       four-noble-truths.html
       eightfold-path.html
       path/
