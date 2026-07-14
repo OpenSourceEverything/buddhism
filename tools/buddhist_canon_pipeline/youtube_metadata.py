@@ -80,7 +80,7 @@ def parse_ids(title: str, collection: str) -> set[str]:
             ids.add(f"SN {group}.{start}")
 
     an_book = re.search(
-        r"\bBook\s+([IVX]+|\d+)\s*:\s*Suttas?\s+(\d+)(?:\s*[-.]\s*(\d+))?",
+        r"\bBook\s+([IVX]+|\d+)\s*:\s*(?:Suttas?\s+)?(\d+)(?:\s*[-.]\s*(\d+))?",
         title,
         flags=re.IGNORECASE,
     )
