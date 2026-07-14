@@ -190,11 +190,11 @@ def write_item_html(item: GeneratedItem, txt_text: str, tipitaka_root: Path) -> 
             ]
         )
         for video in item.youtube_videos:
-            duration = f" · {html.escape(video.duration)}" if video.duration else ""
+            duration = f"<span>Duration: {html.escape(video.duration)}</span>" if video.duration else ""
             body_parts.append(
                 "<li>"
                 f'<a href="{html.escape(video.url)}" rel="external">{html.escape(video.title)}</a>'
-                f'<span>{duration.lstrip(" ·")}</span>'
+                f"{duration}"
                 "</li>"
             )
         body_parts.extend(["</ul>", "</section>"])

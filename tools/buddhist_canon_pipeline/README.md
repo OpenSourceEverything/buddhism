@@ -47,6 +47,11 @@ Build canonical per-sutta folders, HTML pages, site pages, and generated ZIPs:
 python tools/buddhist_canon_pipeline/build_static_site.py
 ```
 
+The site build also reads `metadata/youtube-playlists/manifests/*.jsonl` and
+adds Candana Bhikkhu listening links for exact canonical matches. It can also
+honestly associate a sutta with a grouped Aṅguttara recording or its containing
+Sutta Nipāta/Theragāthā book. It does not download or embed video or audio.
+
 ZIPs are generated artifacts. They are written under:
 
 ```text
@@ -61,4 +66,3 @@ and ignored by git.
   preservation and falls back to PyPDF2 if PyMuPDF is unavailable.
 - YouTube tooling inventories metadata only. It does not download audio/video.
 - Public captions are not a reliable source path yet.
-

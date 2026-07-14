@@ -27,6 +27,9 @@ theravada/
     abhidhamma/
     site/
       index.html
+      four-noble-truths.html
+      eightfold-path.html
+      tipitaka.html
       sutta.html
       downloads.html
       assets/style.css
@@ -117,6 +120,11 @@ Build static HTML site and generated download ZIPs:
 ```text
 python tools/buddhist_canon_pipeline/build_static_site.py
 ```
+
+The build reads the committed Candana Bhikkhu playlist manifests and adds a
+YouTube listening link to each sutta page where the canonical ID can be
+matched reliably. Grouped recordings are labeled with their complete playlist
+title rather than presented as one-sutta recordings.
 
 ## Git Notes
 
