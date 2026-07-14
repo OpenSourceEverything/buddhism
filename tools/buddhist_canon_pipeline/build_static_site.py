@@ -356,21 +356,21 @@ The <a href="eightfold-path.html">Noble Eightfold Path</a> is the fourth truth: 
 |   +-- <a href="eightfold-path.html">Noble Eightfold Path</a>
 |
 +-- <a href="teachings.html">Teachings</a>
-|   +-- <a href="teachings.html#three-characteristics">Three characteristics</a>
-|   +-- <a href="teachings.html#five-aggregates">Five aggregates</a>
-|   +-- <a href="teachings.html#dependent-origination">Dependent origination</a>
-|   +-- <a href="teachings.html#kamma">Kamma</a>
-|   +-- <a href="teachings.html#rebirth">Rebirth</a>
-|   +-- <a href="teachings.html#nibbana">Nibbāna</a>
-|   +-- <a href="teachings.html#ten-fetters">Ten fetters</a>
+|   +-- <a href="teachings/three-characteristics.html">Three characteristics</a>
+|   +-- <a href="teachings/five-aggregates.html">Five aggregates</a>
+|   +-- <a href="teachings/dependent-origination.html">Dependent origination</a>
+|   +-- <a href="teachings/kamma.html">Kamma</a>
+|   +-- <a href="teachings/rebirth.html">Rebirth</a>
+|   +-- <a href="teachings/nibbana.html">Nibbāna</a>
+|   +-- <a href="teachings/ten-fetters.html">Ten fetters</a>
 |
 +-- <a href="practice.html">Practice</a>
-|   +-- <a href="practice.html#five-precepts">Five precepts</a>
-|   +-- <a href="practice.html#five-recollections">Five recollections</a>
-|   +-- <a href="practice.html#four-foundations-of-mindfulness">Four foundations of mindfulness</a>
-|   +-- <a href="practice.html#five-hindrances">Five hindrances</a>
-|   +-- <a href="practice.html#seven-awakening-factors">Seven awakening factors</a>
-|   +-- <a href="practice.html#four-jhanas">Four jhānas</a>
+|   +-- <a href="practice/five-precepts.html">Five precepts</a>
+|   +-- <a href="practice/five-recollections.html">Five recollections</a>
+|   +-- <a href="practice/four-foundations-of-mindfulness.html">Four foundations of mindfulness</a>
+|   +-- <a href="practice/five-hindrances.html">Five hindrances</a>
+|   +-- <a href="practice/seven-awakening-factors.html">Seven awakening factors</a>
+|   +-- <a href="practice/four-jhanas.html">Four jhānas</a>
 |
 +-- <a href="glossary.html">Glossary</a>
     +-- Alphabetical list of every term</pre>
@@ -383,86 +383,161 @@ The <a href="eightfold-path.html">Noble Eightfold Path</a> is the fourth truth: 
 """
     dhamma_page.write_text(page("Dhamma", dhamma_body), encoding="utf-8", newline="\n")
 
-    teachings_page = site_dir / "teachings.html"
-    teachings_body = f"""
-<h1>Teachings</h1>
-<h2 id="three-characteristics">Three characteristics</h2>
-<p>Conditioned things are impermanent and unsatisfactory; all phenomena are not-self.</p>
-<h2 id="five-aggregates">Five aggregates</h2>
-<p>Form, feeling, perception, mental formations, and consciousness are the five bases of clinging.</p>
-<h2 id="dependent-origination">Dependent origination</h2>
-<p>Phenomena arise and cease according to conditions; the twelve-link sequence explains the arising and cessation of suffering.</p>
-<h2 id="kamma">Kamma</h2>
-<p>Intentional actions of body, speech, and mind have consequences according to their ethical quality.</p>
-<h2 id="rebirth">Rebirth</h2>
-<p>After death, continued existence arises according to conditions without a permanent self passing from one life to another.</p>
-<h2 id="nibbana">Nibbāna</h2>
-<p>Nibbāna is the ending of greed, hatred, and delusion: release from suffering and rebirth.</p>
-<h2 id="ten-fetters">Ten fetters</h2>
-<p>Identity view, doubt, attachment to rites, sensual desire, ill will, desire for form existence, desire for formless existence, conceit, restlessness, and ignorance bind beings to repeated existence.</p>
-<h2>Relevant suttas</h2>
-{resource_list([
-    local_sutta_resource("SN 22.59", items_by_id, teachings_page, "SN 22.59 — The Characteristic of Not-Self"),
-    youtube_resource("SN 22.59", youtube_index, "Listen to SN 22.59"),
-    local_sutta_resource("SN 12.2", items_by_id, teachings_page, "SN 12.2 — Analysis of Dependent Origination"),
-    youtube_resource("SN 12.2", youtube_index, "Listen to SN 12.2"),
-    local_sutta_resource("AN 6.63", items_by_id, teachings_page, "AN 6.63 — Penetrative"),
-    youtube_resource("AN 6.63", youtube_index, "Listen to AN 6.63"),
-    local_sutta_resource("MN 135", items_by_id, teachings_page, "MN 135 — The Shorter Exposition of Kamma"),
-    youtube_resource("MN 135", youtube_index, "Listen to MN 135"),
-    youtube_resource("Ud 8.3", youtube_index, "Ud 8.3 — Nibbāna"),
-    youtube_resource("AN 10.13", youtube_index, "AN 10.13 within the AN 10.11–20 reading — The Ten Fetters"),
-    youtube_resource("Dhp 370", youtube_index, "Dhammapada 370 — Giving Up the Fetters"),
-])}
-"""
-    teachings_page.write_text(page("Teachings", teachings_body), encoding="utf-8", newline="\n")
+    teaching_sections = [
+        {
+            "slug": "three-characteristics",
+            "name": "Three characteristics",
+            "summary": "Conditioned things are impermanent and unsatisfactory; all phenomena are not-self.",
+            "details": "<ul><li><strong>Impermanence:</strong> conditioned things arise, change, and cease.</li><li><strong>Unsatisfactoriness:</strong> what changes cannot provide lasting security.</li><li><strong>Not-self:</strong> no phenomenon can rightly be taken as a permanent self or possession.</li></ul><p>Seeing these characteristics directly leads to disenchantment, dispassion, and release.</p>",
+            "resources": [("local", "SN 22.59", "SN 22.59 — The Characteristic of Not-Self"), ("youtube", "SN 22.59", "Listen to SN 22.59")],
+        },
+        {
+            "slug": "five-aggregates",
+            "name": "Five aggregates",
+            "summary": "Form, feeling, perception, mental formations, and consciousness are the five bases of clinging.",
+            "details": "<ol><li>Form: the material body and material phenomena.</li><li>Feeling: pleasant, painful, or neutral experience.</li><li>Perception: recognition and identification.</li><li>Mental formations: intentions and other constructed mental activities.</li><li>Consciousness: awareness through the six senses.</li></ol><p>None of the five is permanent, satisfactory, or self.</p>",
+            "resources": [("local", "SN 22.59", "SN 22.59 — The Characteristic of Not-Self"), ("youtube", "SN 22.59", "Listen to SN 22.59"), ("local", "SN 22.95", "SN 22.95 — A Lump of Foam"), ("youtube", "SN 22.95", "Listen to SN 22.95")],
+        },
+        {
+            "slug": "dependent-origination",
+            "name": "Dependent origination",
+            "summary": "Phenomena arise and cease according to conditions; the twelve-link sequence explains the arising and cessation of suffering.",
+            "details": "<p>Ignorance conditions formations; formations condition consciousness; then name-and-form, the six sense bases, contact, feeling, craving, clinging, becoming, birth, and aging and death.</p><p>When ignorance and craving cease, the conditions that sustain suffering also cease.</p>",
+            "resources": [("local", "SN 12.2", "SN 12.2 — Analysis of Dependent Origination"), ("youtube", "SN 12.2", "SN 12.2 within the SN 12.1–10 reading"), ("local", "SN 12.23", "SN 12.23 — Proximate Conditions"), ("youtube", "SN 12.23", "SN 12.23 within the SN 12.21–30 reading")],
+        },
+        {
+            "slug": "kamma",
+            "name": "Kamma",
+            "summary": "Intentional actions of body, speech, and mind have consequences according to their ethical quality.",
+            "details": "<p>Kamma means intention expressed through body, speech, or mind. Skillful intentions tend toward well-being; unskillful intentions tend toward suffering.</p><p>Kamma is not fate. Present choices remain part of the causal field.</p>",
+            "resources": [("local", "AN 6.63", "AN 6.63 — Penetrative"), ("youtube", "AN 6.63", "AN 6.63 within the AN 6.55–64 reading"), ("local", "MN 135", "MN 135 — The Shorter Exposition of Kamma"), ("youtube", "MN 135", "Listen to MN 135")],
+        },
+        {
+            "slug": "rebirth",
+            "name": "Rebirth",
+            "summary": "After death, continued existence arises according to conditions without a permanent self passing from one life to another.",
+            "details": "<p>Craving, clinging, and kamma condition renewed existence. The continuity is causal, not the transmigration of an unchanging soul.</p><p>Ending craving ends the conditions for further birth.</p>",
+            "resources": [("local", "MN 135", "MN 135 — The Shorter Exposition of Kamma"), ("youtube", "MN 135", "Listen to MN 135"), ("local", "MN 130", "MN 130 — The Divine Messengers"), ("youtube", "MN 130", "Listen to MN 130")],
+        },
+        {
+            "slug": "nibbana",
+            "name": "Nibbāna",
+            "summary": "Nibbāna is the ending of greed, hatred, and delusion: release from suffering and rebirth.",
+            "details": "<p>Nibbāna is unconditioned and is realized through the cessation of craving. It can be directly known in this life.</p><p>With the death of an arahant, no condition remains for renewed existence.</p>",
+            "resources": [("youtube", "Ud 8.3", "Ud 8.3 — Nibbāna"), ("youtube", "Iti 44", "Itivuttaka 44 — The Nibbāna Element"), ("local", "DN 16", "DN 16 — The Buddha’s Final Days"), ("youtube", "DN 16", "Listen to DN 16")],
+        },
+        {
+            "slug": "ten-fetters",
+            "name": "Ten fetters",
+            "summary": "Ten mental bonds bind beings to repeated existence.",
+            "details": "<ol><li>Identity view.</li><li>Doubt.</li><li>Attachment to rites and observances.</li><li>Sensual desire.</li><li>Ill will.</li><li>Desire for form existence.</li><li>Desire for formless existence.</li><li>Conceit.</li><li>Restlessness.</li><li>Ignorance.</li></ol><p>Stream-entry breaks the first three. Non-returning breaks the first five. Arahantship breaks all ten.</p>",
+            "resources": [("youtube", "AN 10.13", "AN 10.13 within the AN 10.11–20 reading — The Ten Fetters"), ("youtube", "Dhp 370", "Dhammapada 370 — Giving Up the Fetters")],
+        },
+    ]
 
-    practice_page = site_dir / "practice.html"
-    practice_body = f"""
-<h1>Practice</h1>
-<h2 id="five-precepts">Five precepts</h2>
-<p>Abstain from killing, stealing, sexual misconduct, false speech, and intoxicants that cause heedlessness.</p>
-<h2 id="five-recollections">Five recollections</h2>
-<p>Frequently recollect aging, illness, death, separation from what is dear, and ownership of one’s kamma.</p>
-<h2 id="four-foundations-of-mindfulness">Four foundations of mindfulness</h2>
-<p>Observe body, feeling, mind, and phenomena clearly and without clinging.</p>
-<h2 id="five-hindrances">Five hindrances</h2>
-<p>Sensual desire, ill will, sloth and torpor, restlessness and remorse, and doubt obstruct clarity and concentration.</p>
-<h2 id="seven-awakening-factors">Seven awakening factors</h2>
-<p>Mindfulness, investigation, energy, rapture, tranquility, concentration, and equanimity support awakening.</p>
-<h2 id="four-jhanas">Four jhānas</h2>
-<p>Four stages of meditative unification progressively refine rapture, pleasure, equanimity, and mindfulness.</p>
-<h2>Relevant suttas</h2>
-{resource_list([
-    youtube_resource("Dhp 246", youtube_index, "Dhammapada 246–247 — The Five Precepts"),
-    youtube_resource("AN 5.57", youtube_index, "AN 5.57 within the AN 5.51–60 reading — Five Recollections"),
-    local_sutta_resource("MN 10", items_by_id, practice_page, "MN 10 — Foundations of Mindfulness"),
-    youtube_resource("MN 10", youtube_index, "Listen to MN 10"),
-    local_sutta_resource("SN 46.51", items_by_id, practice_page, "SN 46.51 — Nourishment for the Hindrances and Awakening Factors"),
-    youtube_resource("SN 46.51", youtube_index, "Listen to SN 46.51"),
-    youtube_resource("SN 46.14", youtube_index, "SN 46.14 — Seven Factors of Awakening"),
-    local_sutta_resource("MN 44", items_by_id, practice_page, "MN 44 — Shorter Series of Questions and Answers"),
-    youtube_resource("MN 44", youtube_index, "Listen to MN 44"),
-])}
-"""
-    practice_page.write_text(page("Practice", practice_body), encoding="utf-8", newline="\n")
+    practice_sections = [
+        {
+            "slug": "five-precepts",
+            "name": "Five precepts",
+            "summary": "Abstain from killing, stealing, sexual misconduct, false speech, and intoxicants that cause heedlessness.",
+            "details": "<ol><li>Do not intentionally kill living beings.</li><li>Do not take what is not given.</li><li>Do not engage in sexual misconduct.</li><li>Do not speak falsely.</li><li>Do not use intoxicants that cause heedlessness.</li></ol><p>The precepts are voluntary training rules that establish harmlessness and restraint.</p>",
+            "resources": [("youtube", "Dhp 246", "Dhammapada 246–247 — The Five Precepts"), ("youtube", "AN 8.39", "AN 8.39 within the AN 8.31–40 reading — The Five Precepts")],
+        },
+        {
+            "slug": "five-recollections",
+            "name": "Five recollections",
+            "summary": "Frequently recollect aging, illness, death, separation from what is dear, and ownership of one’s kamma.",
+            "details": "<ol><li>I am subject to aging.</li><li>I am subject to illness.</li><li>I am subject to death.</li><li>I must be separated from everyone and everything dear to me.</li><li>I am the owner and heir of my kamma.</li></ol><p>These recollections counter complacency and clarify what deserves attention.</p>",
+            "resources": [("youtube", "AN 5.57", "AN 5.57 within the AN 5.51–60 reading — Five Recollections"), ("local", "MN 130", "MN 130 — The Divine Messengers"), ("youtube", "MN 130", "Listen to MN 130")],
+        },
+        {
+            "slug": "four-foundations-of-mindfulness",
+            "name": "Four foundations of mindfulness",
+            "summary": "Observe body, feeling, mind, and phenomena clearly and without clinging.",
+            "details": "<ol><li>Body as body.</li><li>Feeling as feeling.</li><li>Mind as mind.</li><li>Phenomena as phenomena.</li></ol><p>Practice is ardent, clearly comprehending, and mindful, having put away craving and distress regarding the world.</p>",
+            "resources": [("local", "MN 10", "MN 10 — Foundations of Mindfulness"), ("youtube", "MN 10", "Listen to MN 10"), ("local", "DN 22", "DN 22 — Great Discourse on Mindfulness"), ("youtube", "DN 22", "Listen to DN 22")],
+        },
+        {
+            "slug": "five-hindrances",
+            "name": "Five hindrances",
+            "summary": "Sensual desire, ill will, sloth and torpor, restlessness and remorse, and doubt obstruct clarity and concentration.",
+            "details": "<ol><li>Sensual desire.</li><li>Ill will.</li><li>Sloth and torpor.</li><li>Restlessness and remorse.</li><li>Doubt.</li></ol><p>Practice recognizes whether each hindrance is present, how it arises, how it is abandoned, and how its return is prevented.</p>",
+            "resources": [("local", "SN 46.51", "SN 46.51 — Nourishment for the Hindrances"), ("youtube", "SN 46.51", "Listen to SN 46.51")],
+        },
+        {
+            "slug": "seven-awakening-factors",
+            "name": "Seven awakening factors",
+            "summary": "Mindfulness, investigation, energy, rapture, tranquility, concentration, and equanimity support awakening.",
+            "details": "<ol><li>Mindfulness.</li><li>Investigation of phenomena.</li><li>Energy.</li><li>Rapture.</li><li>Tranquility.</li><li>Concentration.</li><li>Equanimity.</li></ol><p>They are developed in dependence on seclusion, dispassion, and cessation, culminating in relinquishment.</p>",
+            "resources": [("local", "SN 46.14", "SN 46.14 — Seven Factors of Awakening"), ("youtube", "SN 46.14", "Listen to SN 46.14"), ("local", "SN 46.54", "SN 46.54 — Awakening Factors with Loving-Kindness"), ("youtube", "SN 46.54", "Listen to SN 46.54")],
+        },
+        {
+            "slug": "four-jhanas",
+            "name": "Four jhānas",
+            "summary": "Four stages of meditative unification progressively refine rapture, pleasure, equanimity, and mindfulness.",
+            "details": "<ol><li>Seclusion, applied and sustained thought, rapture, and pleasure.</li><li>Applied and sustained thought subside; unification, rapture, and pleasure remain.</li><li>Rapture fades; equanimity, mindfulness, and bodily pleasure remain.</li><li>Pleasure and pain are abandoned; mindfulness is purified by equanimity.</li></ol>",
+            "resources": [("local", "AN 5.28", "AN 5.28 — Five-Factored Concentration"), ("youtube", "AN 5.28", "AN 5.28 within the AN 5.21–30 reading"), ("local", "DN 2", "DN 2 — Fruits of the Contemplative Life"), ("youtube", "DN 2", "Listen to DN 2")],
+        },
+    ]
+
+    def write_reference_pages(group_name: str, sections: list[dict[str, object]]) -> None:
+        overview_file = site_dir / f"{group_name.lower()}.html"
+        detail_dir = site_dir / group_name.lower()
+        detail_dir.mkdir(parents=True, exist_ok=True)
+        overview_parts = [f"<h1>{html.escape(group_name)}</h1>"]
+        for section in sections:
+            slug = str(section["slug"])
+            name = str(section["name"])
+            summary = str(section["summary"])
+            overview_parts.extend(
+                [
+                    f'<h2><a href="{group_name.lower()}/{slug}.html">{html.escape(name)}</a></h2>',
+                    f"<p>{html.escape(summary)}</p>",
+                ]
+            )
+            detail_file = detail_dir / f"{slug}.html"
+            rendered_resources = []
+            for kind, canonical_id, label in section["resources"]:
+                if kind == "local":
+                    rendered_resources.append(local_sutta_resource(canonical_id, items_by_id, detail_file, label))
+                else:
+                    rendered_resources.append(youtube_resource(canonical_id, youtube_index, label))
+            detail_body = "\n".join(
+                [
+                    f'<p><a href="../{group_name.lower()}.html">{html.escape(group_name)}</a></p>',
+                    f"<h1>{html.escape(name)}</h1>",
+                    f"<p>{html.escape(summary)}</p>",
+                    str(section["details"]),
+                    "<h2>Relevant suttas</h2>",
+                    resource_list(rendered_resources),
+                ]
+            )
+            detail_file.write_text(page(name, detail_body, ".."), encoding="utf-8", newline="\n")
+        overview_file.write_text(
+            page(group_name, "\n".join(overview_parts)),
+            encoding="utf-8",
+            newline="\n",
+        )
+
+    write_reference_pages("Teachings", teaching_sections)
+    write_reference_pages("Practice", practice_sections)
 
     glossary_body = """
 <h1>Glossary</h1>
 <ul>
-  <li><a href="teachings.html#dependent-origination">Dependent origination</a></li>
+  <li><a href="teachings/dependent-origination.html">Dependent origination</a></li>
   <li><a href="dhamma.html">Dhamma</a></li>
-  <li><a href="teachings.html#five-aggregates">Five aggregates</a></li>
-  <li><a href="practice.html#five-hindrances">Five hindrances</a></li>
-  <li><a href="practice.html#five-precepts">Five precepts</a></li>
-  <li><a href="practice.html#five-recollections">Five recollections</a></li>
-  <li><a href="practice.html#four-foundations-of-mindfulness">Four foundations of mindfulness</a></li>
-  <li><a href="practice.html#four-jhanas">Four jhānas</a></li>
+  <li><a href="teachings/five-aggregates.html">Five aggregates</a></li>
+  <li><a href="practice/five-hindrances.html">Five hindrances</a></li>
+  <li><a href="practice/five-precepts.html">Five precepts</a></li>
+  <li><a href="practice/five-recollections.html">Five recollections</a></li>
+  <li><a href="practice/four-foundations-of-mindfulness.html">Four foundations of mindfulness</a></li>
+  <li><a href="practice/four-jhanas.html">Four jhānas</a></li>
   <li><a href="four-noble-truths.html">Four Noble Truths</a></li>
-  <li><a href="teachings.html#kamma">Kamma</a></li>
-  <li><a href="teachings.html#nibbana">Nibbāna</a></li>
+  <li><a href="teachings/kamma.html">Kamma</a></li>
+  <li><a href="teachings/nibbana.html">Nibbāna</a></li>
   <li><a href="eightfold-path.html">Noble Eightfold Path</a></li>
-  <li><a href="teachings.html#rebirth">Rebirth</a></li>
+  <li><a href="teachings/rebirth.html">Rebirth</a></li>
   <li><a href="path/right-action.html">Right action</a></li>
   <li><a href="path/right-concentration.html">Right concentration</a></li>
   <li><a href="path/right-effort.html">Right effort</a></li>
@@ -471,10 +546,10 @@ The <a href="eightfold-path.html">Noble Eightfold Path</a> is the fourth truth: 
   <li><a href="path/right-mindfulness.html">Right mindfulness</a></li>
   <li><a href="path/right-speech.html">Right speech</a></li>
   <li><a href="path/right-view.html">Right view</a></li>
-  <li><a href="practice.html#seven-awakening-factors">Seven awakening factors</a></li>
-  <li><a href="teachings.html#ten-fetters">Ten fetters</a></li>
+  <li><a href="practice/seven-awakening-factors.html">Seven awakening factors</a></li>
+  <li><a href="teachings/ten-fetters.html">Ten fetters</a></li>
   <li><a href="theravada.html">Theravāda Buddhism</a></li>
-  <li><a href="teachings.html#three-characteristics">Three characteristics</a></li>
+  <li><a href="teachings/three-characteristics.html">Three characteristics</a></li>
   <li><a href="tipitaka.html">Tipiṭaka</a></li>
 </ul>
 """

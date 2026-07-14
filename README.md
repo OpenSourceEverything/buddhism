@@ -30,7 +30,22 @@ theravada/
       theravada.html
       dhamma.html
       teachings.html
+      teachings/
+        three-characteristics.html
+        five-aggregates.html
+        dependent-origination.html
+        kamma.html
+        rebirth.html
+        nibbana.html
+        ten-fetters.html
       practice.html
+      practice/
+        five-precepts.html
+        five-recollections.html
+        four-foundations-of-mindfulness.html
+        five-hindrances.html
+        seven-awakening-factors.html
+        four-jhanas.html
       glossary.html
       four-noble-truths.html
       eightfold-path.html

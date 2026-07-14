@@ -18,6 +18,23 @@ PATH_FACTORS = (
     "right-mindfulness",
     "right-concentration",
 )
+TEACHING_PAGES = (
+    "three-characteristics",
+    "five-aggregates",
+    "dependent-origination",
+    "kamma",
+    "rebirth",
+    "nibbana",
+    "ten-fetters",
+)
+PRACTICE_PAGES = (
+    "five-precepts",
+    "five-recollections",
+    "four-foundations-of-mindfulness",
+    "five-hindrances",
+    "seven-awakening-factors",
+    "four-jhanas",
+)
 
 
 class LinkParser(HTMLParser):
@@ -78,11 +95,11 @@ class StaticSiteStructureTests(unittest.TestCase):
         required_links = (
             "four-noble-truths.html",
             "eightfold-path.html",
-            "teachings.html#three-characteristics",
-            "teachings.html#ten-fetters",
-            "practice.html#five-precepts",
-            "practice.html#five-hindrances",
-            "practice.html#four-jhanas",
+            "teachings/three-characteristics.html",
+            "teachings/ten-fetters.html",
+            "practice/five-precepts.html",
+            "practice/five-hindrances.html",
+            "practice/four-jhanas.html",
             "glossary.html",
         )
         for href in required_links:
@@ -93,25 +110,18 @@ class StaticSiteStructureTests(unittest.TestCase):
         teachings = (SITE / "teachings.html").read_text(encoding="utf-8")
         practice = (SITE / "practice.html").read_text(encoding="utf-8")
         glossary = (SITE / "glossary.html").read_text(encoding="utf-8")
-        for anchor in (
-            "three-characteristics",
-            "five-aggregates",
-            "dependent-origination",
-            "kamma",
-            "rebirth",
-            "nibbana",
-            "ten-fetters",
-        ):
-            self.assertIn(f'id="{anchor}"', teachings)
-        for anchor in (
-            "five-precepts",
-            "five-recollections",
-            "four-foundations-of-mindfulness",
-            "five-hindrances",
-            "seven-awakening-factors",
-            "four-jhanas",
-        ):
-            self.assertIn(f'id="{anchor}"', practice)
+        for slug in TEACHING_PAGES:
+            with self.subTest(teaching=slug):
+                self.assertIn(f'href="teachings/{slug}.html"', teachings)
+                detail = (SITE / "teachings" / f"{slug}.html").read_text(encoding="utf-8")
+                self.assertIn('href="../teachings.html"', detail)
+                self.assertIn("Relevant suttas", detail)
+        for slug in PRACTICE_PAGES:
+            with self.subTest(practice=slug):
+                self.assertIn(f'href="practice/{slug}.html"', practice)
+                detail = (SITE / "practice" / f"{slug}.html").read_text(encoding="utf-8")
+                self.assertIn('href="../practice.html"', detail)
+                self.assertIn("Relevant suttas", detail)
         glossary_list = glossary.split("<h1>Glossary</h1>", 1)[1]
         glossary_terms = ("Dependent origination", "Dhamma", "Five aggregates", "Nibbāna", "Ten fetters")
         positions = [glossary_list.index(term) for term in glossary_terms]
