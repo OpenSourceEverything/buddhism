@@ -324,13 +324,24 @@ def write_site(
 
     index_body = """
 <h1>Free Buddhism</h1>
-<p>This website attempts to present the teachings of <a href="tipitaka.html">Theravāda Buddhism</a> without distortion.</p>
+<p>This website attempts to present the teachings of <a href="theravada.html">Theravāda Buddhism</a> without distortion.</p>
 <p>The <a href="dhamma.html">Dhamma</a> is the Buddha’s teaching as a whole.</p>
 <p>The <a href="four-noble-truths.html">Four Noble Truths</a> are its core framework.<br>
 The <a href="eightfold-path.html">Noble Eightfold Path</a> is the fourth truth: the path to the <a href="four-noble-truths.html#cessation">cessation of suffering</a>.</p>
 <p>The <a href="tipitaka.html">Pāli Tipiṭaka</a> is the Theravāda tradition’s primary textual record of the Buddha’s <a href="dhamma.html">Dhamma</a>.</p>
 """
     (site_dir / "index.html").write_text(page("Free Buddhism", index_body), encoding="utf-8", newline="\n")
+
+    theravada_body = """
+<h1>Theravāda Buddhism</h1>
+<p>Theravāda is the oldest surviving Buddhist tradition.</p>
+<p>It follows the <a href="tipitaka.html">Pāli Tipiṭaka</a> as its primary scriptural authority. The later Mahāyāna sūtras are not part of its canon.</p>
+"""
+    (site_dir / "theravada.html").write_text(
+        page("Theravāda Buddhism", theravada_body),
+        encoding="utf-8",
+        newline="\n",
+    )
 
     dhamma_page = site_dir / "dhamma.html"
     dhamma_body = f"""

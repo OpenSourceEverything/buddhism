@@ -27,6 +27,7 @@ theravada/
     abhidhamma/
     site/
       index.html
+      theravada.html
       dhamma.html
       four-noble-truths.html
       eightfold-path.html

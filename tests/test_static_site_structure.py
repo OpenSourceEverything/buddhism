@@ -45,6 +45,7 @@ class StaticSiteStructureTests(unittest.TestCase):
     def test_homepage_uses_the_minimal_linked_summary(self) -> None:
         homepage = (SITE / "index.html").read_text(encoding="utf-8")
         expected = (
+            '<a href="theravada.html">Theravāda Buddhism</a>',
             '<a href="dhamma.html">Dhamma</a>',
             '<a href="four-noble-truths.html">Four Noble Truths</a>',
             '<a href="eightfold-path.html">Noble Eightfold Path</a>',
@@ -57,6 +58,12 @@ class StaticSiteStructureTests(unittest.TestCase):
                 self.assertIn(text, homepage)
         self.assertNotIn("stylesheet", homepage)
         self.assertNotIn("<style", homepage)
+
+    def test_theravada_page_defines_the_tradition(self) -> None:
+        page = (SITE / "theravada.html").read_text(encoding="utf-8")
+        self.assertIn("oldest surviving Buddhist tradition", page)
+        self.assertIn('<a href="tipitaka.html">Pāli Tipiṭaka</a>', page)
+        self.assertIn("later Mahāyāna sūtras are not part of its canon", page)
 
     def test_each_path_factor_has_a_terse_page_with_sources(self) -> None:
         overview = (SITE / "eightfold-path.html").read_text(encoding="utf-8")
