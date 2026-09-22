@@ -8,7 +8,8 @@ Current focus:
 - Theravada
 - Tipitaka
 - Sutta Pitaka
-- Candana Bhikkhu / Mind Released PDF sources
+- CC0 English sutta translations by Bhikkhu Sujato from SuttaCentral
+- Candana Bhikkhu / Mind Released PDF and recording sources
 
 ## Repository Layout
 
@@ -22,8 +23,16 @@ theravada/
       samyutta-nikaya/
       anguttara-nikaya/
       khuddaka-nikaya/
+      <collection>/<sutta>/
+        index.html
+        <text-version>.html
+        <text-version>.txt
+        <text-version>.pdf
       candana-bhikkhu-text-ledger.tsv
+      suttacentral-sujato-text-ledger.tsv
       candana-bhikkhu-coverage-status.txt
+    translations/
+      en/suttacentral/sujato/sutta/
     abhidhamma/
     site/
       index.html
@@ -60,6 +69,8 @@ theravada/
         right-concentration.html
       tipitaka.html
       sutta.html
+      sutta-texts.html
+      sutta-audio.html
       downloads.html
     downloads/
       README.md
@@ -110,6 +121,12 @@ metadata/source-manifests/mindreleased-source-manifest.jsonl
 
 The initial source pull found and extracted 195 usable PDF/text sources.
 
+The pinned SuttaCentral import adds 5,308 CC0 English texts: the complete four
+main Nikayas translated by Bhikkhu Sujato and all of his available Khuddaka
+Nikaya translations, including all 423 Dhammapada verses.
+The pinned SuttaCentral import adds the available CC0 Bhikkhu Sujato sutta
+translations without claiming complete English coverage of every Tipiṭaka book.
+
 ## Pipeline Commands
 
 Install tool dependencies on a fresh machine:
@@ -131,6 +148,28 @@ Pull PDFs and extract text:
 python tools/buddhist_canon_pipeline/pull_mindreleased_texts.py --manifest metadata/source-manifests/mindreleased-source-manifest.jsonl --force
 ```
 
+Import the pinned CC0 SuttaCentral translations:
+
+```text
+python tools/buddhist_canon_pipeline/import_suttacentral_bilara.py
+```
+
+The source revision, paths, translator, and license are locked in
+`metadata/source-manifests/suttacentral-bilara.json`. The importer downloads
+only the required Bilara paths, verifies the commit and license, writes readable
+TXT files, and rebuilds their ledger.
+
+Import the pinned SuttaCentral translations:
+
+```text
+python tools/buddhist_canon_pipeline/import_suttacentral_bilara.py
+```
+
+The exact upstream commit and license are recorded in
+`metadata/source-manifests/suttacentral-bilara.json`. The importer downloads
+only the required Bilara paths, verifies that commit, and regenerates the text
+ledger and normalized TXT files.
+
 Inventory Candana YouTube playlists:
 
 ```text
@@ -149,10 +188,19 @@ Build static HTML site and generated download ZIPs:
 python tools/buddhist_canon_pipeline/build_static_site.py
 ```
 
-The build reads the committed Candana Bhikkhu playlist manifests and adds a
-YouTube listening link to each sutta page where the canonical ID can be
-matched reliably. Grouped recordings are labeled with their complete playlist
-title rather than presented as one-sutta recordings.
+For a quick local preview without rebuilding ZIP downloads:
+
+```text
+python tools/buddhist_canon_pipeline/build_static_site.py --skip-zips
+```
+
+The build reads the committed Candana Bhikkhu playlist manifests. The Buddhist
+Texts page presents the Pāli Tipiṭaka tree and links to every available text by
+collection, all inventoried audio, and the generated downloads. Each sutta page
+lists all available text versions and matching audio together. Each text version
+has its own readable page and TXT/PDF downloads. Whole-library and per-collection
+ZIPs are generated outside Git. Grouped recordings retain their complete playlist
+title rather than being presented as one-sutta recordings.
 
 ## Git Notes
 

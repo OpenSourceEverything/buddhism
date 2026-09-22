@@ -184,9 +184,10 @@ def canonical_lookup_keys(canonical_id: str) -> tuple[list[str], list[str]]:
     return exact, fallback
 
 
-def read_youtube_index(manifest_dir: Path) -> dict[str, list[YouTubeVideo]]:
-    """Index playlist records by exact canonical or honest book-level key."""
-    index: dict[str, list[YouTubeVideo]] = {}
+def read_youtube_videos(manifest_dir: Path) -> list[YouTubeVideo]:
+    """Read every unique video from the committed playlist manifests."""
+    videos: list[YouTubeVideo] = []
+    seen: set[str] = set()
     for path in sorted(manifest_dir.glob("*.jsonl")):
         with path.open("r", encoding="utf-8") as handle:
             for line in handle:
@@ -194,19 +195,28 @@ def read_youtube_index(manifest_dir: Path) -> dict[str, list[YouTubeVideo]]:
                 video_id = str(row.get("video_id", "")).strip()
                 title = str(row.get("title", "")).strip()
                 collection = str(row.get("collection", "")).strip()
-                if not video_id or not title:
+                if not video_id or not title or video_id in seen:
                     continue
-                video = YouTubeVideo(
-                    video_id=video_id,
-                    title=title,
-                    duration=str(row.get("duration") or ""),
-                    collection=collection,
-                    playlist_id=str(row.get("playlist_id", "")),
+                seen.add(video_id)
+                videos.append(
+                    YouTubeVideo(
+                        video_id=video_id,
+                        title=title,
+                        duration=str(row.get("duration") or ""),
+                        collection=collection,
+                        playlist_id=str(row.get("playlist_id", "")),
+                    )
                 )
-                for key in parse_ids(title, collection):
-                    videos = index.setdefault(key, [])
-                    if all(existing.video_id != video.video_id for existing in videos):
-                        videos.append(video)
+    return videos
+
+
+def read_youtube_index(manifest_dir: Path) -> dict[str, list[YouTubeVideo]]:
+    """Index playlist records by exact canonical or honest book-level key."""
+    index: dict[str, list[YouTubeVideo]] = {}
+    for video in read_youtube_videos(manifest_dir):
+        for key in parse_ids(video.title, video.collection):
+            videos = index.setdefault(key, [])
+            videos.append(video)
     return index
 
 

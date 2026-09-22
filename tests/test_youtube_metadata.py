@@ -12,6 +12,7 @@ from youtube_metadata import (  # noqa: E402
     canonical_lookup_keys,
     parse_ids,
     read_youtube_index,
+    read_youtube_videos,
     videos_for_canonical_id,
 )
 
@@ -73,6 +74,13 @@ class YouTubeMetadataTests(unittest.TestCase):
     def test_does_not_invent_missing_audio(self) -> None:
         self.assertEqual(videos_for_canonical_id("SN 45.8", self.index), [])
         self.assertEqual(videos_for_canonical_id("Mil 7.8.7", self.index), [])
+
+    def test_reads_every_unique_manifest_video(self) -> None:
+        videos = read_youtube_videos(
+            Path(__file__).resolve().parents[1] / "metadata" / "youtube-playlists" / "manifests"
+        )
+        self.assertEqual(len(videos), 1115)
+        self.assertEqual(len({video.video_id for video in videos}), len(videos))
 
 
 if __name__ == "__main__":
